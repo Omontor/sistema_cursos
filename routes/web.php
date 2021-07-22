@@ -167,6 +167,12 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::delete('enrollments/destroy', 'EnrollmentController@massDestroy')->name('enrollments.massDestroy');
     Route::resource('enrollments', 'EnrollmentController');
 
+    // Page
+    Route::delete('pages/destroy', 'PageController@massDestroy')->name('pages.massDestroy');
+    Route::post('pages/media', 'PageController@storeMedia')->name('pages.storeMedia');
+    Route::post('pages/ckmedia', 'PageController@storeCKEditorImages')->name('pages.storeCKEditorImages');
+    Route::resource('pages', 'PageController');
+
     Route::get('system-calendar', 'SystemCalendarController@index')->name('systemCalendar');
     Route::get('global-search', 'GlobalSearchController@search')->name('globalSearch');
     Route::get('messenger', 'MessengerController@index')->name('messenger.index');
@@ -350,6 +356,12 @@ Route::group(['as' => 'frontend.', 'namespace' => 'Frontend', 'middleware' => ['
     // Enrollment
     Route::delete('enrollments/destroy', 'EnrollmentController@massDestroy')->name('enrollments.massDestroy');
     Route::resource('enrollments', 'EnrollmentController');
+
+    // Page
+    Route::delete('pages/destroy', 'PageController@massDestroy')->name('pages.massDestroy');
+    Route::post('pages/media', 'PageController@storeMedia')->name('pages.storeMedia');
+    Route::post('pages/ckmedia', 'PageController@storeCKEditorImages')->name('pages.storeCKEditorImages');
+    Route::resource('pages', 'PageController');
 
     Route::get('frontend/profile', 'ProfileController@index')->name('profile.index');
     Route::post('frontend/profile', 'ProfileController@update')->name('profile.update');

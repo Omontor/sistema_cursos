@@ -505,6 +505,33 @@
                         </ul>
                     </li>
                 @endcan
+                @can('static_page_access')
+                    <li class="nav-item has-treeview {{ request()->is("admin/pages*") ? "menu-open" : "" }}">
+                        <a class="nav-link nav-dropdown-toggle" href="#">
+                            <i class="fa-fw nav-icon fas fa-cogs">
+
+                            </i>
+                            <p>
+                                {{ trans('cruds.staticPage.title') }}
+                                <i class="right fa fa-fw fa-angle-left nav-icon"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            @can('page_access')
+                                <li class="nav-item">
+                                    <a href="{{ route("admin.pages.index") }}" class="nav-link {{ request()->is("admin/pages") || request()->is("admin/pages/*") ? "active" : "" }}">
+                                        <i class="fa-fw nav-icon far fa-file-alt">
+
+                                        </i>
+                                        <p>
+                                            {{ trans('cruds.page.title') }}
+                                        </p>
+                                    </a>
+                                </li>
+                            @endcan
+                        </ul>
+                    </li>
+                @endcan
                 @can('api_access')
                     <li class="nav-item has-treeview {{ request()->is("admin/newsletters*") ? "menu-open" : "" }} {{ request()->is("admin/zooms*") ? "menu-open" : "" }} {{ request()->is("admin/paypals*") ? "menu-open" : "" }} {{ request()->is("admin/stripes*") ? "menu-open" : "" }} {{ request()->is("admin/sendinblues*") ? "menu-open" : "" }} {{ request()->is("admin/googles*") ? "menu-open" : "" }}">
                         <a class="nav-link nav-dropdown-toggle" href="#">

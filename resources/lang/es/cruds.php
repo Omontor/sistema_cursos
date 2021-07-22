@@ -835,4 +835,26 @@ return [
             'deleted_at_helper'      => ' ',
         ],
     ],
+    'staticPage' => [
+        'title'          => 'Páginas Estáticas',
+        'title_singular' => 'Páginas Estática',
+    ],
+    'page' => [
+        'title'          => 'Paginas',
+        'title_singular' => 'Pagina',
+        'fields'         => [
+            'id'                => 'ID',
+            'id_helper'         => ' ',
+            'title'             => 'Title',
+            'title_helper'      => ' ',
+            'content'           => 'Content',
+            'content_helper'    => ' ',
+            'created_at'        => 'Created at',
+            'created_at_helper' => ' ',
+            'updated_at'        => 'Updated at',
+            'updated_at_helper' => ' ',
+            'deleted_at'        => 'Deleted at',
+            'deleted_at_helper' => ' ',
+        ],
+    ],
 ];

@@ -267,6 +267,16 @@
                                             {{ trans('cruds.user.title') }}
                                         </a>
                                     @endcan
+                                    @can('static_page_access')
+                                        <a class="dropdown-item disabled" href="#">
+                                            {{ trans('cruds.staticPage.title') }}
+                                        </a>
+                                    @endcan
+                                    @can('page_access')
+                                        <a class="dropdown-item ml-3" href="{{ route('frontend.pages.index') }}">
+                                            {{ trans('cruds.page.title') }}
+                                        </a>
+                                    @endcan
                                     @can('api_access')
                                         <a class="dropdown-item disabled" href="#">
                                             {{ trans('cruds.api.title') }}

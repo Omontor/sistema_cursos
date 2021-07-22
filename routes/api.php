@@ -113,4 +113,8 @@ Route::group(['prefix' => 'v1', 'as' => 'api.', 'namespace' => 'Api\V1\Admin', '
 
     // Enrollment
     Route::apiResource('enrollments', 'EnrollmentApiController');
+
+    // Page
+    Route::post('pages/media', 'PageApiController@storeMedia')->name('pages.storeMedia');
+    Route::apiResource('pages', 'PageApiController');
 });
