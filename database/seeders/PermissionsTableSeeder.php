@@ -476,318 +476,530 @@ class PermissionsTableSeeder extends Seeder
             ],
             [
                 'id'    => 117,
-                'title' => 'api_access',
-            ],
-            [
-                'id'    => 118,
                 'title' => 'newsletter_create',
             ],
             [
-                'id'    => 119,
+                'id'    => 118,
                 'title' => 'newsletter_edit',
             ],
             [
-                'id'    => 120,
+                'id'    => 119,
                 'title' => 'newsletter_show',
             ],
             [
-                'id'    => 121,
+                'id'    => 120,
                 'title' => 'newsletter_delete',
             ],
             [
-                'id'    => 122,
+                'id'    => 121,
                 'title' => 'newsletter_access',
             ],
             [
-                'id'    => 123,
+                'id'    => 122,
                 'title' => 'zoom_create',
             ],
             [
-                'id'    => 124,
+                'id'    => 123,
                 'title' => 'zoom_edit',
             ],
             [
-                'id'    => 125,
+                'id'    => 124,
                 'title' => 'zoom_show',
             ],
             [
-                'id'    => 126,
+                'id'    => 125,
                 'title' => 'zoom_delete',
             ],
             [
-                'id'    => 127,
+                'id'    => 126,
                 'title' => 'zoom_access',
             ],
             [
-                'id'    => 128,
+                'id'    => 127,
                 'title' => 'paypal_create',
             ],
             [
-                'id'    => 129,
+                'id'    => 128,
                 'title' => 'paypal_edit',
             ],
             [
-                'id'    => 130,
+                'id'    => 129,
                 'title' => 'paypal_show',
             ],
             [
-                'id'    => 131,
+                'id'    => 130,
                 'title' => 'paypal_delete',
             ],
             [
-                'id'    => 132,
+                'id'    => 131,
                 'title' => 'paypal_access',
             ],
             [
-                'id'    => 133,
+                'id'    => 132,
                 'title' => 'stripe_create',
             ],
             [
-                'id'    => 134,
+                'id'    => 133,
                 'title' => 'stripe_edit',
             ],
             [
-                'id'    => 135,
+                'id'    => 134,
                 'title' => 'stripe_show',
             ],
             [
-                'id'    => 136,
+                'id'    => 135,
                 'title' => 'stripe_delete',
             ],
             [
-                'id'    => 137,
+                'id'    => 136,
                 'title' => 'stripe_access',
             ],
             [
-                'id'    => 138,
+                'id'    => 137,
                 'title' => 'sendinblue_create',
             ],
             [
-                'id'    => 139,
+                'id'    => 138,
                 'title' => 'sendinblue_edit',
             ],
             [
-                'id'    => 140,
+                'id'    => 139,
                 'title' => 'sendinblue_show',
             ],
             [
-                'id'    => 141,
+                'id'    => 140,
                 'title' => 'sendinblue_delete',
             ],
             [
-                'id'    => 142,
+                'id'    => 141,
                 'title' => 'sendinblue_access',
             ],
             [
-                'id'    => 143,
+                'id'    => 142,
                 'title' => 'google_create',
             ],
             [
-                'id'    => 144,
+                'id'    => 143,
                 'title' => 'google_edit',
             ],
             [
-                'id'    => 145,
+                'id'    => 144,
                 'title' => 'google_show',
             ],
             [
-                'id'    => 146,
+                'id'    => 145,
                 'title' => 'google_delete',
             ],
             [
-                'id'    => 147,
+                'id'    => 146,
                 'title' => 'google_access',
             ],
             [
-                'id'    => 148,
+                'id'    => 147,
                 'title' => 'virtual_access',
             ],
             [
-                'id'    => 149,
+                'id'    => 148,
                 'title' => 'online_class_create',
             ],
             [
-                'id'    => 150,
+                'id'    => 149,
                 'title' => 'online_class_edit',
             ],
             [
-                'id'    => 151,
+                'id'    => 150,
                 'title' => 'online_class_show',
             ],
             [
-                'id'    => 152,
+                'id'    => 151,
                 'title' => 'online_class_delete',
             ],
             [
-                'id'    => 153,
+                'id'    => 152,
                 'title' => 'online_class_access',
             ],
             [
-                'id'    => 154,
+                'id'    => 153,
                 'title' => 'reservation_create',
             ],
             [
-                'id'    => 155,
+                'id'    => 154,
                 'title' => 'reservation_edit',
             ],
             [
-                'id'    => 156,
+                'id'    => 155,
                 'title' => 'reservation_show',
             ],
             [
-                'id'    => 157,
+                'id'    => 156,
                 'title' => 'reservation_delete',
             ],
             [
-                'id'    => 158,
+                'id'    => 157,
                 'title' => 'reservation_access',
             ],
             [
-                'id'    => 159,
+                'id'    => 158,
                 'title' => 'contact_form_create',
             ],
             [
-                'id'    => 160,
+                'id'    => 159,
                 'title' => 'contact_form_edit',
             ],
             [
-                'id'    => 161,
+                'id'    => 160,
                 'title' => 'contact_form_show',
             ],
             [
-                'id'    => 162,
+                'id'    => 161,
                 'title' => 'contact_form_delete',
             ],
             [
-                'id'    => 163,
+                'id'    => 162,
                 'title' => 'contact_form_access',
             ],
             [
-                'id'    => 164,
+                'id'    => 163,
                 'title' => 'transaction_create',
             ],
             [
-                'id'    => 165,
+                'id'    => 164,
                 'title' => 'transaction_edit',
             ],
             [
-                'id'    => 166,
+                'id'    => 165,
                 'title' => 'transaction_show',
             ],
             [
-                'id'    => 167,
+                'id'    => 166,
                 'title' => 'transaction_delete',
             ],
             [
-                'id'    => 168,
+                'id'    => 167,
                 'title' => 'transaction_access',
             ],
             [
-                'id'    => 169,
+                'id'    => 168,
                 'title' => 'payment_create',
             ],
             [
-                'id'    => 170,
+                'id'    => 169,
                 'title' => 'payment_edit',
             ],
             [
-                'id'    => 171,
+                'id'    => 170,
                 'title' => 'payment_show',
             ],
             [
-                'id'    => 172,
+                'id'    => 171,
                 'title' => 'payment_delete',
             ],
             [
-                'id'    => 173,
+                'id'    => 172,
                 'title' => 'payment_access',
             ],
             [
-                'id'    => 174,
+                'id'    => 173,
                 'title' => 'coupon_create',
             ],
             [
-                'id'    => 175,
+                'id'    => 174,
                 'title' => 'coupon_edit',
             ],
             [
-                'id'    => 176,
+                'id'    => 175,
                 'title' => 'coupon_show',
             ],
             [
-                'id'    => 177,
+                'id'    => 176,
                 'title' => 'coupon_delete',
             ],
             [
-                'id'    => 178,
+                'id'    => 177,
                 'title' => 'coupon_access',
             ],
             [
-                'id'    => 179,
+                'id'    => 178,
                 'title' => 'blog_create',
             ],
             [
-                'id'    => 180,
+                'id'    => 179,
                 'title' => 'blog_edit',
             ],
             [
-                'id'    => 181,
+                'id'    => 180,
                 'title' => 'blog_show',
             ],
             [
-                'id'    => 182,
+                'id'    => 181,
                 'title' => 'blog_delete',
             ],
             [
-                'id'    => 183,
+                'id'    => 182,
                 'title' => 'blog_access',
             ],
             [
-                'id'    => 184,
+                'id'    => 183,
                 'title' => 'enrollment_create',
             ],
             [
-                'id'    => 185,
+                'id'    => 184,
                 'title' => 'enrollment_edit',
             ],
             [
-                'id'    => 186,
+                'id'    => 185,
                 'title' => 'enrollment_show',
             ],
             [
-                'id'    => 187,
+                'id'    => 186,
                 'title' => 'enrollment_delete',
             ],
             [
-                'id'    => 188,
+                'id'    => 187,
                 'title' => 'enrollment_access',
             ],
             [
-                'id'    => 189,
-                'title' => 'static_page_access',
-            ],
-            [
-                'id'    => 190,
+                'id'    => 188,
                 'title' => 'page_create',
             ],
             [
-                'id'    => 191,
+                'id'    => 189,
                 'title' => 'page_edit',
             ],
             [
-                'id'    => 192,
+                'id'    => 190,
                 'title' => 'page_show',
             ],
             [
-                'id'    => 193,
+                'id'    => 191,
                 'title' => 'page_delete',
             ],
             [
-                'id'    => 194,
+                'id'    => 192,
                 'title' => 'page_access',
             ],
             [
+                'id'    => 193,
+                'title' => 'configuration_access',
+            ],
+            [
+                'id'    => 194,
+                'title' => 'slider_create',
+            ],
+            [
                 'id'    => 195,
+                'title' => 'slider_edit',
+            ],
+            [
+                'id'    => 196,
+                'title' => 'slider_show',
+            ],
+            [
+                'id'    => 197,
+                'title' => 'slider_delete',
+            ],
+            [
+                'id'    => 198,
+                'title' => 'slider_access',
+            ],
+            [
+                'id'    => 199,
+                'title' => 'api_access',
+            ],
+            [
+                'id'    => 200,
+                'title' => 'content_access',
+            ],
+            [
+                'id'    => 201,
+                'title' => 'static_page_access',
+            ],
+            [
+                'id'    => 202,
+                'title' => 'bullet_create',
+            ],
+            [
+                'id'    => 203,
+                'title' => 'bullet_edit',
+            ],
+            [
+                'id'    => 204,
+                'title' => 'bullet_show',
+            ],
+            [
+                'id'    => 205,
+                'title' => 'bullet_delete',
+            ],
+            [
+                'id'    => 206,
+                'title' => 'bullet_access',
+            ],
+            [
+                'id'    => 207,
+                'title' => 'index_about_create',
+            ],
+            [
+                'id'    => 208,
+                'title' => 'index_about_edit',
+            ],
+            [
+                'id'    => 209,
+                'title' => 'index_about_show',
+            ],
+            [
+                'id'    => 210,
+                'title' => 'index_about_delete',
+            ],
+            [
+                'id'    => 211,
+                'title' => 'index_about_access',
+            ],
+            [
+                'id'    => 212,
+                'title' => 'index_reason_create',
+            ],
+            [
+                'id'    => 213,
+                'title' => 'index_reason_edit',
+            ],
+            [
+                'id'    => 214,
+                'title' => 'index_reason_show',
+            ],
+            [
+                'id'    => 215,
+                'title' => 'index_reason_delete',
+            ],
+            [
+                'id'    => 216,
+                'title' => 'index_reason_access',
+            ],
+            [
+                'id'    => 217,
+                'title' => 'index_testimonial_create',
+            ],
+            [
+                'id'    => 218,
+                'title' => 'index_testimonial_edit',
+            ],
+            [
+                'id'    => 219,
+                'title' => 'index_testimonial_show',
+            ],
+            [
+                'id'    => 220,
+                'title' => 'index_testimonial_delete',
+            ],
+            [
+                'id'    => 221,
+                'title' => 'index_testimonial_access',
+            ],
+            [
+                'id'    => 222,
+                'title' => 'ctum_create',
+            ],
+            [
+                'id'    => 223,
+                'title' => 'ctum_edit',
+            ],
+            [
+                'id'    => 224,
+                'title' => 'ctum_show',
+            ],
+            [
+                'id'    => 225,
+                'title' => 'ctum_delete',
+            ],
+            [
+                'id'    => 226,
+                'title' => 'ctum_access',
+            ],
+            [
+                'id'    => 227,
+                'title' => 'about_content_access',
+            ],
+            [
+                'id'    => 228,
+                'title' => 'about_create',
+            ],
+            [
+                'id'    => 229,
+                'title' => 'about_edit',
+            ],
+            [
+                'id'    => 230,
+                'title' => 'about_show',
+            ],
+            [
+                'id'    => 231,
+                'title' => 'about_delete',
+            ],
+            [
+                'id'    => 232,
+                'title' => 'about_access',
+            ],
+            [
+                'id'    => 233,
+                'title' => 'selling_point_create',
+            ],
+            [
+                'id'    => 234,
+                'title' => 'selling_point_edit',
+            ],
+            [
+                'id'    => 235,
+                'title' => 'selling_point_show',
+            ],
+            [
+                'id'    => 236,
+                'title' => 'selling_point_delete',
+            ],
+            [
+                'id'    => 237,
+                'title' => 'selling_point_access',
+            ],
+            [
+                'id'    => 238,
+                'title' => 'company_create',
+            ],
+            [
+                'id'    => 239,
+                'title' => 'company_edit',
+            ],
+            [
+                'id'    => 240,
+                'title' => 'company_show',
+            ],
+            [
+                'id'    => 241,
+                'title' => 'company_delete',
+            ],
+            [
+                'id'    => 242,
+                'title' => 'company_access',
+            ],
+            [
+                'id'    => 243,
+                'title' => 'social_network_create',
+            ],
+            [
+                'id'    => 244,
+                'title' => 'social_network_edit',
+            ],
+            [
+                'id'    => 245,
+                'title' => 'social_network_show',
+            ],
+            [
+                'id'    => 246,
+                'title' => 'social_network_delete',
+            ],
+            [
+                'id'    => 247,
+                'title' => 'social_network_access',
+            ],
+            [
+                'id'    => 248,
                 'title' => 'profile_password_edit',
             ],
         ];

@@ -150,6 +150,11 @@ class User extends Authenticatable implements HasMedia
         return $this->hasMany(Enrollment::class, 'user_id', 'id');
     }
 
+    public function userIndexTestimonials()
+    {
+        return $this->hasMany(IndexTestimonial::class, 'user_id', 'id');
+    }
+
     public function userUserAlerts()
     {
         return $this->belongsToMany(UserAlert::class);

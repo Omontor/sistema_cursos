@@ -22,6 +22,10 @@ class StorePageRequest extends FormRequest
                 'required',
                 'unique:pages',
             ],
+            'slug' => [
+                'string',
+                'nullable',
+            ],
         ];
     }
 }

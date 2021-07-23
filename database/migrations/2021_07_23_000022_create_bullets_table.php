@@ -4,14 +4,16 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePagesTable extends Migration
+class CreateBulletsTable extends Migration
 {
     public function up()
     {
-        Schema::create('pages', function (Blueprint $table) {
+        Schema::create('bullets', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('title')->unique();
-            $table->longText('content')->nullable();
+            $table->string('title');
+            $table->string('content');
+            $table->string('icon');
+            $table->string('link')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

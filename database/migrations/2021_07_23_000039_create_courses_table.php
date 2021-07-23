@@ -15,6 +15,7 @@ class CreateCoursesTable extends Migration
             $table->decimal('price', 15, 2)->nullable();
             $table->boolean('is_published')->default(0)->nullable();
             $table->string('video')->nullable();
+            $table->longText('knowledge')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

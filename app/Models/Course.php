@@ -42,6 +42,7 @@ class Course extends Model implements HasMedia
         'is_published',
         'created_at',
         'video',
+        'knowledge',
         'updated_at',
         'deleted_at',
         'created_by_id',

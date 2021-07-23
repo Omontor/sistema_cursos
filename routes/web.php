@@ -173,6 +173,54 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::post('pages/ckmedia', 'PageController@storeCKEditorImages')->name('pages.storeCKEditorImages');
     Route::resource('pages', 'PageController');
 
+    // Slider
+    Route::delete('sliders/destroy', 'SliderController@massDestroy')->name('sliders.massDestroy');
+    Route::post('sliders/media', 'SliderController@storeMedia')->name('sliders.storeMedia');
+    Route::post('sliders/ckmedia', 'SliderController@storeCKEditorImages')->name('sliders.storeCKEditorImages');
+    Route::resource('sliders', 'SliderController');
+
+    // Bullet
+    Route::delete('bullets/destroy', 'BulletController@massDestroy')->name('bullets.massDestroy');
+    Route::resource('bullets', 'BulletController');
+
+    // Index About
+    Route::delete('index-abouts/destroy', 'IndexAboutController@massDestroy')->name('index-abouts.massDestroy');
+    Route::post('index-abouts/media', 'IndexAboutController@storeMedia')->name('index-abouts.storeMedia');
+    Route::post('index-abouts/ckmedia', 'IndexAboutController@storeCKEditorImages')->name('index-abouts.storeCKEditorImages');
+    Route::resource('index-abouts', 'IndexAboutController');
+
+    // Index Reason
+    Route::delete('index-reasons/destroy', 'IndexReasonController@massDestroy')->name('index-reasons.massDestroy');
+    Route::resource('index-reasons', 'IndexReasonController');
+
+    // Index Testimonial
+    Route::delete('index-testimonials/destroy', 'IndexTestimonialController@massDestroy')->name('index-testimonials.massDestroy');
+    Route::resource('index-testimonials', 'IndexTestimonialController');
+
+    // Cta
+    Route::delete('cta/destroy', 'CtaController@massDestroy')->name('cta.massDestroy');
+    Route::resource('cta', 'CtaController');
+
+    // About
+    Route::delete('abouts/destroy', 'AboutController@massDestroy')->name('abouts.massDestroy');
+    Route::post('abouts/media', 'AboutController@storeMedia')->name('abouts.storeMedia');
+    Route::post('abouts/ckmedia', 'AboutController@storeCKEditorImages')->name('abouts.storeCKEditorImages');
+    Route::resource('abouts', 'AboutController');
+
+    // Selling Point
+    Route::delete('selling-points/destroy', 'SellingPointController@massDestroy')->name('selling-points.massDestroy');
+    Route::post('selling-points/media', 'SellingPointController@storeMedia')->name('selling-points.storeMedia');
+    Route::post('selling-points/ckmedia', 'SellingPointController@storeCKEditorImages')->name('selling-points.storeCKEditorImages');
+    Route::resource('selling-points', 'SellingPointController');
+
+    // Company
+    Route::delete('companies/destroy', 'CompanyController@massDestroy')->name('companies.massDestroy');
+    Route::resource('companies', 'CompanyController');
+
+    // Social Network
+    Route::delete('social-networks/destroy', 'SocialNetworkController@massDestroy')->name('social-networks.massDestroy');
+    Route::resource('social-networks', 'SocialNetworkController');
+
     Route::get('system-calendar', 'SystemCalendarController@index')->name('systemCalendar');
     Route::get('global-search', 'GlobalSearchController@search')->name('globalSearch');
     Route::get('messenger', 'MessengerController@index')->name('messenger.index');
@@ -362,6 +410,54 @@ Route::group(['as' => 'frontend.', 'namespace' => 'Frontend', 'middleware' => ['
     Route::post('pages/media', 'PageController@storeMedia')->name('pages.storeMedia');
     Route::post('pages/ckmedia', 'PageController@storeCKEditorImages')->name('pages.storeCKEditorImages');
     Route::resource('pages', 'PageController');
+
+    // Slider
+    Route::delete('sliders/destroy', 'SliderController@massDestroy')->name('sliders.massDestroy');
+    Route::post('sliders/media', 'SliderController@storeMedia')->name('sliders.storeMedia');
+    Route::post('sliders/ckmedia', 'SliderController@storeCKEditorImages')->name('sliders.storeCKEditorImages');
+    Route::resource('sliders', 'SliderController');
+
+    // Bullet
+    Route::delete('bullets/destroy', 'BulletController@massDestroy')->name('bullets.massDestroy');
+    Route::resource('bullets', 'BulletController');
+
+    // Index About
+    Route::delete('index-abouts/destroy', 'IndexAboutController@massDestroy')->name('index-abouts.massDestroy');
+    Route::post('index-abouts/media', 'IndexAboutController@storeMedia')->name('index-abouts.storeMedia');
+    Route::post('index-abouts/ckmedia', 'IndexAboutController@storeCKEditorImages')->name('index-abouts.storeCKEditorImages');
+    Route::resource('index-abouts', 'IndexAboutController');
+
+    // Index Reason
+    Route::delete('index-reasons/destroy', 'IndexReasonController@massDestroy')->name('index-reasons.massDestroy');
+    Route::resource('index-reasons', 'IndexReasonController');
+
+    // Index Testimonial
+    Route::delete('index-testimonials/destroy', 'IndexTestimonialController@massDestroy')->name('index-testimonials.massDestroy');
+    Route::resource('index-testimonials', 'IndexTestimonialController');
+
+    // Cta
+    Route::delete('cta/destroy', 'CtaController@massDestroy')->name('cta.massDestroy');
+    Route::resource('cta', 'CtaController');
+
+    // About
+    Route::delete('abouts/destroy', 'AboutController@massDestroy')->name('abouts.massDestroy');
+    Route::post('abouts/media', 'AboutController@storeMedia')->name('abouts.storeMedia');
+    Route::post('abouts/ckmedia', 'AboutController@storeCKEditorImages')->name('abouts.storeCKEditorImages');
+    Route::resource('abouts', 'AboutController');
+
+    // Selling Point
+    Route::delete('selling-points/destroy', 'SellingPointController@massDestroy')->name('selling-points.massDestroy');
+    Route::post('selling-points/media', 'SellingPointController@storeMedia')->name('selling-points.storeMedia');
+    Route::post('selling-points/ckmedia', 'SellingPointController@storeCKEditorImages')->name('selling-points.storeCKEditorImages');
+    Route::resource('selling-points', 'SellingPointController');
+
+    // Company
+    Route::delete('companies/destroy', 'CompanyController@massDestroy')->name('companies.massDestroy');
+    Route::resource('companies', 'CompanyController');
+
+    // Social Network
+    Route::delete('social-networks/destroy', 'SocialNetworkController@massDestroy')->name('social-networks.massDestroy');
+    Route::resource('social-networks', 'SocialNetworkController');
 
     Route::get('frontend/profile', 'ProfileController@index')->name('profile.index');
     Route::post('frontend/profile', 'ProfileController@update')->name('profile.update');

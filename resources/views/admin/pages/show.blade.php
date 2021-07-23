@@ -39,6 +39,14 @@
                             {!! $page->content !!}
                         </td>
                     </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.page.fields.slug') }}
+                        </th>
+                        <td>
+                            {{ $page->slug }}
+                        </td>
+                    </tr>
                 </tbody>
             </table>
             <div class="form-group">

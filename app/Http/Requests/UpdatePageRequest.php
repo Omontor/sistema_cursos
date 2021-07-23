@@ -22,6 +22,10 @@ class UpdatePageRequest extends FormRequest
                 'required',
                 'unique:pages,title,' . request()->route('page')->id,
             ],
+            'slug' => [
+                'string',
+                'nullable',
+            ],
         ];
     }
 }

@@ -26,6 +26,14 @@
                 <span class="help-block">{{ trans('cruds.page.fields.content_helper') }}</span>
             </div>
             <div class="form-group">
+                <label for="slug">{{ trans('cruds.page.fields.slug') }}</label>
+                <input class="form-control {{ $errors->has('slug') ? 'is-invalid' : '' }}" type="text" name="slug" id="slug" value="{{ old('slug', '') }}">
+                @if($errors->has('slug'))
+                    <span class="text-danger">{{ $errors->first('slug') }}</span>
+                @endif
+                <span class="help-block">{{ trans('cruds.page.fields.slug_helper') }}</span>
+            </div>
+            <div class="form-group">
                 <button class="btn btn-danger" type="submit">
                     {{ trans('global.save') }}
                 </button>

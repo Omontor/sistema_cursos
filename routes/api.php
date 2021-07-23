@@ -117,4 +117,38 @@ Route::group(['prefix' => 'v1', 'as' => 'api.', 'namespace' => 'Api\V1\Admin', '
     // Page
     Route::post('pages/media', 'PageApiController@storeMedia')->name('pages.storeMedia');
     Route::apiResource('pages', 'PageApiController');
+
+    // Slider
+    Route::post('sliders/media', 'SliderApiController@storeMedia')->name('sliders.storeMedia');
+    Route::apiResource('sliders', 'SliderApiController');
+
+    // Bullet
+    Route::apiResource('bullets', 'BulletApiController');
+
+    // Index About
+    Route::post('index-abouts/media', 'IndexAboutApiController@storeMedia')->name('index-abouts.storeMedia');
+    Route::apiResource('index-abouts', 'IndexAboutApiController');
+
+    // Index Reason
+    Route::apiResource('index-reasons', 'IndexReasonApiController');
+
+    // Index Testimonial
+    Route::apiResource('index-testimonials', 'IndexTestimonialApiController');
+
+    // Cta
+    Route::apiResource('cta', 'CtaApiController');
+
+    // About
+    Route::post('abouts/media', 'AboutApiController@storeMedia')->name('abouts.storeMedia');
+    Route::apiResource('abouts', 'AboutApiController');
+
+    // Selling Point
+    Route::post('selling-points/media', 'SellingPointApiController@storeMedia')->name('selling-points.storeMedia');
+    Route::apiResource('selling-points', 'SellingPointApiController');
+
+    // Company
+    Route::apiResource('companies', 'CompanyApiController');
+
+    // Social Network
+    Route::apiResource('social-networks', 'SocialNetworkApiController');
 });

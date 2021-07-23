@@ -106,6 +106,14 @@
                                         {{ $course->video }}
                                     </td>
                                 </tr>
+                                <tr>
+                                    <th>
+                                        {{ trans('cruds.course.fields.knowledge') }}
+                                    </th>
+                                    <td>
+                                        {!! $course->knowledge !!}
+                                    </td>
+                                </tr>
                             </tbody>
                         </table>
                         <div class="form-group">

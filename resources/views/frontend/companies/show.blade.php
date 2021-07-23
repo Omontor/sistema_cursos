@@ -1,0 +1,115 @@
+@extends('layouts.frontend')
+@section('content')
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-12">
+
+            <div class="card">
+                <div class="card-header">
+                    {{ trans('global.show') }} {{ trans('cruds.company.title') }}
+                </div>
+
+                <div class="card-body">
+                    <div class="form-group">
+                        <div class="form-group">
+                            <a class="btn btn-default" href="{{ route('frontend.companies.index') }}">
+                                {{ trans('global.back_to_list') }}
+                            </a>
+                        </div>
+                        <table class="table table-bordered table-striped">
+                            <tbody>
+                                <tr>
+                                    <th>
+                                        {{ trans('cruds.company.fields.id') }}
+                                    </th>
+                                    <td>
+                                        {{ $company->id }}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        {{ trans('cruds.company.fields.name') }}
+                                    </th>
+                                    <td>
+                                        {{ $company->name }}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        {{ trans('cruds.company.fields.email') }}
+                                    </th>
+                                    <td>
+                                        {{ $company->email }}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        {{ trans('cruds.company.fields.phone') }}
+                                    </th>
+                                    <td>
+                                        {{ $company->phone }}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        {{ trans('cruds.company.fields.address') }}
+                                    </th>
+                                    <td>
+                                        {{ $company->address }}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        {{ trans('cruds.company.fields.lat') }}
+                                    </th>
+                                    <td>
+                                        {{ $company->lat }}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        {{ trans('cruds.company.fields.lng') }}
+                                    </th>
+                                    <td>
+                                        {{ $company->lng }}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        {{ trans('cruds.company.fields.clabe') }}
+                                    </th>
+                                    <td>
+                                        {{ $company->clabe }}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        {{ trans('cruds.company.fields.account_name') }}
+                                    </th>
+                                    <td>
+                                        {{ $company->account_name }}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        {{ trans('cruds.company.fields.bank') }}
+                                    </th>
+                                    <td>
+                                        {{ $company->bank }}
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="form-group">
+                            <a class="btn btn-default" href="{{ route('frontend.companies.index') }}">
+                                {{ trans('global.back_to_list') }}
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+@endsection

@@ -27,6 +27,7 @@ class Page extends Model implements HasMedia
     protected $fillable = [
         'title',
         'content',
+        'slug',
         'created_at',
         'updated_at',
         'deleted_at',

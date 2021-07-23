@@ -29,6 +29,9 @@
                                         {{ trans('cruds.page.fields.title') }}
                                     </th>
                                     <th>
+                                        {{ trans('cruds.page.fields.slug') }}
+                                    </th>
+                                    <th>
                                         &nbsp;
                                     </th>
                                 </tr>
@@ -41,6 +44,9 @@
                                         </td>
                                         <td>
                                             {{ $page->title ?? '' }}
+                                        </td>
+                                        <td>
+                                            {{ $page->slug ?? '' }}
                                         </td>
                                         <td>
                                             @can('page_show')

@@ -505,115 +505,280 @@
                         </ul>
                     </li>
                 @endcan
-                @can('static_page_access')
-                    <li class="nav-item has-treeview {{ request()->is("admin/pages*") ? "menu-open" : "" }}">
+                @can('configuration_access')
+                    <li class="nav-item has-treeview {{ request()->is("admin/companies*") ? "menu-open" : "" }} {{ request()->is("admin/social-networks*") ? "menu-open" : "" }} {{ request()->is("admin/*") ? "menu-open" : "" }} {{ request()->is("admin/*") ? "menu-open" : "" }} {{ request()->is("admin/*") ? "menu-open" : "" }} {{ request()->is("admin/*") ? "menu-open" : "" }}">
                         <a class="nav-link nav-dropdown-toggle" href="#">
                             <i class="fa-fw nav-icon fas fa-cogs">
 
                             </i>
                             <p>
-                                {{ trans('cruds.staticPage.title') }}
+                                {{ trans('cruds.configuration.title') }}
                                 <i class="right fa fa-fw fa-angle-left nav-icon"></i>
                             </p>
                         </a>
                         <ul class="nav nav-treeview">
-                            @can('page_access')
+                            @can('company_access')
                                 <li class="nav-item">
-                                    <a href="{{ route("admin.pages.index") }}" class="nav-link {{ request()->is("admin/pages") || request()->is("admin/pages/*") ? "active" : "" }}">
-                                        <i class="fa-fw nav-icon far fa-file-alt">
+                                    <a href="{{ route("admin.companies.index") }}" class="nav-link {{ request()->is("admin/companies") || request()->is("admin/companies/*") ? "active" : "" }}">
+                                        <i class="fa-fw nav-icon fab fa-pied-piper-hat">
 
                                         </i>
                                         <p>
-                                            {{ trans('cruds.page.title') }}
+                                            {{ trans('cruds.company.title') }}
                                         </p>
                                     </a>
                                 </li>
                             @endcan
-                        </ul>
-                    </li>
-                @endcan
-                @can('api_access')
-                    <li class="nav-item has-treeview {{ request()->is("admin/newsletters*") ? "menu-open" : "" }} {{ request()->is("admin/zooms*") ? "menu-open" : "" }} {{ request()->is("admin/paypals*") ? "menu-open" : "" }} {{ request()->is("admin/stripes*") ? "menu-open" : "" }} {{ request()->is("admin/sendinblues*") ? "menu-open" : "" }} {{ request()->is("admin/googles*") ? "menu-open" : "" }}">
-                        <a class="nav-link nav-dropdown-toggle" href="#">
-                            <i class="fa-fw nav-icon fas fa-exchange-alt">
-
-                            </i>
-                            <p>
-                                {{ trans('cruds.api.title') }}
-                                <i class="right fa fa-fw fa-angle-left nav-icon"></i>
-                            </p>
-                        </a>
-                        <ul class="nav nav-treeview">
-                            @can('newsletter_access')
+                            @can('social_network_access')
                                 <li class="nav-item">
-                                    <a href="{{ route("admin.newsletters.index") }}" class="nav-link {{ request()->is("admin/newsletters") || request()->is("admin/newsletters/*") ? "active" : "" }}">
-                                        <i class="fa-fw nav-icon fab fa-mailchimp">
+                                    <a href="{{ route("admin.social-networks.index") }}" class="nav-link {{ request()->is("admin/social-networks") || request()->is("admin/social-networks/*") ? "active" : "" }}">
+                                        <i class="fa-fw nav-icon fab fa-pied-piper">
 
                                         </i>
                                         <p>
-                                            {{ trans('cruds.newsletter.title') }}
+                                            {{ trans('cruds.socialNetwork.title') }}
                                         </p>
                                     </a>
                                 </li>
                             @endcan
-                            @can('zoom_access')
-                                <li class="nav-item">
-                                    <a href="{{ route("admin.zooms.index") }}" class="nav-link {{ request()->is("admin/zooms") || request()->is("admin/zooms/*") ? "active" : "" }}">
-                                        <i class="fa-fw nav-icon fas fa-headset">
+                            @can('content_access')
+                                <li class="nav-item has-treeview {{ request()->is("admin/sliders*") ? "menu-open" : "" }} {{ request()->is("admin/bullets*") ? "menu-open" : "" }} {{ request()->is("admin/index-abouts*") ? "menu-open" : "" }} {{ request()->is("admin/index-reasons*") ? "menu-open" : "" }} {{ request()->is("admin/index-testimonials*") ? "menu-open" : "" }} {{ request()->is("admin/cta*") ? "menu-open" : "" }}">
+                                    <a class="nav-link nav-dropdown-toggle" href="#">
+                                        <i class="fa-fw nav-icon fab fa-pied-piper-pp">
 
                                         </i>
                                         <p>
-                                            {{ trans('cruds.zoom.title') }}
+                                            {{ trans('cruds.content.title') }}
+                                            <i class="right fa fa-fw fa-angle-left nav-icon"></i>
                                         </p>
                                     </a>
+                                    <ul class="nav nav-treeview">
+                                        @can('slider_access')
+                                            <li class="nav-item">
+                                                <a href="{{ route("admin.sliders.index") }}" class="nav-link {{ request()->is("admin/sliders") || request()->is("admin/sliders/*") ? "active" : "" }}">
+                                                    <i class="fa-fw nav-icon far fa-images">
+
+                                                    </i>
+                                                    <p>
+                                                        {{ trans('cruds.slider.title') }}
+                                                    </p>
+                                                </a>
+                                            </li>
+                                        @endcan
+                                        @can('bullet_access')
+                                            <li class="nav-item">
+                                                <a href="{{ route("admin.bullets.index") }}" class="nav-link {{ request()->is("admin/bullets") || request()->is("admin/bullets/*") ? "active" : "" }}">
+                                                    <i class="fa-fw nav-icon far fa-dot-circle">
+
+                                                    </i>
+                                                    <p>
+                                                        {{ trans('cruds.bullet.title') }}
+                                                    </p>
+                                                </a>
+                                            </li>
+                                        @endcan
+                                        @can('index_about_access')
+                                            <li class="nav-item">
+                                                <a href="{{ route("admin.index-abouts.index") }}" class="nav-link {{ request()->is("admin/index-abouts") || request()->is("admin/index-abouts/*") ? "active" : "" }}">
+                                                    <i class="fa-fw nav-icon fas fa-font">
+
+                                                    </i>
+                                                    <p>
+                                                        {{ trans('cruds.indexAbout.title') }}
+                                                    </p>
+                                                </a>
+                                            </li>
+                                        @endcan
+                                        @can('index_reason_access')
+                                            <li class="nav-item">
+                                                <a href="{{ route("admin.index-reasons.index") }}" class="nav-link {{ request()->is("admin/index-reasons") || request()->is("admin/index-reasons/*") ? "active" : "" }}">
+                                                    <i class="fa-fw nav-icon fas fa-boxes">
+
+                                                    </i>
+                                                    <p>
+                                                        {{ trans('cruds.indexReason.title') }}
+                                                    </p>
+                                                </a>
+                                            </li>
+                                        @endcan
+                                        @can('index_testimonial_access')
+                                            <li class="nav-item">
+                                                <a href="{{ route("admin.index-testimonials.index") }}" class="nav-link {{ request()->is("admin/index-testimonials") || request()->is("admin/index-testimonials/*") ? "active" : "" }}">
+                                                    <i class="fa-fw nav-icon fas fa-gavel">
+
+                                                    </i>
+                                                    <p>
+                                                        {{ trans('cruds.indexTestimonial.title') }}
+                                                    </p>
+                                                </a>
+                                            </li>
+                                        @endcan
+                                        @can('ctum_access')
+                                            <li class="nav-item">
+                                                <a href="{{ route("admin.cta.index") }}" class="nav-link {{ request()->is("admin/cta") || request()->is("admin/cta/*") ? "active" : "" }}">
+                                                    <i class="fa-fw nav-icon fab fa-autoprefixer">
+
+                                                    </i>
+                                                    <p>
+                                                        {{ trans('cruds.ctum.title') }}
+                                                    </p>
+                                                </a>
+                                            </li>
+                                        @endcan
+                                    </ul>
                                 </li>
                             @endcan
-                            @can('paypal_access')
-                                <li class="nav-item">
-                                    <a href="{{ route("admin.paypals.index") }}" class="nav-link {{ request()->is("admin/paypals") || request()->is("admin/paypals/*") ? "active" : "" }}">
-                                        <i class="fa-fw nav-icon fab fa-cc-paypal">
+                            @can('about_content_access')
+                                <li class="nav-item has-treeview {{ request()->is("admin/abouts*") ? "menu-open" : "" }} {{ request()->is("admin/selling-points*") ? "menu-open" : "" }}">
+                                    <a class="nav-link nav-dropdown-toggle" href="#">
+                                        <i class="fa-fw nav-icon fas fa-users-cog">
 
                                         </i>
                                         <p>
-                                            {{ trans('cruds.paypal.title') }}
+                                            {{ trans('cruds.aboutContent.title') }}
+                                            <i class="right fa fa-fw fa-angle-left nav-icon"></i>
                                         </p>
                                     </a>
+                                    <ul class="nav nav-treeview">
+                                        @can('about_access')
+                                            <li class="nav-item">
+                                                <a href="{{ route("admin.abouts.index") }}" class="nav-link {{ request()->is("admin/abouts") || request()->is("admin/abouts/*") ? "active" : "" }}">
+                                                    <i class="fa-fw nav-icon fab fa-pied-piper-alt">
+
+                                                    </i>
+                                                    <p>
+                                                        {{ trans('cruds.about.title') }}
+                                                    </p>
+                                                </a>
+                                            </li>
+                                        @endcan
+                                        @can('selling_point_access')
+                                            <li class="nav-item">
+                                                <a href="{{ route("admin.selling-points.index") }}" class="nav-link {{ request()->is("admin/selling-points") || request()->is("admin/selling-points/*") ? "active" : "" }}">
+                                                    <i class="fa-fw nav-icon fas fa-check-double">
+
+                                                    </i>
+                                                    <p>
+                                                        {{ trans('cruds.sellingPoint.title') }}
+                                                    </p>
+                                                </a>
+                                            </li>
+                                        @endcan
+                                    </ul>
                                 </li>
                             @endcan
-                            @can('stripe_access')
-                                <li class="nav-item">
-                                    <a href="{{ route("admin.stripes.index") }}" class="nav-link {{ request()->is("admin/stripes") || request()->is("admin/stripes/*") ? "active" : "" }}">
-                                        <i class="fa-fw nav-icon fab fa-cc-stripe">
+                            @can('static_page_access')
+                                <li class="nav-item has-treeview {{ request()->is("admin/pages*") ? "menu-open" : "" }}">
+                                    <a class="nav-link nav-dropdown-toggle" href="#">
+                                        <i class="fa-fw nav-icon fas fa-file-alt">
 
                                         </i>
                                         <p>
-                                            {{ trans('cruds.stripe.title') }}
+                                            {{ trans('cruds.staticPage.title') }}
+                                            <i class="right fa fa-fw fa-angle-left nav-icon"></i>
                                         </p>
                                     </a>
+                                    <ul class="nav nav-treeview">
+                                        @can('page_access')
+                                            <li class="nav-item">
+                                                <a href="{{ route("admin.pages.index") }}" class="nav-link {{ request()->is("admin/pages") || request()->is("admin/pages/*") ? "active" : "" }}">
+                                                    <i class="fa-fw nav-icon far fa-file-alt">
+
+                                                    </i>
+                                                    <p>
+                                                        {{ trans('cruds.page.title') }}
+                                                    </p>
+                                                </a>
+                                            </li>
+                                        @endcan
+                                    </ul>
                                 </li>
                             @endcan
-                            @can('sendinblue_access')
-                                <li class="nav-item">
-                                    <a href="{{ route("admin.sendinblues.index") }}" class="nav-link {{ request()->is("admin/sendinblues") || request()->is("admin/sendinblues/*") ? "active" : "" }}">
-                                        <i class="fa-fw nav-icon far fa-envelope">
+                            @can('api_access')
+                                <li class="nav-item has-treeview {{ request()->is("admin/newsletters*") ? "menu-open" : "" }} {{ request()->is("admin/zooms*") ? "menu-open" : "" }} {{ request()->is("admin/paypals*") ? "menu-open" : "" }} {{ request()->is("admin/stripes*") ? "menu-open" : "" }} {{ request()->is("admin/sendinblues*") ? "menu-open" : "" }} {{ request()->is("admin/googles*") ? "menu-open" : "" }}">
+                                    <a class="nav-link nav-dropdown-toggle" href="#">
+                                        <i class="fa-fw nav-icon fas fa-exchange-alt">
 
                                         </i>
                                         <p>
-                                            {{ trans('cruds.sendinblue.title') }}
+                                            {{ trans('cruds.api.title') }}
+                                            <i class="right fa fa-fw fa-angle-left nav-icon"></i>
                                         </p>
                                     </a>
-                                </li>
-                            @endcan
-                            @can('google_access')
-                                <li class="nav-item">
-                                    <a href="{{ route("admin.googles.index") }}" class="nav-link {{ request()->is("admin/googles") || request()->is("admin/googles/*") ? "active" : "" }}">
-                                        <i class="fa-fw nav-icon fab fa-google">
+                                    <ul class="nav nav-treeview">
+                                        @can('newsletter_access')
+                                            <li class="nav-item">
+                                                <a href="{{ route("admin.newsletters.index") }}" class="nav-link {{ request()->is("admin/newsletters") || request()->is("admin/newsletters/*") ? "active" : "" }}">
+                                                    <i class="fa-fw nav-icon fab fa-mailchimp">
 
-                                        </i>
-                                        <p>
-                                            {{ trans('cruds.google.title') }}
-                                        </p>
-                                    </a>
+                                                    </i>
+                                                    <p>
+                                                        {{ trans('cruds.newsletter.title') }}
+                                                    </p>
+                                                </a>
+                                            </li>
+                                        @endcan
+                                        @can('zoom_access')
+                                            <li class="nav-item">
+                                                <a href="{{ route("admin.zooms.index") }}" class="nav-link {{ request()->is("admin/zooms") || request()->is("admin/zooms/*") ? "active" : "" }}">
+                                                    <i class="fa-fw nav-icon fas fa-headset">
+
+                                                    </i>
+                                                    <p>
+                                                        {{ trans('cruds.zoom.title') }}
+                                                    </p>
+                                                </a>
+                                            </li>
+                                        @endcan
+                                        @can('paypal_access')
+                                            <li class="nav-item">
+                                                <a href="{{ route("admin.paypals.index") }}" class="nav-link {{ request()->is("admin/paypals") || request()->is("admin/paypals/*") ? "active" : "" }}">
+                                                    <i class="fa-fw nav-icon fab fa-cc-paypal">
+
+                                                    </i>
+                                                    <p>
+                                                        {{ trans('cruds.paypal.title') }}
+                                                    </p>
+                                                </a>
+                                            </li>
+                                        @endcan
+                                        @can('stripe_access')
+                                            <li class="nav-item">
+                                                <a href="{{ route("admin.stripes.index") }}" class="nav-link {{ request()->is("admin/stripes") || request()->is("admin/stripes/*") ? "active" : "" }}">
+                                                    <i class="fa-fw nav-icon fab fa-cc-stripe">
+
+                                                    </i>
+                                                    <p>
+                                                        {{ trans('cruds.stripe.title') }}
+                                                    </p>
+                                                </a>
+                                            </li>
+                                        @endcan
+                                        @can('sendinblue_access')
+                                            <li class="nav-item">
+                                                <a href="{{ route("admin.sendinblues.index") }}" class="nav-link {{ request()->is("admin/sendinblues") || request()->is("admin/sendinblues/*") ? "active" : "" }}">
+                                                    <i class="fa-fw nav-icon far fa-envelope">
+
+                                                    </i>
+                                                    <p>
+                                                        {{ trans('cruds.sendinblue.title') }}
+                                                    </p>
+                                                </a>
+                                            </li>
+                                        @endcan
+                                        @can('google_access')
+                                            <li class="nav-item">
+                                                <a href="{{ route("admin.googles.index") }}" class="nav-link {{ request()->is("admin/googles") || request()->is("admin/googles/*") ? "active" : "" }}">
+                                                    <i class="fa-fw nav-icon fab fa-google">
+
+                                                    </i>
+                                                    <p>
+                                                        {{ trans('cruds.google.title') }}
+                                                    </p>
+                                                </a>
+                                            </li>
+                                        @endcan
+                                    </ul>
                                 </li>
                             @endcan
                         </ul>

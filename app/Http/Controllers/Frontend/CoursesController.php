@@ -102,7 +102,7 @@ class CoursesController extends Controller
     {
         abort_if(Gate::denies('course_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $course->load('teacher', 'students', 'requirements', 'created_by');
+        $course->load('teacher', 'students', 'requirements', 'created_by', 'courseReviews', 'courseWishlists', 'courseCertificates', 'courseOnlineClasses', 'courseReservations', 'courseEnrollments', 'coursePurchasedTransactions');
 
         return view('frontend.courses.show', compact('course'));
     }
