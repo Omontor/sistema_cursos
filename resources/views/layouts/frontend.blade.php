@@ -317,6 +317,11 @@
                                             {{ trans('cruds.ctum.title') }}
                                         </a>
                                     @endcan
+                                    @can('featured_course_access')
+                                        <a class="dropdown-item ml-3" href="{{ route('frontend.featured-courses.index') }}">
+                                            {{ trans('cruds.featuredCourse.title') }}
+                                        </a>
+                                    @endcan
                                     @can('about_content_access')
                                         <a class="dropdown-item disabled" href="#">
                                             {{ trans('cruds.aboutContent.title') }}

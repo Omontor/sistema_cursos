@@ -15,7 +15,373 @@
                         </div>
                     @endif
 
-                    You are logged in!
+                    <div class="row">
+                        <div class="{{ $settings1['column_class'] }}">
+                            <div class="info-box">
+                                <span class="info-box-icon bg-red" style="display:flex; flex-direction: column; justify-content: center;">
+                                    <i class="fa fa-chart-line"></i>
+                                </span>
+
+                                <div class="info-box-content">
+                                    <span class="info-box-text">{{ $settings1['chart_title'] }}</span>
+                                    <span class="info-box-number">{{ number_format($settings1['total_number']) }}</span>
+                                </div>
+                                <!-- /.info-box-content -->
+                            </div>
+                            <!-- /.info-box -->
+                        </div>
+                        <div class="{{ $settings2['column_class'] }}">
+                            <div class="info-box">
+                                <span class="info-box-icon bg-red" style="display:flex; flex-direction: column; justify-content: center;">
+                                    <i class="fa fa-chart-line"></i>
+                                </span>
+
+                                <div class="info-box-content">
+                                    <span class="info-box-text">{{ $settings2['chart_title'] }}</span>
+                                    <span class="info-box-number">{{ number_format($settings2['total_number']) }}</span>
+                                </div>
+                                <!-- /.info-box-content -->
+                            </div>
+                            <!-- /.info-box -->
+                        </div>
+                        <div class="{{ $settings3['column_class'] }}">
+                            <div class="info-box">
+                                <span class="info-box-icon bg-red" style="display:flex; flex-direction: column; justify-content: center;">
+                                    <i class="fa fa-chart-line"></i>
+                                </span>
+
+                                <div class="info-box-content">
+                                    <span class="info-box-text">{{ $settings3['chart_title'] }}</span>
+                                    <span class="info-box-number">{{ number_format($settings3['total_number']) }}</span>
+                                </div>
+                                <!-- /.info-box-content -->
+                            </div>
+                            <!-- /.info-box -->
+                        </div>
+                        <div class="{{ $settings4['column_class'] }}">
+                            <div class="info-box">
+                                <span class="info-box-icon bg-red" style="display:flex; flex-direction: column; justify-content: center;">
+                                    <i class="fa fa-chart-line"></i>
+                                </span>
+
+                                <div class="info-box-content">
+                                    <span class="info-box-text">{{ $settings4['chart_title'] }}</span>
+                                    <span class="info-box-number">{{ number_format($settings4['total_number']) }}</span>
+                                </div>
+                                <!-- /.info-box-content -->
+                            </div>
+                            <!-- /.info-box -->
+                        </div>
+                        <div class="{{ $chart5->options['column_class'] }}">
+                            <h3>{!! $chart5->options['chart_title'] !!}</h3>
+                            {!! $chart5->renderHtml() !!}
+                        </div>
+                        <div class="{{ $chart6->options['column_class'] }}">
+                            <h3>{!! $chart6->options['chart_title'] !!}</h3>
+                            {!! $chart6->renderHtml() !!}
+                        </div>
+                        <div class="{{ $settings7['column_class'] }}">
+                            <div class="info-box">
+                                <span class="info-box-icon bg-red" style="display:flex; flex-direction: column; justify-content: center;">
+                                    <i class="fa fa-chart-line"></i>
+                                </span>
+
+                                <div class="info-box-content">
+                                    <span class="info-box-text">{{ $settings7['chart_title'] }}</span>
+                                    <span class="info-box-number">{{ number_format($settings7['total_number']) }}</span>
+                                </div>
+                                <!-- /.info-box-content -->
+                            </div>
+                            <!-- /.info-box -->
+                        </div>
+                        <div class="{{ $settings8['column_class'] }}">
+                            <div class="info-box">
+                                <span class="info-box-icon bg-red" style="display:flex; flex-direction: column; justify-content: center;">
+                                    <i class="fa fa-chart-line"></i>
+                                </span>
+
+                                <div class="info-box-content">
+                                    <span class="info-box-text">{{ $settings8['chart_title'] }}</span>
+                                    <span class="info-box-number">{{ number_format($settings8['total_number']) }}</span>
+                                </div>
+                                <!-- /.info-box-content -->
+                            </div>
+                            <!-- /.info-box -->
+                        </div>
+                        <div class="{{ $settings9['column_class'] }}">
+                            <div class="info-box">
+                                <span class="info-box-icon bg-red" style="display:flex; flex-direction: column; justify-content: center;">
+                                    <i class="fa fa-chart-line"></i>
+                                </span>
+
+                                <div class="info-box-content">
+                                    <span class="info-box-text">{{ $settings9['chart_title'] }}</span>
+                                    <span class="info-box-number">{{ number_format($settings9['total_number']) }}</span>
+                                </div>
+                                <!-- /.info-box-content -->
+                            </div>
+                            <!-- /.info-box -->
+                        </div>
+                        {{-- Widget - latest entries --}}
+                        <div class="{{ $settings10['column_class'] }}" style="overflow-x: auto;">
+                            <h3>{{ $settings10['chart_title'] }}</h3>
+                            <table class="table table-bordered table-striped">
+                                <thead>
+                                    <tr>
+                                        @foreach($settings10['fields'] as $key => $value)
+                                            <th>
+                                                {{ trans(sprintf('cruds.%s.fields.%s', $settings10['translation_key'] ?? 'pleaseUpdateWidget', $key)) }}
+                                            </th>
+                                        @endforeach
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @forelse($settings10['data'] as $entry)
+                                        <tr>
+                                            @foreach($settings10['fields'] as $key => $value)
+                                                <td>
+                                                    @if($value === '')
+                                                        {{ $entry->{$key} }}
+                                                    @elseif(is_iterable($entry->{$key}))
+                                                        @foreach($entry->{$key} as $subEentry)
+                                                            <span class="label label-info">{{ $subEentry->{$value} }}</span>
+                                                        @endforeach
+                                                    @else
+                                                        {{ data_get($entry, $key . '.' . $value) }}
+                                                    @endif
+                                                </td>
+                                            @endforeach
+                                        </tr>
+                                        @empty
+                                        <tr>
+                                            <td colspan="{{ count($settings10['fields']) }}">{{ __('No entries found') }}</td>
+                                        </tr>
+                                    @endforelse
+                                </tbody>
+                            </table>
+                        </div>
+
+                        {{-- Widget - latest entries --}}
+                        <div class="{{ $settings11['column_class'] }}" style="overflow-x: auto;">
+                            <h3>{{ $settings11['chart_title'] }}</h3>
+                            <table class="table table-bordered table-striped">
+                                <thead>
+                                    <tr>
+                                        @foreach($settings11['fields'] as $key => $value)
+                                            <th>
+                                                {{ trans(sprintf('cruds.%s.fields.%s', $settings11['translation_key'] ?? 'pleaseUpdateWidget', $key)) }}
+                                            </th>
+                                        @endforeach
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @forelse($settings11['data'] as $entry)
+                                        <tr>
+                                            @foreach($settings11['fields'] as $key => $value)
+                                                <td>
+                                                    @if($value === '')
+                                                        {{ $entry->{$key} }}
+                                                    @elseif(is_iterable($entry->{$key}))
+                                                        @foreach($entry->{$key} as $subEentry)
+                                                            <span class="label label-info">{{ $subEentry->{$value} }}</span>
+                                                        @endforeach
+                                                    @else
+                                                        {{ data_get($entry, $key . '.' . $value) }}
+                                                    @endif
+                                                </td>
+                                            @endforeach
+                                        </tr>
+                                        @empty
+                                        <tr>
+                                            <td colspan="{{ count($settings11['fields']) }}">{{ __('No entries found') }}</td>
+                                        </tr>
+                                    @endforelse
+                                </tbody>
+                            </table>
+                        </div>
+
+                        {{-- Widget - latest entries --}}
+                        <div class="{{ $settings12['column_class'] }}" style="overflow-x: auto;">
+                            <h3>{{ $settings12['chart_title'] }}</h3>
+                            <table class="table table-bordered table-striped">
+                                <thead>
+                                    <tr>
+                                        @foreach($settings12['fields'] as $key => $value)
+                                            <th>
+                                                {{ trans(sprintf('cruds.%s.fields.%s', $settings12['translation_key'] ?? 'pleaseUpdateWidget', $key)) }}
+                                            </th>
+                                        @endforeach
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @forelse($settings12['data'] as $entry)
+                                        <tr>
+                                            @foreach($settings12['fields'] as $key => $value)
+                                                <td>
+                                                    @if($value === '')
+                                                        {{ $entry->{$key} }}
+                                                    @elseif(is_iterable($entry->{$key}))
+                                                        @foreach($entry->{$key} as $subEentry)
+                                                            <span class="label label-info">{{ $subEentry->{$value} }}</span>
+                                                        @endforeach
+                                                    @else
+                                                        {{ data_get($entry, $key . '.' . $value) }}
+                                                    @endif
+                                                </td>
+                                            @endforeach
+                                        </tr>
+                                        @empty
+                                        <tr>
+                                            <td colspan="{{ count($settings12['fields']) }}">{{ __('No entries found') }}</td>
+                                        </tr>
+                                    @endforelse
+                                </tbody>
+                            </table>
+                        </div>
+
+                        {{-- Widget - latest entries --}}
+                        <div class="{{ $settings13['column_class'] }}" style="overflow-x: auto;">
+                            <h3>{{ $settings13['chart_title'] }}</h3>
+                            <table class="table table-bordered table-striped">
+                                <thead>
+                                    <tr>
+                                        @foreach($settings13['fields'] as $key => $value)
+                                            <th>
+                                                {{ trans(sprintf('cruds.%s.fields.%s', $settings13['translation_key'] ?? 'pleaseUpdateWidget', $key)) }}
+                                            </th>
+                                        @endforeach
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @forelse($settings13['data'] as $entry)
+                                        <tr>
+                                            @foreach($settings13['fields'] as $key => $value)
+                                                <td>
+                                                    @if($value === '')
+                                                        {{ $entry->{$key} }}
+                                                    @elseif(is_iterable($entry->{$key}))
+                                                        @foreach($entry->{$key} as $subEentry)
+                                                            <span class="label label-info">{{ $subEentry->{$value} }}</span>
+                                                        @endforeach
+                                                    @else
+                                                        {{ data_get($entry, $key . '.' . $value) }}
+                                                    @endif
+                                                </td>
+                                            @endforeach
+                                        </tr>
+                                        @empty
+                                        <tr>
+                                            <td colspan="{{ count($settings13['fields']) }}">{{ __('No entries found') }}</td>
+                                        </tr>
+                                    @endforelse
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="{{ $chart14->options['column_class'] }}">
+                            <h3>{!! $chart14->options['chart_title'] !!}</h3>
+                            {!! $chart14->renderHtml() !!}
+                        </div>
+                        <div class="{{ $chart15->options['column_class'] }}">
+                            <h3>{!! $chart15->options['chart_title'] !!}</h3>
+                            {!! $chart15->renderHtml() !!}
+                        </div>
+                        {{-- Widget - latest entries --}}
+                        <div class="{{ $settings16['column_class'] }}" style="overflow-x: auto;">
+                            <h3>{{ $settings16['chart_title'] }}</h3>
+                            <table class="table table-bordered table-striped">
+                                <thead>
+                                    <tr>
+                                        @foreach($settings16['fields'] as $key => $value)
+                                            <th>
+                                                {{ trans(sprintf('cruds.%s.fields.%s', $settings16['translation_key'] ?? 'pleaseUpdateWidget', $key)) }}
+                                            </th>
+                                        @endforeach
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @forelse($settings16['data'] as $entry)
+                                        <tr>
+                                            @foreach($settings16['fields'] as $key => $value)
+                                                <td>
+                                                    @if($value === '')
+                                                        {{ $entry->{$key} }}
+                                                    @elseif(is_iterable($entry->{$key}))
+                                                        @foreach($entry->{$key} as $subEentry)
+                                                            <span class="label label-info">{{ $subEentry->{$value} }}</span>
+                                                        @endforeach
+                                                    @else
+                                                        {{ data_get($entry, $key . '.' . $value) }}
+                                                    @endif
+                                                </td>
+                                            @endforeach
+                                        </tr>
+                                        @empty
+                                        <tr>
+                                            <td colspan="{{ count($settings16['fields']) }}">{{ __('No entries found') }}</td>
+                                        </tr>
+                                    @endforelse
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="{{ $settings17['column_class'] }}">
+                            <div class="info-box">
+                                <span class="info-box-icon bg-red" style="display:flex; flex-direction: column; justify-content: center;">
+                                    <i class="fa fa-chart-line"></i>
+                                </span>
+
+                                <div class="info-box-content">
+                                    <span class="info-box-text">{{ $settings17['chart_title'] }}</span>
+                                    <span class="info-box-number">{{ number_format($settings17['total_number']) }}</span>
+                                </div>
+                                <!-- /.info-box-content -->
+                            </div>
+                            <!-- /.info-box -->
+                        </div>
+                        <div class="{{ $settings18['column_class'] }}">
+                            <div class="info-box">
+                                <span class="info-box-icon bg-red" style="display:flex; flex-direction: column; justify-content: center;">
+                                    <i class="fa fa-chart-line"></i>
+                                </span>
+
+                                <div class="info-box-content">
+                                    <span class="info-box-text">{{ $settings18['chart_title'] }}</span>
+                                    <span class="info-box-number">{{ number_format($settings18['total_number']) }}</span>
+                                </div>
+                                <!-- /.info-box-content -->
+                            </div>
+                            <!-- /.info-box -->
+                        </div>
+                        <div class="{{ $settings19['column_class'] }}">
+                            <div class="info-box">
+                                <span class="info-box-icon bg-red" style="display:flex; flex-direction: column; justify-content: center;">
+                                    <i class="fa fa-chart-line"></i>
+                                </span>
+
+                                <div class="info-box-content">
+                                    <span class="info-box-text">{{ $settings19['chart_title'] }}</span>
+                                    <span class="info-box-number">{{ number_format($settings19['total_number']) }}</span>
+                                </div>
+                                <!-- /.info-box-content -->
+                            </div>
+                            <!-- /.info-box -->
+                        </div>
+                        <div class="{{ $settings20['column_class'] }}">
+                            <div class="info-box">
+                                <span class="info-box-icon bg-red" style="display:flex; flex-direction: column; justify-content: center;">
+                                    <i class="fa fa-chart-line"></i>
+                                </span>
+
+                                <div class="info-box-content">
+                                    <span class="info-box-text">{{ $settings20['chart_title'] }}</span>
+                                    <span class="info-box-number">{{ number_format($settings20['total_number']) }}</span>
+                                </div>
+                                <!-- /.info-box-content -->
+                            </div>
+                            <!-- /.info-box -->
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -24,5 +390,5 @@
 @endsection
 @section('scripts')
 @parent
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>{!! $chart5->renderJs() !!}{!! $chart6->renderJs() !!}{!! $chart14->renderJs() !!}{!! $chart15->renderJs() !!}
 @endsection

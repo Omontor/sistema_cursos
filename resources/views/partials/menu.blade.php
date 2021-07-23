@@ -542,7 +542,7 @@
                                 </li>
                             @endcan
                             @can('content_access')
-                                <li class="nav-item has-treeview {{ request()->is("admin/sliders*") ? "menu-open" : "" }} {{ request()->is("admin/bullets*") ? "menu-open" : "" }} {{ request()->is("admin/index-abouts*") ? "menu-open" : "" }} {{ request()->is("admin/index-reasons*") ? "menu-open" : "" }} {{ request()->is("admin/index-testimonials*") ? "menu-open" : "" }} {{ request()->is("admin/cta*") ? "menu-open" : "" }}">
+                                <li class="nav-item has-treeview {{ request()->is("admin/sliders*") ? "menu-open" : "" }} {{ request()->is("admin/bullets*") ? "menu-open" : "" }} {{ request()->is("admin/featured-courses*") ? "menu-open" : "" }} {{ request()->is("admin/index-abouts*") ? "menu-open" : "" }} {{ request()->is("admin/index-reasons*") ? "menu-open" : "" }} {{ request()->is("admin/index-testimonials*") ? "menu-open" : "" }} {{ request()->is("admin/cta*") ? "menu-open" : "" }}">
                                     <a class="nav-link nav-dropdown-toggle" href="#">
                                         <i class="fa-fw nav-icon fab fa-pied-piper-pp">
 
@@ -573,6 +573,18 @@
                                                     </i>
                                                     <p>
                                                         {{ trans('cruds.bullet.title') }}
+                                                    </p>
+                                                </a>
+                                            </li>
+                                        @endcan
+                                        @can('featured_course_access')
+                                            <li class="nav-item">
+                                                <a href="{{ route("admin.featured-courses.index") }}" class="nav-link {{ request()->is("admin/featured-courses") || request()->is("admin/featured-courses/*") ? "active" : "" }}">
+                                                    <i class="fa-fw nav-icon fab fa-medapps">
+
+                                                    </i>
+                                                    <p>
+                                                        {{ trans('cruds.featuredCourse.title') }}
                                                     </p>
                                                 </a>
                                             </li>
