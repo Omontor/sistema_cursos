@@ -1,3 +1,4 @@
+
 <?php
 
 Route::get('/', 'HomeController@index');
@@ -222,6 +223,10 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     // Social Network
     Route::delete('social-networks/destroy', 'SocialNetworkController@massDestroy')->name('social-networks.massDestroy');
     Route::resource('social-networks', 'SocialNetworkController');
+
+    // Featured Course
+    Route::delete('featured-courses/destroy', 'FeaturedCourseController@massDestroy')->name('featured-courses.massDestroy');
+    Route::resource('featured-courses', 'FeaturedCourseController');
 
     Route::get('system-calendar', 'SystemCalendarController@index')->name('systemCalendar');
     Route::get('global-search', 'GlobalSearchController@search')->name('globalSearch');
@@ -462,6 +467,10 @@ Route::group(['as' => 'frontend.', 'namespace' => 'Frontend', 'middleware' => ['
     // Social Network
     Route::delete('social-networks/destroy', 'SocialNetworkController@massDestroy')->name('social-networks.massDestroy');
     Route::resource('social-networks', 'SocialNetworkController');
+
+    // Featured Course
+    Route::delete('featured-courses/destroy', 'FeaturedCourseController@massDestroy')->name('featured-courses.massDestroy');
+    Route::resource('featured-courses', 'FeaturedCourseController');
 
     Route::get('frontend/profile', 'ProfileController@index')->name('profile.index');
     Route::post('frontend/profile', 'ProfileController@update')->name('profile.update');
