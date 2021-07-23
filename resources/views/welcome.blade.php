@@ -1,6 +1,10 @@
 @extends('partials.template')
 @section('header')
-   <title>Index</title>
+   @if(isset($company->name))
+   <title>{{$company->name}}</title>
+   @else
+   <title>LMS</title>
+   @endif
 @endsection
 @section('content')
    @include('pages.index')
