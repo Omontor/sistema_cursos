@@ -152,4 +152,7 @@ Route::group(['prefix' => 'v1', 'as' => 'api.', 'namespace' => 'Api\V1\Admin', '
 
     // Social Network
     Route::apiResource('social-networks', 'SocialNetworkApiController');
+
+    // Featured Course
+    Route::apiResource('featured-courses', 'FeaturedCourseApiController');
 });

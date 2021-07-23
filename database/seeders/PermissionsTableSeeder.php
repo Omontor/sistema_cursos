@@ -1000,6 +1000,26 @@ class PermissionsTableSeeder extends Seeder
             ],
             [
                 'id'    => 248,
+                'title' => 'featured_course_create',
+            ],
+            [
+                'id'    => 249,
+                'title' => 'featured_course_edit',
+            ],
+            [
+                'id'    => 250,
+                'title' => 'featured_course_show',
+            ],
+            [
+                'id'    => 251,
+                'title' => 'featured_course_delete',
+            ],
+            [
+                'id'    => 252,
+                'title' => 'featured_course_access',
+            ],
+            [
+                'id'    => 253,
                 'title' => 'profile_password_edit',
             ],
         ];

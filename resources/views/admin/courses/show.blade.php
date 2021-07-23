@@ -162,6 +162,11 @@
                 {{ trans('cruds.transaction.title') }}
             </a>
         </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#course_featured_courses" role="tab" data-toggle="tab">
+                {{ trans('cruds.featuredCourse.title') }}
+            </a>
+        </li>
     </ul>
     <div class="tab-content">
         <div class="tab-pane" role="tabpanel" id="course_reviews">
@@ -184,6 +189,9 @@
         </div>
         <div class="tab-pane" role="tabpanel" id="course_purchased_transactions">
             @includeIf('admin.courses.relationships.coursePurchasedTransactions', ['transactions' => $course->coursePurchasedTransactions])
+        </div>
+        <div class="tab-pane" role="tabpanel" id="course_featured_courses">
+            @includeIf('admin.courses.relationships.courseFeaturedCourses', ['featuredCourses' => $course->courseFeaturedCourses])
         </div>
     </div>
 </div>

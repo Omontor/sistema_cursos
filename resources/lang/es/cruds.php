@@ -1103,4 +1103,20 @@ return [
             'deleted_at_helper' => ' ',
         ],
     ],
+    'featuredCourse' => [
+        'title'          => 'Cursos Destacados',
+        'title_singular' => 'Cursos Destacado',
+        'fields'         => [
+            'id'                => 'ID',
+            'id_helper'         => ' ',
+            'course'            => 'Cursos',
+            'course_helper'     => ' ',
+            'created_at'        => 'Created at',
+            'created_at_helper' => ' ',
+            'updated_at'        => 'Updated at',
+            'updated_at_helper' => ' ',
+            'deleted_at'        => 'Deleted at',
+            'deleted_at_helper' => ' ',
+        ],
+    ],
 ];
