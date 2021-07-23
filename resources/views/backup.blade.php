@@ -7,5 +7,3 @@
 @section('scripts')
 @endsection
 @endsection
-
-
