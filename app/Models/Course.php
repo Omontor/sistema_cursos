@@ -89,6 +89,11 @@ class Course extends Model implements HasMedia
         return $this->belongsToMany(Transaction::class);
     }
 
+    public function courseFeaturedCourses()
+    {
+        return $this->belongsToMany(FeaturedCourse::class);
+    }
+
     public function teacher()
     {
         return $this->belongsTo(User::class, 'teacher_id');
