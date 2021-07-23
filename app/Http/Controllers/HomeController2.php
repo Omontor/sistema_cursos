@@ -3,12 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Company;
-use App\Models\Slider;
 
-class HomeController extends Controller
+class HomeController2 extends Controller
 {
-    /**
+      /**
      * Create a new controller instance.
      *
      * @return void
@@ -25,7 +23,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-          $company = Company::find(1);
+        $company = Company::find(1);
         $sliders = Slider::all()->shuffle();
         return view('welcome', compact('company', 'sliders'));
     }
