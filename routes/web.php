@@ -215,6 +215,8 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
 
     // Company
     Route::delete('companies/destroy', 'CompanyController@massDestroy')->name('companies.massDestroy');
+    Route::post('companies/media', 'CompanyController@storeMedia')->name('companies.storeMedia');
+    Route::post('companies/ckmedia', 'CompanyController@storeCKEditorImages')->name('companies.storeCKEditorImages');
     Route::resource('companies', 'CompanyController');
 
     // Social Network
@@ -453,6 +455,8 @@ Route::group(['as' => 'frontend.', 'namespace' => 'Frontend', 'middleware' => ['
 
     // Company
     Route::delete('companies/destroy', 'CompanyController@massDestroy')->name('companies.massDestroy');
+    Route::post('companies/media', 'CompanyController@storeMedia')->name('companies.storeMedia');
+    Route::post('companies/ckmedia', 'CompanyController@storeCKEditorImages')->name('companies.storeCKEditorImages');
     Route::resource('companies', 'CompanyController');
 
     // Social Network

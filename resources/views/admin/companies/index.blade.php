@@ -53,6 +53,18 @@
                             {{ trans('cruds.company.fields.bank') }}
                         </th>
                         <th>
+                            {{ trans('cruds.company.fields.logo_white') }}
+                        </th>
+                        <th>
+                            {{ trans('cruds.company.fields.logo_color') }}
+                        </th>
+                        <th>
+                            {{ trans('cruds.company.fields.favicon') }}
+                        </th>
+                        <th>
+                            {{ trans('cruds.company.fields.logo') }}
+                        </th>
+                        <th>
                             &nbsp;
                         </th>
                     </tr>
@@ -92,6 +104,34 @@
                             </td>
                             <td>
                                 {{ $company->bank ?? '' }}
+                            </td>
+                            <td>
+                                @if($company->logo_white)
+                                    <a href="{{ $company->logo_white->getUrl() }}" target="_blank" style="display: inline-block">
+                                        <img src="{{ $company->logo_white->getUrl('thumb') }}">
+                                    </a>
+                                @endif
+                            </td>
+                            <td>
+                                @if($company->logo_color)
+                                    <a href="{{ $company->logo_color->getUrl() }}" target="_blank" style="display: inline-block">
+                                        <img src="{{ $company->logo_color->getUrl('thumb') }}">
+                                    </a>
+                                @endif
+                            </td>
+                            <td>
+                                @if($company->favicon)
+                                    <a href="{{ $company->favicon->getUrl() }}" target="_blank">
+                                        {{ trans('global.view_file') }}
+                                    </a>
+                                @endif
+                            </td>
+                            <td>
+                                @if($company->logo)
+                                    <a href="{{ $company->logo->getUrl() }}" target="_blank" style="display: inline-block">
+                                        <img src="{{ $company->logo->getUrl('thumb') }}">
+                                    </a>
+                                @endif
                             </td>
                             <td>
                                 @can('company_show')

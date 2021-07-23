@@ -147,6 +147,7 @@ Route::group(['prefix' => 'v1', 'as' => 'api.', 'namespace' => 'Api\V1\Admin', '
     Route::apiResource('selling-points', 'SellingPointApiController');
 
     // Company
+    Route::post('companies/media', 'CompanyApiController@storeMedia')->name('companies.storeMedia');
     Route::apiResource('companies', 'CompanyApiController');
 
     // Social Network
