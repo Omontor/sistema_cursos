@@ -2,10 +2,13 @@
         <div class="rev_slider_wrapper fullwidthbanner-container" >
             <div id="rev-slider1" class="rev_slider fullwidthabanner">
                 <ul>
-                    <!-- Slide 1 -->
+<!-- Slider -->
+                    @forelse($sliders as $slider)
+
+       
                     <li data-transition="random">
                         <!-- Main Image -->
-                        <img src="images/header/02.png" alt="" data-bgposition="center center" data-no-retina>
+                        <img src="{{$slider->image->getUrl()}}" alt="" data-bgposition="center center" data-no-retina>
                         <div class="overlay"></div>
 
                         <!-- Layers -->
@@ -25,7 +28,8 @@
                         data-start="1000" 
                         data-splitin="none" 
                         data-splitout="none" 
-                        data-responsive_offset="on"> <div class="education-text text-white">Education for all</div> </div>
+                        data-responsive_offset="on"> <div class="education-text text-white">
+                        {{$slider->hero_title}}</div> </div>
 
                         <div class="tp-caption tp-resizeme text-white complete text-edukin"
                         data-x="['left','left','left','center']" data-hoffset="['0','4','4','15']"
@@ -44,7 +48,9 @@
                         data-splitin="none" 
                         data-splitout="none" 
                         data-responsive_offset="on" 
-                        data-paddingright="['550','155','50','2']" >Complete your educution record collection. Discover Educution's full discography. Education is not key to success in life.</div>
+                        data-paddingright="['550','155','50','2']" >
+                        {{$slider->hero_subtitle}}
+                        </div>
 
                         <div class="tp-caption"
                         data-x="['left','left','left','center']" data-hoffset="['0','4','4','15']"
@@ -62,7 +68,7 @@
                         data-splitout="none" 
                         data-responsive_offset="on" 
                         data-paddingtop= "['50','50','50','50']"
-                        data-paddingbottom= "['50','50','50','50']"> <a href="#" class="btn btn-styl1">Read More</a> <a href="#" class="btn btn-styl2"><i class="fa fa-play" aria-hidden="true"></i></a></div>
+                        data-paddingbottom= "['50','50','50','50']"> <a href="{{$slider->button_url}}" class="btn btn-styl1">{{$slider->button_text}}</a></div>
 
                         <div class="tp-caption sl-address"
                         data-x="['left','left','left','center']" data-hoffset="['0','4','4','15']"
@@ -80,10 +86,14 @@
                         data-splitout="none" 
                         data-responsive_offset="on" 
                         data-paddingtop= "['50','50','50','50']"
-                        data-paddingbottom= "['50','50','50','50']"> <a href="#" class="text-white sl-phone"><i class="fa fa-phone" aria-hidden="true"></i> +91 254 785 587</a><a href="#" class="text-white sl-email"><i class="fa fa-envelope" aria-hidden="true"></i> educate@info.com</a></div>
+                        data-paddingbottom= "['50','50','50','50']"> 
+                        @if(isset($slider->bottom_text))
+                        <a href="#" class="text-white sl-phone">{{$slider->bottom_text}}</a></div>
+                        @else
+                        @endif
                     </li>
 
-                    <!-- Slide 2 -->
+                    @empty
                     <li data-transition="random">
                         <!-- Main Image -->
                         <img src="images/header/03.png" alt="" data-bgposition="center center" data-no-retina>
@@ -164,28 +174,22 @@
                         data-paddingtop= "['50','50','50','50']"
                         data-paddingbottom= "['50','50','50','50']"> <a href="#" class="text-white sl-phone"><i class="fa fa-phone" aria-hidden="true"></i> +91 254 785 587</a><a href="#" class="text-white sl-email"><i class="fa fa-envelope" aria-hidden="true"></i> educate@info.com</a></div>
                     </li>
+                    @endforelse
+
+                    
                 </ul>
             </div>
         </div> 
-    </section><!-- flat-slider -->
+    </section>
+<!-- Slider -->
+
+<!-- Registro para newsletter -->
+
     <section class="partner-clients partner-clients-style1"> 
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-md-12">
-                    <div class="slide-client owl-carousel" data-auto="false" data-item="4" data-nav="false" data-dots="false" data-gap="0">
-                        <ul>
-                            <li><img src="images/home1/01.png" alt="images"></li>
-                        </ul>
-                        <ul>
-                            <li><img src="images/home1/02.png" alt="images"></li>
-                        </ul>
-                        <ul>
-                            <li><img src="images/home1/03.png" alt="images"></li>
-                        </ul>
-                        <ul>
-                            <li><img src="images/home1/04.png" alt="images"></li>
-                        </ul>
-                    </div>
+                    
                 </div>
                 <div class="col-lg-4 col-md-12">
                     <div class="iconbox-style1">
@@ -193,14 +197,14 @@
                             <div class="apply-admission-wrap type2 bd-type1">
                                 <div class="apply-admission-inner">
                                     <h2 class="title text-center">
-                                        <span>Apply for admission</span>
+                                        <span>Obtén 20% de Descuento en tu primer compra</span>
                                     </h2>
                                     <div class="caption text-center">
-                                        Make it more simple!
+                                       Sólo registra tu email para nuestro newsletter 
                                     </div>
                                     <div class="apply-sent apply-sent-style1">
                                         <form action="#" class="form-sent">
-                                            <input type="text" placeholder="Enter your email ....">
+                                            <input type="text" placeholder="Tú email ....">
                                             <button class="sent-button bg-cl3f4c99">
                                                 <i class="fa fa-paper-plane-o" aria-hidden="true"></i>
                                             </button>
@@ -213,7 +217,10 @@
                 </div>
             </div>
         </div>
-    </section><!-- partner-clients -->
+    </section>
+
+<!-- Registro para newsletter -->
+    
     <section class="online-courses online-courses-style1">
         <div class="container">
             <div class="title-section text-center">

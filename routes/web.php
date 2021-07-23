@@ -1,6 +1,6 @@
 <?php
 
-Route::view('/', 'welcome');
+Route::get('/', 'HomeController@index');
 Route::get('userVerification/{token}', 'UserVerificationController@approve')->name('userVerification');
 Auth::routes();
 
