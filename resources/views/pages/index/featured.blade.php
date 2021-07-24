@@ -28,17 +28,27 @@
                                 </div>
                                 <div class="evaluate">
                                     <div class="price">
-                                        <span class="price-now">$269</span>
-                                        <span class="price-previou"><del>$169</del></span>
+                                        <span class="price-now">${{$course->price}}</span>
+                                        
                                     </div>
+                                @if($course->courseReviews->count() > 0)
+
+                       
+                                        <div class="review">
+                                            @for ($i = 0; $i < $course->courseReviews->average('value'); $i++)
+                                               <i class="fa fa-star" aria-hidden="true"></i>
+                                            @endfor
+                                      
+                                        <span>{{$course->courseReviews->average('value')}}</span>
+                                    </div>
+                                @else
                                     <div class="review">
                                         <i class="fa fa-star" aria-hidden="true"></i>
-                                        <i class="fa fa-star" aria-hidden="true"></i>
-                                        <i class="fa fa-star" aria-hidden="true"></i>
-                                        <i class="fa fa-star" aria-hidden="true"></i>
-                                        <i class="fa fa-star" aria-hidden="true"></i>
-                                        <span>(4)</span>
+
+                                        <span> Sin Valoraciones</span>
                                     </div>
+                                @endif
+
                                 </div>
                             </div>
                         </div>
