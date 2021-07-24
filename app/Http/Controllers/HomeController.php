@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Company;
 use App\Models\Slider;
 use App\Models\FeaturedCourse;
+use App\Models\Bullet;
 
 class HomeController extends Controller
 {
@@ -29,6 +30,7 @@ class HomeController extends Controller
         $company = Company::find(1);
         $sliders = Slider::all()->shuffle();
         $featured = FeaturedCourse::all();
-        return view('welcome', compact('company', 'sliders', 'featured'));
+        $bullets = Bullet::orderBy('id', 'ASC')->take(3)->get();
+        return view('welcome', compact('company', 'sliders', 'featured', 'bullets'));
     }
 }

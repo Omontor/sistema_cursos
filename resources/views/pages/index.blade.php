@@ -11,62 +11,12 @@
                     @if($featured->count() > 0)
                     @include('pages.index.featured')
                     @endif
+            <!-- Si no hay registrados bullets no mostramos este bloque -->
+                    @if($bullets->count() > 0)
+                    @include('pages.index.bullets')
+                    @endif
 
-    <section class="flat-services style1 parallax parallax1 clearfix">
-        <div class="section-overlay"></div>
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-lg-4">
-                    <div class="services-content-box themesflat-content-box" data-padding="0% 30% 0% 0%" data-mobipadding="0% 0% 0% 0%" data-smobipadding="0% 0% 0% 0%">
-                        <div class="flat-imagebox imagebox-services style1">
-                            <div class="imagebox-content">
-                                <img src="images/home1/13.png" alt="images">
-                                <h5 class="text-one text-white">Education Services</h5>
-                                <p class="text-white">
-                                    Education is the most power which you can use to change the world.” Education is the key to.
-                                </p>
-                                <div class="read-more">
-                                    <a href="#">Read More</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="services-content-box themesflat-content-box" data-padding="0% 15% 0% 16%" data-mobipadding="0% 0% 0% 0%" data-smobipadding="0% 0% 0% 0%">
-                        <div class="flat-imagebox imagebox-services style1">
-                            <div class="imagebox-content">
-                                <img src="images/home1/14.png" alt="images">
-                                <h5 class="text-two text-white">Success Rate</h5>
-                                <p class="text-white">
-                                    Education is the most power which you can use to change the world.” Education is the key to.
-                                </p>
-                                <div class="read-more">
-                                    <a href="#">Read More</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="services-content-box themesflat-content-box" data-padding="0% 0% 0% 30.5%" data-mobipadding="0% 0% 0% 0%" data-smobipadding="0% 0% 0% 0%">
-                        <div class="flat-imagebox imagebox-services style1">
-                            <div class="imagebox-content">
-                                <img src="images/home1/15.png" alt="images">
-                                <h5 class="text-three text-white">Foreign Student</h5>
-                                <p class="text-white">
-                                    Education is the most power which you can use to change the world.” Education is the key to.
-                                </p>
-                                <div class="read-more">
-                                    <a href="#">Read More</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section><!-- flat-services -->
+                    
     <section class="flat-introduce flat-introduce-style1 clearfix">
         <div class="container">
             <div class="col-left">

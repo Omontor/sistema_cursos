@@ -43,7 +43,7 @@
                                     </div>
                                 @else
                                     <div class="review">
-                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="far fa-star" aria-hidden="true"></i>
 
                                         <span> Sin Valoraciones</span>
                                     </div>
