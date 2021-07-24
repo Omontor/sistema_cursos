@@ -10,6 +10,20 @@
         <form method="POST" action="{{ route("admin.courses.update", [$course->id]) }}" enctype="multipart/form-data">
             @method('PUT')
             @csrf
+
+                        <div class="form-group">
+                <label class="required" for="category_id">{{ trans('cruds.blog.fields.category') }}</label>
+                <select class="form-control select2 {{ $errors->has('category') ? 'is-invalid' : '' }}" name="category_id" id="category_id" required>
+                    @foreach($categories as $id => $entry)
+                        <option value="{{ $entry->id }}" {{ old('category_id') == $id ? 'selected' : '' }}>{{ $entry->title }}</option>
+                    @endforeach
+                </select>
+                @if($errors->has('category'))
+                    <span class="text-danger">{{ $errors->first('category') }}</span>
+                @endif
+                <span class="help-block">{{ trans('cruds.blog.fields.category_helper') }}</span>
+            </div>
+
             <div class="form-group">
                 <label class="required" for="teacher_id">{{ trans('cruds.course.fields.teacher') }}</label>
                 <select class="form-control select2 {{ $errors->has('teacher') ? 'is-invalid' : '' }}" name="teacher_id" id="teacher_id" required>
