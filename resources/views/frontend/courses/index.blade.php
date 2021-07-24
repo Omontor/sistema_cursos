@@ -1,4 +1,12 @@
-@extends('layouts.frontend')
+@extends('partials.template')
+@section('header')
+   @if(isset($company->name))
+   <title>{{$company->name}}</title>
+   @else
+   <title>LMS</title>
+   @endif
+@endsection
+@section('content')
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
@@ -183,6 +191,13 @@
     </div>
 </div>
 @endsection
+@section('scripts')
+@endsection
+@endsection
+
+
+
+
 @section('scripts')
 @parent
 <script>

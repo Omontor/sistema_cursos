@@ -7,32 +7,7 @@
                     <div class="mobile-button"><span></span></div>
                     <div class="header-menu">
                         <nav id="main-nav" class="main-nav">
-                            <ul class="menu">
-                                <li>
-                                    <a href="{{ url('/') }}">Inicio</a>
-                                </li>
-                                <li>
-                                    <a href="#">Cursos</a> 
-                                </li>
-                                <li><a href="#">Nosotros</a>
-                                    <ul class="sub-menu">
-                                        <li class="menu-item"><a href="#">Instructores</a></li>
-                                    </ul><!-- sub-menu -->
-                                </li>
-                                <li><a href="#">Comunidad</a>
-                                    <ul class="sub-menu">
-                                        <li class="menu-item"><a href="#">Blog</a></li>
-                                        <li class="menu-item"><a href="#">Foro</a></li>
-                                    </ul><!-- sub-menu -->
-                                </li>
-                                <li>
-                                    <a href="#">Contacto</a> 
-                                </li>
-                                <li class="nav-sing">
-                                    <a class="sing-in" href="{{ route('login') }}">Iniciar sesión</a>
-                                    <a class="sing-up" href="{{ route('register') }}">Cerrar sesión</a>
-                                </li>
-                            </ul>
+                            @include('partials.botones')
                         </nav>
                     </div> 
                 </div>
