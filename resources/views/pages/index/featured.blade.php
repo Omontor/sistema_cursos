@@ -12,17 +12,16 @@
                     <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
                         <div class="imagebox-courses-type1">
                             <div class="featured-post">
-                                <img src="images/home1/05.png" alt="images">
+
+                                <img src="{{$course->thumbnail->first()->getUrl()}}" alt="{{$course->title}}">
                             </div>
                             <div class="author-info">
-                                <div class="avatar">
-                                    <img src="images/home1/11.png" alt="images">
-                                </div>
+  
                                 <div class="category">
-                                    design
+                                    {{$course->category->title}}
                                 </div>
                                 <div class="name">
-                                    <a href="#">Learn Photoshop CC ...</a> 
+                                    <a href="#">{{$course->title}}</a> 
                                 </div>
                                 <div class="border-bt">
                                     
