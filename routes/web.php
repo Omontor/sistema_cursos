@@ -485,3 +485,4 @@ Route::group(['as' => 'frontend.', 'namespace' => 'Frontend', 'middleware' => ['
 /*RUTAS FRONTEND____________________________________*/
 
 Route::get ('/cursos', 'CoursesController@index')->name('cursos.index');
+Route::get ('/cursos/{id}', 'CoursesController@single')->name('cursos.curso');

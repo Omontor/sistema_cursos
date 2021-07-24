@@ -12,4 +12,10 @@ class CoursesController extends Controller
        $loscursos = Course::all(); 
        return view ('pages.courses.index', compact('loscursos'));
     }
+
+    public function single($id)
+    {
+       $elcurso = Course::find($id); 
+       return view ('pages.courses.single', compact('elcurso'));
+    }
 }

@@ -30,21 +30,22 @@
                 </div>
 
             </div>
-            {{$loscursos}}
+           
             <div class="flat-courses clearfix isotope-courses">
 
                 <div class="course clearfix Marketing ">    
                     <div class="flat-course">
+                        @forelse($loscursos as $curso)
                         <div class="featured-post post-media">
                             <div class="entry-image pic">
-                                <img src="images/course-grid/1.jpg" alt="images">
+                                <img src="{{$curso->thumbnail->first()->getUrl()}}" alt="images">
                                 <div class="hover-effect"></div>
                                 <div class="links">
                                     <a href="#">Comprar</a>
                                 </div>
                             </div>
                         </div>
-                        @forelse($loscursos as $curso)
+                       
                         <div class="course-content clearfix">
                             <div class="wrap-course-content">
                                 <h4>
@@ -62,16 +63,31 @@
                                     </div>
                                 </div>
                             </div>
+
+
+
+   
+
+
+
                             <div class="wrap-rating-price">
                                 <div class="meta-rate">
-                                    <div class="rating">
-                                        <i class="fa fa-star" aria-hidden="true"></i>
-                                        <i class="fa fa-star" aria-hidden="true"></i>
-                                        <i class="fa fa-star" aria-hidden="true"></i>
-                                        <i class="fa fa-star" aria-hidden="true"></i>
-                                        <i class="fa fa-star" aria-hidden="true"></i>
-                                        <span>(4)</span>
-                                    </div>
+                                         @if($curso->courseReviews->count() > 0)
+
+                                            <div class="rating">
+                                                @for ($i = 0; $i < $course->courseReviews->average('value'); $i++)
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                @endfor
+
+                                                <span>{{$course->courseReviews->average('value')}}</span>   
+                                            </div>
+                                            @else
+                                            <div class="rating">
+                                                <i class="fa fa-star-o" aria-hidden="true"></i>
+                                                <span> Sin Valoraciones</span>
+                                            </div>
+                                        @endif
+
                                     <div class="price">
                                         <span class="price-now">{{$curso->price}}</span>
                                     </div>
