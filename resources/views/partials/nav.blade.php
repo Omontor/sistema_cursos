@@ -8,29 +8,29 @@
                     <div class="header-menu">
                         <nav id="main-nav" class="main-nav">
                             <ul class="menu">
-                                <li><a href="{{ url('/') }}">Home</a>
+                                <li>
+                                    <a href="{{ url('/') }}">Inicio</a>
                                 </li>
-                                <li><a href="course.html">Course</a>
+                                <li>
+                                    <a href="#">Cursos</a> 
+                                </li>
+                                <li><a href="#">Nosotros</a>
                                     <ul class="sub-menu">
-                                        <li class="menu-item"><a href="course.html">Course</a></li>
-                                        <li class="menu-item"><a href="course-list.html">Course list</a></li>
-                                        <li class="menu-item"><a href="course-single.html">Course single</a></li>
+                                        <li class="menu-item"><a href="#">Instructores</a></li>
                                     </ul><!-- sub-menu -->
                                 </li>
-                                <li><a href="#">Explore</a>
+                                <li><a href="#">Comunidad</a>
                                     <ul class="sub-menu">
-                                        <li class="menu-item"><a href="about.html">About</a></li>
+                                        <li class="menu-item"><a href="#">Blog</a></li>
+                                        <li class="menu-item"><a href="#">Foro</a></li>
                                     </ul><!-- sub-menu -->
                                 </li>
-                                <li><a href="#">Degrees</a>
-                                    <ul class="sub-menu">
-                                        <li class="menu-item"><a href="blog.html">Blog</a></li>
-                                        <li class="menu-item"><a href="blog-single.html">Blog single</a></li>
-                                    </ul><!-- sub-menu -->
+                                <li>
+                                    <a href="#">Contacto</a> 
                                 </li>
                                 <li class="nav-sing">
-                                    <a class="sing-in" href="{{ route('login') }}">Sing In</a>
-                                    <a class="sing-up" href="{{ route('register') }}">Sing Up</a>
+                                    <a class="sing-in" href="{{ route('login') }}">Iniciar sesión</a>
+                                    <a class="sing-up" href="{{ route('register') }}">Cerrar sesión</a>
                                 </li>
                             </ul>
                         </nav>
