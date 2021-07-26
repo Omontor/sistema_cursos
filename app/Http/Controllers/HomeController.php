@@ -8,6 +8,7 @@ use App\Models\Slider;
 use App\Models\FeaturedCourse;
 use App\Models\Bullet;
 use App\Models\IndexAbout;
+use App\Models\IndexReason;
 
 class HomeController extends Controller
 {
@@ -33,6 +34,7 @@ class HomeController extends Controller
         $featured = FeaturedCourse::all();
         $bullets = Bullet::orderBy('id', 'ASC')->take(3)->get();
         $about = IndexAbout::first();
-        return view('welcome', compact('company', 'sliders', 'featured', 'bullets', 'about'));
+        $reasons = IndexReason::orderBy('id', 'ASC')->take(4)->get();
+        return view('welcome', compact('company', 'sliders', 'featured', 'bullets', 'about', 'reasons'));
     }
 }
