@@ -5,10 +5,10 @@
 
 
     
-    @section('name')
-    Cursos
-    @endsection
-    @section('content')
+@section('name')
+Cursos
+@endsection
+@section('content')
 
     <div class="course-grid">
         <div class="container">
@@ -49,17 +49,17 @@
                         <div class="course-content clearfix">
                             <div class="wrap-course-content">
                                 <h4>
-                                    <a href="#">{{$curso->title}}</a>
+                                    <a href="{{route('cursos.curso', $curso->id)}}">{{$curso->title}}</a>
                                 </h4>
                                 <p>
-                                  {{Str::limit(strip_tags($curso->description), $limit = 150, $end = '...')}} 
+                                  {{$curso->excerpt}} 
                                 </p>
                                 <div class="author-info">
                                     <div class="author-name">
                                        {{$curso->teacher->name}}
                                     </div>
                                     <div class="enroll">
-                                        <a href="#">Ver más</a>
+                                        <a href="{{route('cursos.curso', $curso->id)}}">Ver más</a>
                                     </div>
                                 </div>
                             </div>
@@ -89,7 +89,7 @@
                                         @endif
 
                                     <div class="price">
-                                        <span class="price-now">{{$curso->price}}</span>
+                                        <span class="price-now">${{$curso->price}} MXN</span>
                                     </div>
                                 </div>
                             </div>
@@ -100,6 +100,8 @@
                 </div> 
                
             </div> 
+
+            {{$loscursos->links()}}
             <div class="pagination">
                 <ul>
                     <li><a href="#" class="page-numbers current">1</a></li>
@@ -142,8 +144,8 @@
         </div>
     </div><!-- cta-cr -->
 
-    @endsection
+@endsection
 
-    @section('scripts')
-    @endsection
+@section('scripts')
+@endsection
 

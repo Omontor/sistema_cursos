@@ -29,14 +29,25 @@
                 @endif
                 <span class="help-block">{{ trans('cruds.course.fields.title_helper') }}</span>
             </div>
+
+              <div class="form-group">
+                <label class="required" for="excerpt">Descripción corta</label>
+                <textarea class="form-control  {{ $errors->has('excerpt') ? 'is-invalid' : '' }}" name="excerpt" id="excerpt" required="">{{old('excerpt')}}</textarea>
+                @if($errors->has('excerpt'))
+                    <span class="text-danger">{{ $errors->first('excerpt') }}</span>
+                @endif
+              
+            </div>
+
             <div class="form-group">
                 <label class="required" for="description">{{ trans('cruds.course.fields.description') }}</label>
-                <textarea class="form-control {{ $errors->has('description') ? 'is-invalid' : '' }}" name="description" id="description" required>{{ old('description') }}</textarea>
+                <textarea class="form-control ckeditor {{ $errors->has('description') ? 'is-invalid' : '' }}" name="description" id="description" required>{{ old('description') }}</textarea>
                 @if($errors->has('description'))
                     <span class="text-danger">{{ $errors->first('description') }}</span>
                 @endif
                 <span class="help-block">{{ trans('cruds.course.fields.description_helper') }}</span>
             </div>
+
             <div class="form-group">
                 <label for="price">{{ trans('cruds.course.fields.price') }}</label>
                 <input class="form-control {{ $errors->has('price') ? 'is-invalid' : '' }}" type="number" name="price" id="price" value="{{ old('price', '') }}" step="0.01">

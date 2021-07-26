@@ -46,6 +46,7 @@ class Course extends Model implements HasMedia
         'updated_at',
         'deleted_at',
         'created_by_id',
+        'excerpt',
     ];
 
     public function registerMediaConversions(Media $media = null): void
