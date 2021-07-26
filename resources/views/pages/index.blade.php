@@ -15,60 +15,13 @@
                     @if($bullets->count() > 0)
                     @include('pages.index.bullets')
                     @endif
-
+            <!-- Si no hay Acerca de no mostramos este bloque -->
+                    @if($about != null)
+                    @include('pages.index.about')
+                    @else
+                    @endif
                     
-    <section class="flat-introduce flat-introduce-style1 clearfix">
-        <div class="container">
-            <div class="col-left">
-                <div class="videobox">
-                    <a class="fancybox" data-type="iframe" href="https://www.youtube.com/embed/2Ge1GGitzLw?autoplay=1">
-                        <img src="images/home1/5.jpg" alt="images">
-                    </a>
-                    <div class="elip-top">
-                        <img src="images/home1/42.png" alt="images">
-                    </div>
-                    <div class="elip-bottom">
-                        <img src="images/home1/42.png" alt="images">
-                    </div>
-                </div>
-            </div>
-            <div class="col-right">
-                <div class="content-introduce content-introduce-style1">
-                    <div class="title-section">
-                        <p class="sub-title lt-sp25">About our university</p>
-                        <div class="flat-title larger heading-type1">Take a tour</div>
-                    </div>
-                    <div class="content-introduce-inner">
-                        <p>
-                            Education is the most powerful weapon which you can use to change the world.” Education is the key to elimi-nating gender inequality, to reducing poverty.
-                        </p>
-                        <p>
-                            to creating a sustainable planet, to preventing needless deaths and illness, and to fostering peace.
-                        </p>
-                        <div class="content-list">
-                            <ul>
-                                <li>
-                                    <span class="text">
-                                        Education is extremely important because you overcome superstitions.
-                                    </span>
-                                </li>
-                                <li>
-                                    <span class="text">
-                                        Education is only valuable if children are being taught right things.
-                                    </span>
-                                </li>
-                                <li>
-                                    <span class="text">  
-                                        Education is not key to success in life.
-                                    </span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section><!-- flat-introduce -->
+    
     <section class="flat-benefit style1 clearfix">
         <div class="container-fluid">
             <div class="col-benefit-left">

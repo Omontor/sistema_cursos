@@ -7,6 +7,7 @@ use App\Models\Company;
 use App\Models\Slider;
 use App\Models\FeaturedCourse;
 use App\Models\Bullet;
+use App\Models\IndexAbout;
 
 class HomeController extends Controller
 {
@@ -27,10 +28,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $company = Company::find(1);
+        $company = Company::first();
         $sliders = Slider::all()->shuffle();
         $featured = FeaturedCourse::all();
         $bullets = Bullet::orderBy('id', 'ASC')->take(3)->get();
-        return view('welcome', compact('company', 'sliders', 'featured', 'bullets'));
+        $about = IndexAbout::first();
+        return view('welcome', compact('company', 'sliders', 'featured', 'bullets', 'about'));
     }
 }
