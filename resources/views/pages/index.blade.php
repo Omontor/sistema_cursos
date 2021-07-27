@@ -24,121 +24,12 @@
                     @if($reasons->count() > 0)
                     @include('pages.index.reasons')
                     @endif
-    <section class="flat-event flat-event-style1 clearfix">
-        <div class="container-fluid">
-            <div class="col-left">
-                <div class="content-event-style1 themesflat-content-box" data-padding="13.7% 1.2% 0% 0%" data-sdesktoppadding="0% 0% 0% 0%" data-ssdesktoppadding="0% 0% 0% 0%" data-mobipadding="0% 0% 0% 0%" data-smobipadding="0% 0% 0% 0%">
-                    <div class="title-section">
-                        <div class="flat-title larger heading-type3">All upcoming events</div>
-                    </div>
-                    <div class="content-event">
-                        <div class="entry-info clearfix">
-                            <div class="entry-title">
-                                <a href="#" class="cl-7ecc88">
-                                    International Conference on Business .....
-                                </a>
-                            </div>
-                            <div class="entry-meta">
-                                <ul>
-                                    <li class="date clearfix">
-                                        <span class="icon-event icon-icons8-planner-100"></span>
-                                        <span class="detail-event">July 8, 2018</span>
-                                    </li>
-                                    <li class="time clearfix">
-                                        <span class="icon-event icon-icons8-stopwatch-100"></span>
-                                        <span class="detail-event">5.00pm - 7.00pm</span>
-                                    </li>
-                                    <li class="location clearfix">
-                                        <span class="icon-event icon-icons8-marker-100"></span>
-                                        <span class="detail-event">United States</span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="entry-number number-one">
-                            <span class="cl-7ecc88">1</span>
-                        </div>
-                    </div>
-                    <div class="content-event">
-                        <div class="entry-info clearfix">
-                            <div class="entry-title">
-                                <a href="#" class="cl-3f4c99">
-                                    International Conference on Business .....
-                                </a>
-                            </div>
-                            <div class="entry-meta">
-                                <ul>
-                                    <li class="date clearfix">
-                                        <span class="icon-event icon-icons8-planner-100"></span>
-                                        <span class="detail-event">July 8, 2018</span>
-                                    </li>
-                                    <li class="time clearfix">
-                                        <span class="icon-event icon-icons8-stopwatch-100"></span>
-                                        <span class="detail-event">5.00pm - 7.00pm</span>
-                                    </li>
-                                    <li class="location clearfix">
-                                        <span class="icon-event icon-icons8-marker-100"></span>
-                                        <span class="detail-event">United States</span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="entry-number number-two">
-                            <span class="cl-3f4c99">2</span>
-                        </div>
-                    </div>
-                    <div class="content-event">
-                        <div class="entry-info clearfix">
-                            <div class="entry-title">
-                                <a href="#" class="cl-ff5f60">
-                                    International Conference on Business .....
-                                </a> 
-                            </div>
-                            <div class="entry-meta">
-                                <ul>
-                                    <li class="date clearfix">
-                                        <span class="icon-event icon-icons8-planner-100"></span>
-                                        <span class="detail-event">July 8, 2018</span>
-                                    </li>
-                                    <li class="time clearfix">
-                                        <span class="icon-event icon-icons8-stopwatch-100"></span>
-                                        <span class="detail-event">5.00pm - 7.00pm</span>
-                                    </li>
-                                    <li class="location clearfix">
-                                        <span class="icon-event icon-icons8-marker-100"></span>
-                                        <span class="detail-event">United States</span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="entry-number number-three">
-                            <span class="cl-ff5f60">3</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-right">
-                <div class="images-list themesflat-content-box" data-padding="0% 0% 0% 15.1%" data-sdesktoppadding="0% 0% 0% 5%" data-ssdesktoppadding="0% 0% 0% 0%" data-mobipadding="0% 0% 0% 0%" data-smobipadding="0% 0% 0% 0%">
-                    <div class="images-list-1">
-                        <div class="img-event">
-                            <img src="images/home1/24.png" alt="images">
-                            <span class="number bg-cl7ecc88">1</span>
-                        </div>
-                        <div class="img-event">
-                            <img src="images/home1/25.png" alt="images">
-                            <span class="number bg-cl3f4c99">2</span>
-                        </div>
-                    </div>
-                    <div class="images-list-2">
-                        <div class="img-event">
-                            <img src="images/home1/26.png" alt="images">
-                            <span class="number bg-clff5f60">3</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section><!-- flat-event -->
+
+            <!-- Si no hay eventos registrados no mostramos este bloque -->
+                    @if($classes->count() > 0)
+                    @include('pages.index.classes')
+                    @endif
+
     <section class="slider testimonial-flexslider testimonial-style1 equalize sm-equalize-auto clearfix">        
         <div class="wrap-info themesflat-content-box" data-padding="0% 0% 0% 10%" data-sdesktoppadding="0% 0% 0% 0%" data-ssdesktoppadding="0% 0% 0% 0%" data-mobipadding="0% 0% 0% 0%" data-smobipadding="0% 0% 0% 0%">
             <div id="carousel-testimonial" class="flexslider">
