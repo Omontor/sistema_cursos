@@ -11,6 +11,8 @@ use App\Models\IndexAbout;
 use App\Models\IndexReason;
 use App\Models\OnlineClass;
 use App\Models\IndexTestimonial;
+use App\Models\Blog;
+use App\Models\Ctum;
 
 class HomeController extends Controller
 {
@@ -39,6 +41,8 @@ class HomeController extends Controller
         $reasons = IndexReason::orderBy('id', 'ASC')->take(4)->get();
         $classes = OnlineClass::orderBy('start', 'DESC')->take(3)->get();
         $testimonials = IndexTestimonial::orderBy('id', 'DESC')->take(5)->get();
-        return view('welcome', compact('company', 'sliders', 'featured', 'bullets', 'about', 'reasons', 'classes', 'testimonials'));
+        $posts = Blog::orderBy('id', 'DESC')->take(10)->get();
+        $ctas = Ctum::first();
+        return view('welcome', compact('company', 'sliders', 'featured', 'bullets', 'about', 'reasons', 'classes', 'testimonials', 'posts', 'ctas'));
     }
 }

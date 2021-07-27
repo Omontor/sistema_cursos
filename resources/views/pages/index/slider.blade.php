@@ -1,3 +1,7 @@
+<section class="flat-slider style1 clearfix">
+        <div class="rev_slider_wrapper fullwidthbanner-container" >
+            <div id="rev-slider1" class="rev_slider fullwidthabanner">
+                <ul>
 <!-- Slider -->
                     @forelse($sliders as $slider)
 
@@ -173,8 +177,10 @@
                     @endforelse
 
                     
+
+<!-- Slider -->
+                   
                 </ul>
             </div>
         </div> 
     </section>
-<!-- Slider -->
