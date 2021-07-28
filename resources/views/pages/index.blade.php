@@ -32,7 +32,7 @@
                     @endif       
             <!-- Si no hay testimonios registrados no mostramos este bloque -->
                     @if($ctas)
-                    @include('pages.index.blog')
+                    @include('pages.index.cta')
                     @endif
 
 
