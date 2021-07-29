@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     @yield('header')
+
     @include('partials.header')
 </head>
 <body>
@@ -13,6 +14,7 @@
     @yield('content')
     @include('partials.footer')
     @yield('scripts')
+
     @include('partials.scripts')
 </body>
 </html>
