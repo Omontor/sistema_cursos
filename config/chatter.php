@@ -91,7 +91,7 @@ return [
     |
     */
 
-    'master_file_extend' => 'layouts.app',
+    'master_file_extend' => 'forum.app',
 
     /*
     |--------------------------------------------------------------------------
@@ -190,7 +190,7 @@ return [
     |
     */
 
-    'editor' => 'tinymce',
+    'editor' => 'simplemde',
 
     /*
     |--------------------------------------------------------------------------
@@ -262,7 +262,7 @@ return [
     */
 
     'middleware' => [
-        'global'     => ['web'],
+        'global'     => ['auth'],
         'home'       => [],
         'discussion' => [
             'index'   => [],
