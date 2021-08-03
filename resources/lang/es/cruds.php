@@ -143,7 +143,7 @@ return [
     ],
     'lesson' => [
         'title'          => 'Lecciones',
-        'title_singular' => 'Leccione',
+        'title_singular' => 'Lección',
         'fields'         => [
             'id'                  => 'ID',
             'id_helper'           => ' ',
@@ -157,8 +157,10 @@ return [
             'short_text_helper'   => ' ',
             'long_text'           => 'Long Text',
             'long_text_helper'    => ' ',
-            'video'               => 'Video',
-            'video_helper'        => ' ',
+            'videoid'               => 'Video',
+            'videoid_helper'        => 'Coloca únicamente el ID del video de youtube',
+            'files'               => 'Archivos',
+            'files_helper'        => 'En caso de tener archivos de apoyo para que tus alumnos descarguen, agrégalos aquí',
             'position'            => 'Position',
             'position_helper'     => ' ',
             'is_published'        => 'Is Published',
@@ -176,8 +178,8 @@ return [
         ],
     ],
     'test' => [
-        'title'          => 'Examenes',
-        'title_singular' => 'Examene',
+        'title'          => 'Exámenes',
+        'title_singular' => 'Exámen',
         'fields'         => [
             'id'                  => 'ID',
             'id_helper'           => ' ',
@@ -227,7 +229,7 @@ return [
     ],
     'questionOption' => [
         'title'          => 'Opciones',
-        'title_singular' => 'Opcione',
+        'title_singular' => 'Opción',
         'fields'         => [
             'id'                 => 'ID',
             'id_helper'          => ' ',
@@ -299,7 +301,7 @@ return [
     ],
     'faqCategory' => [
         'title'          => 'Categorias',
-        'title_singular' => 'Categoria',
+        'title_singular' => 'Categoría',
         'fields'         => [
             'id'                => 'ID',
             'id_helper'         => ' ',
@@ -334,12 +336,12 @@ return [
         ],
     ],
     'comunicacion' => [
-        'title'          => 'Comunicacion',
-        'title_singular' => 'Comunicacion',
+        'title'          => 'Comunicación',
+        'title_singular' => 'Comunicación',
     ],
     'lm' => [
         'title'          => 'Lms',
-        'title_singular' => 'Lm',
+        'title_singular' => 'Lms',
     ],
     'prueba' => [
         'title'          => 'Pruebas',
@@ -447,7 +449,7 @@ return [
     ],
     'skill' => [
         'title'          => 'Habilidades',
-        'title_singular' => 'Habilidade',
+        'title_singular' => 'Habilidad',
         'fields'         => [
             'id'                 => 'ID',
             'id_helper'          => ' ',
@@ -640,7 +642,7 @@ return [
         'title_singular' => 'Clases Virtuale',
     ],
     'onlineClass' => [
-        'title'          => 'Clase en línea',
+        'title'          => 'Clases en línea',
         'title_singular' => 'Clase en línea',
         'fields'         => [
             'id'                 => 'ID',
@@ -676,7 +678,7 @@ return [
         ],
     ],
     'reservation' => [
-        'title'          => 'Reservación',
+        'title'          => 'Reservaciones',
         'title_singular' => 'Reservación',
         'fields'         => [
             'id'                => 'ID',
@@ -759,7 +761,7 @@ return [
     ],
     'coupon' => [
         'title'          => 'Cupones',
-        'title_singular' => 'Cupone',
+        'title_singular' => 'Cupón',
         'fields'         => [
             'id'                 => 'ID',
             'id_helper'          => ' ',
@@ -815,7 +817,7 @@ return [
     ],
     'enrollment' => [
         'title'          => 'Inscripciones',
-        'title_singular' => 'Inscripcione',
+        'title_singular' => 'Inscripción',
         'fields'         => [
             'id'                     => 'ID',
             'id_helper'              => ' ',
@@ -835,7 +837,7 @@ return [
     ],
     'page' => [
         'title'          => 'Paginas',
-        'title_singular' => 'Pagina',
+        'title_singular' => 'Página',
         'fields'         => [
             'id'                => 'ID',
             'id_helper'         => ' ',
@@ -892,8 +894,8 @@ return [
         'title_singular' => 'Contenido Home',
     ],
     'staticPage' => [
-        'title'          => 'Páginas Estáticas',
-        'title_singular' => 'Páginas Estática',
+        'title'          => 'Paginas Estáticas',
+        'title_singular' => 'Página Estática',
     ],
     'bullet' => [
         'title'          => 'Bullets',
@@ -939,7 +941,7 @@ return [
     ],
     'indexReason' => [
         'title'          => 'Razones',
-        'title_singular' => 'Razone',
+        'title_singular' => 'Razón',
         'fields'         => [
             'id'                => 'ID',
             'id_helper'         => ' ',
@@ -1007,7 +1009,7 @@ return [
     ],
     'about' => [
         'title'          => 'Nosotros',
-        'title_singular' => 'Nosotro',
+        'title_singular' => 'Nosotros',
         'fields'         => [
             'id'                => 'ID',
             'id_helper'         => ' ',
@@ -1044,7 +1046,7 @@ return [
         ],
     ],
     'company' => [
-        'title'          => 'Empresa',
+        'title'          => 'Empresas',
         'title_singular' => 'Empresa',
         'fields'         => [
             'id'                  => 'ID',
@@ -1085,7 +1087,7 @@ return [
     ],
     'socialNetwork' => [
         'title'          => 'Redes Sociales',
-        'title_singular' => 'Redes Sociale',
+        'title_singular' => 'Red Social',
         'fields'         => [
             'id'                => 'ID',
             'id_helper'         => ' ',
@@ -1105,7 +1107,7 @@ return [
     ],
     'featuredCourse' => [
         'title'          => 'Cursos Destacados',
-        'title_singular' => 'Cursos Destacado',
+        'title_singular' => 'Curso Destacado',
         'fields'         => [
             'id'                => 'ID',
             'id_helper'         => ' ',

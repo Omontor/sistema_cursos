@@ -41,7 +41,7 @@
             </div>
             <div class="form-group">
                 <label for="short_text">{{ trans('cruds.lesson.fields.short_text') }}</label>
-                <textarea class="form-control {{ $errors->has('short_text') ? 'is-invalid' : '' }}" name="short_text" id="short_text">{{ old('short_text', $lesson->short_text) }}</textarea>
+                <textarea class="form-control ckeditor {{ $errors->has('short_text') ? 'is-invalid' : '' }}" name="short_text" id="short_text">{{ old('short_text', $lesson->short_text) }}</textarea>
                 @if($errors->has('short_text'))
                     <span class="text-danger">{{ $errors->first('short_text') }}</span>
                 @endif
@@ -49,20 +49,28 @@
             </div>
             <div class="form-group">
                 <label for="long_text">{{ trans('cruds.lesson.fields.long_text') }}</label>
-                <textarea class="form-control {{ $errors->has('long_text') ? 'is-invalid' : '' }}" name="long_text" id="long_text">{{ old('long_text', $lesson->long_text) }}</textarea>
+                <textarea class="form-control ckeditor {{ $errors->has('long_text') ? 'is-invalid' : '' }}" name="long_text" id="long_text">{{ old('long_text', $lesson->long_text) }}</textarea>
                 @if($errors->has('long_text'))
                     <span class="text-danger">{{ $errors->first('long_text') }}</span>
                 @endif
                 <span class="help-block">{{ trans('cruds.lesson.fields.long_text_helper') }}</span>
             </div>
             <div class="form-group">
-                <label for="video">{{ trans('cruds.lesson.fields.video') }}</label>
+                <label for="video">{{ trans('cruds.lesson.fields.files') }}</label>
                 <div class="needsclick dropzone {{ $errors->has('video') ? 'is-invalid' : '' }}" id="video-dropzone">
                 </div>
                 @if($errors->has('video'))
                     <span class="text-danger">{{ $errors->first('video') }}</span>
                 @endif
-                <span class="help-block">{{ trans('cruds.lesson.fields.video_helper') }}</span>
+                <span class="help-block">{{ trans('cruds.lesson.fields.files_helper') }}</span>
+            </div>
+              <div class="form-group">
+                <label for="videoid">{{ trans('cruds.lesson.fields.videoid') }}</label>
+                <input class="form-control {{ $errors->has('videoid') ? 'is-invalid' : '' }}" type="text" name="videoid" id="videoid" value="{{ old('videoid', $lesson->videoid) }}">
+                @if($errors->has('videoid'))
+                    <span class="text-danger">{{ $errors->first('videoid') }}</span>
+                @endif
+                <span class="help-block">{{ trans('cruds.lesson.fields.videoid_helper') }}</span>
             </div>
             <div class="form-group">
                 <label for="position">{{ trans('cruds.lesson.fields.position') }}</label>
@@ -217,5 +225,69 @@ Dropzone.options.thumbnailDropzone = {
          return _results
      }
 }
+</script>
+
+<script>
+    $(document).ready(function () {
+  function SimpleUploadAdapter(editor) {
+    editor.plugins.get('FileRepository').createUploadAdapter = function(loader) {
+      return {
+        upload: function() {
+          return loader.file
+            .then(function (file) {
+              return new Promise(function(resolve, reject) {
+                // Init request
+                var xhr = new XMLHttpRequest();
+                xhr.open('POST', '{{ route('admin.courses.storeCKEditorImages') }}', true);
+                xhr.setRequestHeader('x-csrf-token', window._token);
+                xhr.setRequestHeader('Accept', 'application/json');
+                xhr.responseType = 'json';
+
+                // Init listeners
+                var genericErrorText = `Couldn't upload file: ${ file.name }.`;
+                xhr.addEventListener('error', function() { reject(genericErrorText) });
+                xhr.addEventListener('abort', function() { reject() });
+                xhr.addEventListener('load', function() {
+                  var response = xhr.response;
+
+                  if (!response || xhr.status !== 201) {
+                    return reject(response && response.message ? `${genericErrorText}\n${xhr.status} ${response.message}` : `${genericErrorText}\n ${xhr.status} ${xhr.statusText}`);
+                  }
+
+                  $('form').append('<input type="hidden" name="ck-media[]" value="' + response.id + '">');
+
+                  resolve({ default: response.url });
+                });
+
+                if (xhr.upload) {
+                  xhr.upload.addEventListener('progress', function(e) {
+                    if (e.lengthComputable) {
+                      loader.uploadTotal = e.total;
+                      loader.uploaded = e.loaded;
+                    }
+                  });
+                }
+
+                // Send request
+                var data = new FormData();
+                data.append('upload', file);
+                data.append('crud_id', '{{ $lesson->id ?? 0 }}');
+                xhr.send(data);
+              });
+            })
+        }
+      };
+    }
+  }
+
+  var allEditors = document.querySelectorAll('.ckeditor');
+  for (var i = 0; i < allEditors.length; ++i) {
+    ClassicEditor.create(
+      allEditors[i], {
+        extraPlugins: [SimpleUploadAdapter]
+      }
+    );
+  }
+});
 </script>
 @endsection

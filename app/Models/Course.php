@@ -46,7 +46,7 @@ class Course extends Model implements HasMedia
         'updated_at',
         'deleted_at',
         'created_by_id',
-        'category_id'
+        'excerpt',
     ];
 
     public function registerMediaConversions(Media $media = null): void
@@ -110,12 +110,6 @@ class Course extends Model implements HasMedia
         });
 
         return $files;
-    }
-
-
-    public function Category (){
-
-        return $this->belongsTo(CourseCategory::class, 'category_id');
     }
 
     public function students()
