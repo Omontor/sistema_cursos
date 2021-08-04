@@ -486,3 +486,5 @@ Route::group(['as' => 'frontend.', 'namespace' => 'Frontend', 'middleware' => ['
 
 Route::get ('/cursos', 'CoursesController@index')->name('cursos.index');
 Route::get ('/cursos/{id}', 'CoursesController@single')->name('cursos.curso');
+Route::get ('/acerca-de-nosotros', 'HomeController@about')->name('about');
+Route::get ('/instructores/{id}', 'HomeController@instructor')->name('instructor');

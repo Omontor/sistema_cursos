@@ -54,8 +54,8 @@
             </div>
 
             <div class="form-group">
-                <label class="required" for="description">{{ trans('cruds.course.fields.description') }}</label>
-                <textarea class="form-control ckeditor {{ $errors->has('description') ? 'is-invalid' : '' }}" name="description" id="description" required>{{ old('description') }}</textarea>
+                <label for="description">{{ trans('cruds.course.fields.description') }}</label>
+                <textarea class="form-control ckeditor {{ $errors->has('description') ? 'is-invalid' : '' }}" name="description" id="description">{{ old('description') }}</textarea>
                 @if($errors->has('description'))
                     <span class="text-danger">{{ $errors->first('description') }}</span>
                 @endif
@@ -93,7 +93,8 @@
             </div>
             <div class="form-group">
                 <div class="form-check {{ $errors->has('is_published') ? 'is-invalid' : '' }}">
-                    <input type="hidden" name="is_published" value="0">
+                 
+                    <input type="hidden" name="created_by_id" value="{{Auth::user()->id}}">
                     <input class="form-check-input" type="checkbox" name="is_published" id="is_published" value="1" {{ old('is_published', 0) == 1 ? 'checked' : '' }}>
                     <label class="form-check-label" for="is_published">{{ trans('cruds.course.fields.is_published') }}</label>
                 </div>

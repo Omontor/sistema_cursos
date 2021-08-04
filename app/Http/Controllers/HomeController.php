@@ -13,6 +13,8 @@ use App\Models\OnlineClass;
 use App\Models\IndexTestimonial;
 use App\Models\Blog;
 use App\Models\Ctum;
+use App\Models\About;
+use App\Models\User;
 
 class HomeController extends Controller
 {
@@ -44,5 +46,19 @@ class HomeController extends Controller
         $posts = Blog::orderBy('id', 'DESC')->take(10)->get();
         $ctas = Ctum::first();
         return view('welcome', compact('company', 'sliders', 'featured', 'bullets', 'about', 'reasons', 'classes', 'testimonials', 'posts', 'ctas'));
+    }
+
+    public function about(){
+
+        $about = About::first();
+        return view('pages.about.about', compact('about'));
+    }
+
+    public function instructor($id){
+
+        $instructor = User::find($id);
+        $courses = User::find($id)->courses()->paginate(3);
+        return view('instructors.show', compact('instructor', 'courses'));
+
     }
 }

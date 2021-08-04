@@ -213,4 +213,9 @@ class User extends Authenticatable implements HasMedia
     {
         return $date->format('Y-m-d H:i:s');
     }
+
+        public function courses()
+    {
+        return $this->hasMany(Course::class, 'teacher_id');
+    }
 }
