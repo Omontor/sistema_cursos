@@ -15,6 +15,7 @@ use App\Models\Blog;
 use App\Models\Ctum;
 use App\Models\About;
 use App\Models\User;
+use App\Models\RoleUser;
 
 class HomeController extends Controller
 {
@@ -54,11 +55,18 @@ class HomeController extends Controller
         return view('pages.about.about', compact('about'));
     }
 
+
+    public function instructorindex(){
+
+        $instructors = RoleUser::where('role_id', 3)->paginate(2);
+        return view('pages.instructors.index', compact('instructors'));
+    }
+
     public function instructor($id){
 
         $instructor = User::find($id);
         $courses = User::find($id)->courses()->paginate(3);
-        return view('instructors.show', compact('instructor', 'courses'));
+        return view('.pages.instructors.show', compact('instructor', 'courses'));
 
     }
 }
