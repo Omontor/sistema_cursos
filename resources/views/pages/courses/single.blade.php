@@ -9,7 +9,7 @@ Curso
 @endsection
 @section('content')
 
-{{$elcurso}}
+
     <div class="courses-single-page">
         <div class="container">
             <div class="row">
@@ -101,15 +101,13 @@ Curso
                                             <div class="title">
                                                 <a>Descripción</a>
                                             </div>
-                                            <p>{{$elcurso->description}}</p>
+                                            <p>{!!$elcurso->description!!}</p>
                                         </div>
                                         <div class="access-sg text clearfix">
                                             <div class="title">
-                                                <a href="#">Access on mobile and TV</a>
+                                                <a href="#">Habilidades a adiquirir</a>
                                             </div>
-                                            <p>
-                                                Access  mobile deep reinforcement learning algorithms and from Deep Networks to Deep Deterministic Policy Gradients. Apply these concepts to train agents to tv walk, drive, or perform other complex tasks.
-                                            </p>
+                                            <p>{!!$elcurso->knowledge!!}</p>
                                         </div>
                                         <div class="certificate-sg text clearfix">
                                             <div class="title">
@@ -179,7 +177,8 @@ Curso
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div> 
+                                {{--FIN SOBRE EL CURSO--}}
                                 <div class="tab-content">
                                     <div class="item-content">
                                         <div class="question-sg text clearfix">
