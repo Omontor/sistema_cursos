@@ -139,6 +139,7 @@ return [
             'video_helper'        => ' ',
             'knowledge'           => 'Habilidades Obtenidas',
             'knowledge_helper'    => '¿Qué aprenderá el alumno durante el curso?',
+            'skills'    => 'Habilidad',
         ],
     ],
     'lesson' => [

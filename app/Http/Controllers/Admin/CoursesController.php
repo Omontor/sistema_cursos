@@ -8,6 +8,7 @@ use App\Http\Requests\MassDestroyCourseRequest;
 use App\Http\Requests\StoreCourseRequest;
 use App\Http\Requests\UpdateCourseRequest;
 use App\Models\Course;
+use App\Models\Skill;
 use App\Models\CourseCategory;
 use App\Models\Requirment;
 use App\Models\User;
@@ -45,7 +46,9 @@ class CoursesController extends Controller
 
         $categories = CourseCategory::all();
 
-        return view('admin.courses.create', compact('teachers', 'students', 'requirements', 'categories'));
+        $skills = Skill::all();
+
+        return view('admin.courses.create', compact('teachers', 'students', 'requirements', 'categories' , 'skills'));
     }
 
     public function store(StoreCourseRequest $request)
@@ -78,7 +81,9 @@ class CoursesController extends Controller
 
         $categories = CourseCategory::all();
 
-        return view('admin.courses.edit', compact('teachers', 'students', 'requirements', 'course', 'categories'));
+         $skills = Skill::all();
+
+        return view('admin.courses.edit', compact('teachers', 'students', 'requirements', 'course', 'categories' , 'skills'));
     }
 
     public function update(UpdateCourseRequest $request, Course $course)

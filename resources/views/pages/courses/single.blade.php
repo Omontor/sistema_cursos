@@ -2,12 +2,17 @@
 @section ('header2')
   <title>edukin</title>
 @endsection
-
-
 @section('name')
 Curso
 @endsection
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
 @section('content')
+
+<!--Así es como se agrega la imagen de fondo en cada página -->
+@section('background')
+{{--style="background-image:url({{ $elcurso->thumbnail->first()->getUrl() }})"--}}
+style="background-image: url(/images/about.png);"
+@endsection
 
 
     <div class="courses-single-page">
@@ -87,9 +92,6 @@ Curso
                                 <li class="item-title curriculum">
                                     <span class="inner">CONTENIDO</span>
                                 </li>
-                                <li class="item-title instructor">
-                                    <span class="inner">INSTRUCTOR</span>
-                                </li>
                                 <li class="item-title review">
                                     <span class="inner">COMENTARIOS</span>
                                 </li>
@@ -109,64 +111,6 @@ Curso
                                             </div>
                                             <p>{!!$elcurso->knowledge!!}</p>
                                         </div>
-                                        <div class="certificate-sg text clearfix">
-                                            <div class="title">
-                                                <a href="#">Certificate of Completion</a>
-                                            </div>
-                                            <p>
-                                                Access  mobile deep reinforcement learning algorithms from Deep Q Networks to Deep Deterministic Policy Gradients. Apply these concepts to train agents to tv walk, drive, or perform other complex tasks.
-                                            </p>
-                                            <div class="certificate">
-                                                <div class="certificate-wrap">
-                                                    <p>
-                                                        An eduking is a blog created for educational purposes. Eduking blog archive and support student and teacher learning by facilitating reflection, questioning by self becoming a means for educators.
-                                                    </p>
-                                                    <ul class="list-certificate">
-                                                        <li>
-                                                            Graphic designers create visual concepts, 
-                                                        </li>
-                                                        <li>
-                                                            Remember skill can developed with practice.
-                                                        </li>
-                                                        <li>
-                                                            The field is considered a subset of visual communication design.
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                                <div class="images-certificate">
-                                                    <img src="images/course-single/3.jpg" alt="images">
-                                                </div>
-                                            </div>
-                                        </div>
-                                          
-                                        <div class="requirements-sg text clearfix">
-                                            <div class="title">
-                                                <a href="#">Requirements</a>
-                                            </div>
-                                            <ul class="request">
-                                                <li>
-                                                   Understand what visual learning is for and how it is used
-                                                </li>
-                                                <li>
-                                                   Need knowledge of photoshop and basic knowledge of indesign.
-                                                </li>
-                                                <li>
-                                                   Preferable to have experience with PS, Sketch, Indesign and  Adobe XD.
-                                                </li>
-                                                <li>
-                                                   Preferable to understand word embeddings
-                                                </li>
-                                            </ul>
-                                        </div>
- 
-                                        <div class="description-single text clearfix">
-                                            <div class="title">
-                                                <a href="#">Description</a>
-                                            </div>
-                                            <p>
-                                                Your ability to use types is one of the things that differentiates graphic design from others visual professions. A big parts of graphic design is understanding typography, developing your knowledge of typefaces, & how to apply them in your design. This will be a constant study throughout your career.
-                                            </p>
-                                        </div>
 
                                         <div class="price-course-single">
                                             <div class="price">
@@ -183,92 +127,54 @@ Curso
                                     <div class="item-content">
                                         <div class="question-sg text clearfix">
                                             <div class="title">
-                                                <a href="#">What will i learn?</a>
+                                                <a href="#">Total de lecciones en éste curso</a>
                                             </div>
-                                            <p>
-                                                Learn cutting edge deep reinforcement learning algorithms from Deep Q Networks (DQN) to Deep Deterministic Policy Gradients (DDPG). Apply these concepts to train agents to walk, drive, or perform other complex tasks.
-                                            </p>
-                                        </div>
-                                        <div class="access-sg text clearfix">
-                                            <div class="title">
-                                                <a href="#">Access on mobile and TV</a>
-                                            </div>
-                                            <p>
-                                                Access  mobile deep reinforcement learning algorithms and from Deep Networks to Deep Deterministic Policy Gradients. Apply these concepts to train agents to tv walk, drive, or perform other complex tasks.
-                                            </p>
-                                        </div>
-                                        <div class="certificate-sg text clearfix">
-                                            <div class="title">
-                                                <a href="#">Certificate of Completion</a>
-                                            </div>
-                                            <p>
-                                                Access  mobile deep reinforcement learning algorithms from Deep Q Networks to Deep Deterministic Policy Gradients. Apply these concepts to train agents to tv walk, drive, or perform other complex tasks.
-                                            </p>
-                                            <div class="certificate">
-                                                <div class="certificate-wrap">
-                                                    <p>
-                                                        An eduking is a blog created for educational purposes. Eduking blog archive and support student and teacher learning by facilitating reflection, questioning by self becoming a means for educators.
-                                                    </p>
-                                                    <ul class="list-certificate">
-                                                        <li>
-                                                            Graphic designers create visual concepts, 
-                                                        </li>
-                                                        <li>
-                                                            Remember skill can developed with practice.
-                                                        </li>
-                                                        <li>
-                                                            The field is considered a subset of visual communication design.
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                                <div class="images-certificate">
-                                                    <img src="images/course-single/3.jpg" alt="images">
-                                                </div>
-                                            </div>
-                                        </div>
-                                          
-                                        <div class="requirements-sg text clearfix">
-                                            <div class="title">
-                                                <a href="#">Requirements</a>
-                                            </div>
-                                            <ul class="request">
+                                            <ul class="list-certificate">
                                                 <li>
-                                                   Understand what visual learning is for and how it is used
+                                                    En vivo: <span>{{$elcurso->courseOnlineClasses->count()}}</span>
                                                 </li>
                                                 <li>
-                                                   Need knowledge of photoshop and basic knowledge of indesign.
-                                                </li>
-                                                <li>
-                                                   Preferable to have experience with PS, Sketch, Indesign and  Adobe XD.
-                                                </li>
-                                                <li>
-                                                   Preferable to understand word embeddings
+                                                    Gratuitas: <span>{{App\Models\Lesson::where('course_id', $elcurso->id)->where('is_free', '1')->count()}} </span>
                                                 </li>
                                             </ul>
                                         </div>
- 
-                                        <div class="description-single text clearfix">
+                                        <div class="access-sg text clearfix">
                                             <div class="title">
-                                                <a href="#">Description</a>
+                                                <a href="#">Lecciones</a>
                                             </div>
-                                            <p>
-                                                Your ability to use types is one of the things that differentiates graphic design from others visual professions. A big parts of graphic design is understanding typography, developing your knowledge of typefaces, & how to apply them in your design. This will be a constant study throughout your career.
-                                            </p>
-                                        </div>
+                                       
+                                            <div class="accordion accordion-flush" id="accordionFlushExample">
+                                                @forelse($elcurso->lessons as $lesson)
+                                                <div class="accordion-item">
+                                                    <h2 class="accordion-header" id="flush-headingOne">
+                                                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse{{$loop->index}}" aria-expanded="false" aria-controls="flush-collapse{{$loop->index}}">
+                                                        {{$lesson->title}}
+                                                      </button>
+                                                    </h2>
+                                                    <div id="flush-collapse{{$loop->index}}" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                                                      <div class="accordion-body">
+                                                          {!!$lesson->short_text!!}
+                                                      </div>
+                                                    </div>
+                                                </div>
+                                                @empty
+                                                    No hay lecciones creadas para éste curso
+                                                @endforelse
+                                            </div>
 
+                                        </div>
                                         <div class="price-course-single">
                                             <div class="price">
-                                                <span class="price-previou">
-                                                    <del>$169</del>
-                                                </span>
-                                                <span class="price-now">$169</span>
+                                                <span class="price-now">${{$elcurso->price}} MXN</span>
                                             </div>
                                             <div class="btn-buynow">
-                                                <a href="#">Buy Now</a>
+                                                <a href="#">Comprar</a>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+                                {{--FIN SOBRE EL CONTENIDO--}}
+
                                 <div class="tab-content">
                                     <div class="item-content">
                                         <div class="question-sg text clearfix">
@@ -359,96 +265,7 @@ Curso
                                         </div>
                                     </div>
                                 </div>
-                                <div class="tab-content">
-                                    <div class="item-content">
-                                        <div class="question-sg text clearfix">
-                                            <div class="title">
-                                                <a href="#">What will i learn?</a>
-                                            </div>
-                                            <p>
-                                                Learn cutting edge deep reinforcement learning algorithms from Deep Q Networks (DQN) to Deep Deterministic Policy Gradients (DDPG). Apply these concepts to train agents to walk, drive, or perform other complex tasks.
-                                            </p>
-                                        </div>
-                                        <div class="access-sg text clearfix">
-                                            <div class="title">
-                                                <a href="#">Access on mobile and TV</a>
-                                            </div>
-                                            <p>
-                                                Access  mobile deep reinforcement learning algorithms and from Deep Networks to Deep Deterministic Policy Gradients. Apply these concepts to train agents to tv walk, drive, or perform other complex tasks.
-                                            </p>
-                                        </div>
-                                        <div class="certificate-sg text clearfix">
-                                            <div class="title">
-                                                <a href="#">Certificate of Completion</a>
-                                            </div>
-                                            <p>
-                                                Access  mobile deep reinforcement learning algorithms from Deep Q Networks to Deep Deterministic Policy Gradients. Apply these concepts to train agents to tv walk, drive, or perform other complex tasks.
-                                            </p>
-                                            <div class="certificate">
-                                                <div class="certificate-wrap">
-                                                    <p>
-                                                        An eduking is a blog created for educational purposes. Eduking blog archive and support student and teacher learning by facilitating reflection, questioning by self becoming a means for educators.
-                                                    </p>
-                                                    <ul class="list-certificate">
-                                                        <li>
-                                                            Graphic designers create visual concepts, 
-                                                        </li>
-                                                        <li>
-                                                            Remember skill can developed with practice.
-                                                        </li>
-                                                        <li>
-                                                            The field is considered a subset of visual communication design.
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                                <div class="images-certificate">
-                                                    <img src="images/course-single/3.jpg" alt="images">
-                                                </div>
-                                            </div>
-                                        </div>
-                                          
-                                        <div class="requirements-sg text clearfix">
-                                            <div class="title">
-                                                <a href="#">Requirements</a>
-                                            </div>
-                                            <ul class="request">
-                                                <li>
-                                                   Understand what visual learning is for and how it is used
-                                                </li>
-                                                <li>
-                                                   Need knowledge of photoshop and basic knowledge of indesign.
-                                                </li>
-                                                <li>
-                                                   Preferable to have experience with PS, Sketch, Indesign and  Adobe XD.
-                                                </li>
-                                                <li>
-                                                   Preferable to understand word embeddings
-                                                </li>
-                                            </ul>
-                                        </div>
- 
-                                        <div class="description-single text clearfix">
-                                            <div class="title">
-                                                <a href="#">Description</a>
-                                            </div>
-                                            <p>
-                                                Your ability to use types is one of the things that differentiates graphic design from others visual professions. A big parts of graphic design is understanding typography, developing your knowledge of typefaces, & how to apply them in your design. This will be a constant study throughout your career.
-                                            </p>
-                                        </div>
-
-                                        <div class="price-course-single">
-                                            <div class="price">
-                                                <span class="price-previou">
-                                                    <del>$169</del>
-                                                </span>
-                                                <span class="price-now">$169</span>
-                                            </div>
-                                            <div class="btn-buynow">
-                                                <a href="#">Buy Now</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                {{--FIN SOBRE COMENTARIOS--}}
                             </div>
                         </div> 
                     </div>
@@ -510,28 +327,24 @@ Curso
                             <div class="content">
                                 <ul class="features">
                                     <li>
-                                        <a href="#">Lecturas</a>
-                                        <span>7</span>
-                                    </li>
-                                    <li>
-                                        <a href="#">Duración</a>
-                                        <span>60h</span>
+                                        <a href="#">Lecciones</a>
+                                        <span>{{$elcurso->lessons->count()}}</span>
                                     </li>
                                     <li>
                                         <a href="#">Estudiantes</a>
-                                        <span>45</span>
+                                        <span>{{$elcurso->students->count()}}</span>
                                     </li>
                                     <li>
                                         <a href="#">Certificado</a>
-                                        <span>Yes</span>
+                                        <span>Si</span>
                                     </li>
                                     <li>
                                         <a href="#">Habilidad</a>
-                                        <span>Beginer</span>
+                                        <span>{{$elcurso->currentSkill->name}}</span>
                                     </li>
                                     <li>
                                         <a href="#">Categoría</a>
-                                        <span>Design</span>
+                                        <span>{{$elcurso->category->title}}</span>
                                     </li>
                                 </ul>
                                 <div class="share-via">
@@ -539,7 +352,7 @@ Curso
                                         Share via
                                     </div>
                                     <ul class="social-media">
-                                        <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                        <li><a href="https://www.facebook.com"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
                                         <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
                                         <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
                                         <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
@@ -726,7 +539,7 @@ Curso
 
 @section('scripts')<!-- 1. The <iframe> (and video player) will replace this <div> tag. -->
 
-
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
     <script>
       // 2. This code loads the IFrame Player API code asynchronously.
       var tag = document.createElement('script');
@@ -769,4 +582,5 @@ Curso
         player.stopVideo();
       }
     </script>
+
 @endsection
