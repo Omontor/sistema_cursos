@@ -75,11 +75,11 @@ Cursos
                                          @if($curso->courseReviews->count() > 0)
 
                                             <div class="rating">
-                                                @for ($i = 0; $i < $course->courseReviews->average('value'); $i++)
+                                                @for ($i = 0; $i < $curso->courseReviews->average('value'); $i++)
                                                 <i class="fa fa-star" aria-hidden="true"></i>
                                                 @endfor
 
-                                                <span>{{$course->courseReviews->average('value')}}</span>   
+                                                <span>{{$curso->courseReviews->average('value')}}</span>   
                                             </div>
                                             @else
                                             <div class="rating">

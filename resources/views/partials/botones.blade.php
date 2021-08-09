@@ -7,7 +7,8 @@
                                 </li>
                                 <li><a href="#">Nosotros</a>
                                     <ul class="sub-menu">
-                                        <li class="menu-item"><a href="#">Instructores</a></li>
+                                        <li class="menu-item"><a href="{{route('about')}}">Acerca de</a></li>
+                                        <li class="menu-item"><a href="{{route('instructors')}}">Instructores</a></li>
                                     </ul><!-- sub-menu -->
                                 </li>
                                 <li><a href="#">Comunidad</a>
@@ -24,7 +25,7 @@
                                     <a class="sing-in btn btn-success" href="{{ route('login') }}">Iniciar sesión</a>
                                     @endguest
                                     @auth
-                                    <a class="sing-up btn btn-danger" href="{{ route('register') }}">Cerrar sesión</a>
+                                    <a class=" btn btn-danger" href="{{ route('register') }}">Cerrar sesión</a>
                                     @endauth
                                 </li>
                             </ul>

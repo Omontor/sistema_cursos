@@ -10,6 +10,20 @@
         <form method="POST" action="{{ route("admin.courses.update", [$course->id]) }}" enctype="multipart/form-data">
             @method('PUT')
             @csrf
+
+                        <div class="form-group">
+                <label class="required" for="category_id">{{ trans('cruds.blog.fields.category') }}</label>
+                <select class="form-control select2 {{ $errors->has('category') ? 'is-invalid' : '' }}" name="category_id" id="category_id" required>
+                    @foreach($categories as $id => $entry)
+                        <option value="{{ $entry->id }}" {{ old('category_id') == $id ? 'selected' : '' }}>{{ $entry->title }}</option>
+                    @endforeach
+                </select>
+                @if($errors->has('category'))
+                    <span class="text-danger">{{ $errors->first('category') }}</span>
+                @endif
+                <span class="help-block">{{ trans('cruds.blog.fields.category_helper') }}</span>
+            </div>
+
             <div class="form-group">
                 <label class="required" for="teacher_id">{{ trans('cruds.course.fields.teacher') }}</label>
                 <select class="form-control select2 {{ $errors->has('teacher') ? 'is-invalid' : '' }}" name="teacher_id" id="teacher_id" required>
@@ -58,13 +72,25 @@
                 <span class="help-block">{{ trans('cruds.course.fields.price_helper') }}</span>
             </div>
             <div class="form-group">
-                <label for="thumbnail">{{ trans('cruds.course.fields.thumbnail') }}</label>
+                <label for="thumbnail">Imágenes</label>
                 <div class="needsclick dropzone {{ $errors->has('thumbnail') ? 'is-invalid' : '' }}" id="thumbnail-dropzone">
                 </div>
                 @if($errors->has('thumbnail'))
                     <span class="text-danger">{{ $errors->first('thumbnail') }}</span>
                 @endif
                 <span class="help-block">{{ trans('cruds.course.fields.thumbnail_helper') }}</span>
+                Instrucciones para imágenes:
+                <ul>
+                    <li>La primera imagen que cargues será tomada automáticamente como <strong>thumbnail</strong> (la imagen miniatura que aparece en listados)
+                        <br>
+                     <strong>Esta imagen debe ser de 370px por 450px</strong></li>
+                    <li>
+                        La segunda imagen que cargues será tomada automáticamente como <strong>Fondo</strong>
+                        <br>
+                         (la imagen que sale como encabezado en la página de tu curso) <strong>Esta imagen debe ser de 840px por 1050px</strong>
+                    </li>
+                </ul>
+                <strong style="color:red"> Si no cargas correctamente estas imágenes, tu curso será rechazado</strong>
             </div>
             <div class="form-group">
                 <div class="form-check {{ $errors->has('is_published') ? 'is-invalid' : '' }}">

@@ -2,7 +2,7 @@
             <div class="site-header-inner">
                 <div class="container">
                     <div id="logo" class="logo">
-                        <a href="index.html"><img src="images/logo/02.png" alt="images"></a>
+                        <a href="/"><img src="images/logo/02.png" alt="images"></a>
                     </div>
                     <div class="mobile-button"><span></span></div>
                     <div class="header-menu">
