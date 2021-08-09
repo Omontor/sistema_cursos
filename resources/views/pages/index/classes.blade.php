@@ -96,13 +96,13 @@
                     <div class="images-list-1">
                         @if($classes->count() > 0)
                         <div class="img-event">
-                            <img src="{{$image1}}" alt="images" style="max-width: 250px;">
+                            <img src="" alt="images" style="max-width: 250px;">
                             <span class="number bg-cl7ecc88">1</span>
                         </div>
                         @endif
                         @if($classes->count() > 1)
                         <div class="img-event">
-                            <img src="{{$image2}}" alt="images" style="max-width: 250px;">
+                            <img src="" alt="images" style="max-width: 250px;">
                             <span class="number bg-cl3f4c99">2</span>
                         </div>
                         @endif
@@ -110,7 +110,7 @@
                     <div class="images-list-2">
                         @if($classes->count() > 0)
                         <div class="img-event">
-                            <img src="{{$image3}}" alt="images" style="max-width: 250px;">
+                            <img src="" alt="images" style="max-width: 250px;">
                             <span class="number bg-clff5f60">3</span>
                         </div>
                         @endif

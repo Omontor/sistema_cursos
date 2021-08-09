@@ -274,51 +274,35 @@ style="background-image: url(/images/about.png);"
                     <div class="sidebar-right">
 
     {{--APARECE SI TIENE LECCION EN VIVO--}}
-                        <div class="widget widget-class-start">
-                            <div class="widget-title">
-                                Lección en vivo
-                            </div>
-                            <div class="content">
-                                <div class="flat-counter count-time" data-day="00" data-month="00" data-year="2020" data-hour="00" data-minutes="00" data-second="00">
-                                    <div class="counter">
-                                        <ul>
-                                            <li class="content-counter">
-                                                <div class="wrap-bg">
-                                                    <div class="inner-bg days">
-                                                        <div class="numb-count numb cl-667eea">178</div>
-                                                        <div class="name-count">Día</div>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li class="content-counter">
-                                                <div class="wrap-bg">
-                                                    <div class="inner-bg hours">
-                                                        <div class="numb-count numb cl-f0c41b">12</div>
-                                                        <div class="name-count">Hora</div>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li class="content-counter">
-                                                <div class="wrap-bg">
-                                                    <div class="inner-bg minutes">
-                                                        <div class="numb-count numb cl-8b46f4">55</div>
-                                                        <div class="name-count">Minutos</div>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li class="content-counter">
-                                                <div class="wrap-bg">
-                                                    <div class="inner-bg seconds">
-                                                        <div class="numb-count numb cl-ff5f60">55</div>
-                                                        <div class="name-count">Segundos</div>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                        </ul>
+    @if($elcurso->courseOnlineClasses)
+
+            <div class="widget widget-class-start">
+                <div class="widget-title">
+                    Lecciones en vivo
+                </div>
+                <div class="content">
+                    <div class="flat-counter count-time" data-day="00" data-month="00" data-year="2020" data-hour="00" data-minutes="00" data-second="00">
+                        <div class="counter">
+                            @forelse($elcurso->courseOnlineClasses as $envivo)
+                            <ul>
+                                <li class="content-counter">
+                                    <div class="wrap-bg">
+                                        <span style="color:#8741F0;">{{$envivo->title}}</span>
+                                        <p>Duración: {{$envivo->duration}} minutos</p>
+                                        <p>Inicio: {{$envivo->start}}</p>
                                     </div>
-                                </div>
-                            </div>
+                                </li>
+                                <hr>
+                            </ul>
+                            @empty
+                            @endforelse
                         </div>
+                    </div>
+                </div>
+            </div>
+
+    @endif
+                  
     {{--APARECE SI TIENE LECCION EN VIVO CIERRE--}}
                         <div class="widget widget-features">
                             <div class="widget-title">
@@ -329,6 +313,10 @@ style="background-image: url(/images/about.png);"
                                     <li>
                                         <a href="#">Lecciones</a>
                                         <span>{{$elcurso->lessons->count()}}</span>
+                                    </li>
+                                    <li>
+                                        <a href="#">Archivos descargables</a>
+                                        <span>poner</span>
                                     </li>
                                     <li>
                                         <a href="#">Estudiantes</a>
