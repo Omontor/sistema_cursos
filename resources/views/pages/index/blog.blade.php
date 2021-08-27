@@ -4,7 +4,7 @@
                 <div class="flat-title small heading-type4">
                     Noticias Recientes
                           <div class=" small float-right">
-                  <a href="#" class="btn btn-dark btn-sm">Todas las Noticias</a> 
+                  <a href="{{route('blog')}}" class="btn btn-dark btn-sm">Todas las Noticias</a> 
                 </div>
                 </div>                
 
@@ -28,13 +28,13 @@
                                 </div>
                                 <div class="post-title">
                                     <h5>
-                                        <a href="#" class="lt-sp04">{{$post->title}}</a>
+                                        <a href="{{route('blog.show', $post->slug)}}" class="lt-sp04">{{$post->title}}</a>
                                     </h5>
                                 </div>
                             </div>
                             	<br>
                             <div class="avatar">
-                                <a href="#" class="btn btn-dark btn-block">Ver más</a>
+                                <a href="{{route('blog.show', $post->slug)}}" class="btn btn-dark btn-block">Ver más</a>
                             </div>
                             <br>
                             <div class="float-left">
