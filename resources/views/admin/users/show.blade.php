@@ -195,6 +195,21 @@
             </a>
         </li>
         <li class="nav-item">
+            <a class="nav-link" href="#user_forum_threads" role="tab" data-toggle="tab">
+                {{ trans('cruds.forumThread.title') }}
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#user_forum_comments" role="tab" data-toggle="tab">
+                {{ trans('cruds.forumComment.title') }}
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#user_post_comments" role="tab" data-toggle="tab">
+                {{ trans('cruds.postComment.title') }}
+            </a>
+        </li>
+        <li class="nav-item">
             <a class="nav-link" href="#user_user_alerts" role="tab" data-toggle="tab">
                 {{ trans('cruds.userAlert.title') }}
             </a>
@@ -227,6 +242,15 @@
         </div>
         <div class="tab-pane" role="tabpanel" id="user_index_testimonials">
             @includeIf('admin.users.relationships.userIndexTestimonials', ['indexTestimonials' => $user->userIndexTestimonials])
+        </div>
+        <div class="tab-pane" role="tabpanel" id="user_forum_threads">
+            @includeIf('admin.users.relationships.userForumThreads', ['forumThreads' => $user->userForumThreads])
+        </div>
+        <div class="tab-pane" role="tabpanel" id="user_forum_comments">
+            @includeIf('admin.users.relationships.userForumComments', ['forumComments' => $user->userForumComments])
+        </div>
+        <div class="tab-pane" role="tabpanel" id="user_post_comments">
+            @includeIf('admin.users.relationships.userPostComments', ['postComments' => $user->userPostComments])
         </div>
         <div class="tab-pane" role="tabpanel" id="user_user_alerts">
             @includeIf('admin.users.relationships.userUserAlerts', ['userAlerts' => $user->userUserAlerts])

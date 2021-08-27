@@ -155,6 +155,21 @@ class User extends Authenticatable implements HasMedia
         return $this->hasMany(IndexTestimonial::class, 'user_id', 'id');
     }
 
+    public function userForumThreads()
+    {
+        return $this->hasMany(ForumThread::class, 'user_id', 'id');
+    }
+
+    public function userForumComments()
+    {
+        return $this->hasMany(ForumComment::class, 'user_id', 'id');
+    }
+
+    public function userPostComments()
+    {
+        return $this->hasMany(PostComment::class, 'user_id', 'id');
+    }
+
     public function userUserAlerts()
     {
         return $this->belongsToMany(UserAlert::class);
@@ -212,10 +227,5 @@ class User extends Authenticatable implements HasMedia
     protected function serializeDate(DateTimeInterface $date)
     {
         return $date->format('Y-m-d H:i:s');
-    }
-
-        public function courses()
-    {
-        return $this->hasMany(Course::class, 'teacher_id');
     }
 }

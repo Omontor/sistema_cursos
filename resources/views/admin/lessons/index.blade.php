@@ -41,7 +41,7 @@
                             {{ trans('cruds.lesson.fields.long_text') }}
                         </th>
                         <th>
-                            {{ trans('cruds.lesson.fields.files') }}
+                            {{ trans('cruds.lesson.fields.video') }}
                         </th>
                         <th>
                             {{ trans('cruds.lesson.fields.position') }}

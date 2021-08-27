@@ -2,8 +2,8 @@
 
 return [
     'userManagement' => [
-        'title'          => 'Ajustes',
-        'title_singular' => 'Ajustes',
+        'title'          => 'Gestión de usuarios',
+        'title_singular' => 'Gestión de usuarios',
     ],
     'permission' => [
         'title'          => 'Permisos',
@@ -143,7 +143,7 @@ return [
     ],
     'lesson' => [
         'title'          => 'Lecciones',
-        'title_singular' => 'Lección',
+        'title_singular' => 'Leccione',
         'fields'         => [
             'id'                  => 'ID',
             'id_helper'           => ' ',
@@ -157,10 +157,8 @@ return [
             'short_text_helper'   => ' ',
             'long_text'           => 'Long Text',
             'long_text_helper'    => ' ',
-            'videoid'               => 'Video',
-            'videoid_helper'        => 'Coloca únicamente el ID del video de youtube',
-            'files'               => 'Archivos',
-            'files_helper'        => 'En caso de tener archivos de apoyo para que tus alumnos descarguen, agrégalos aquí',
+            'video'               => 'Video',
+            'video_helper'        => ' ',
             'position'            => 'Position',
             'position_helper'     => ' ',
             'is_published'        => 'Is Published',
@@ -178,8 +176,8 @@ return [
         ],
     ],
     'test' => [
-        'title'          => 'Exámenes',
-        'title_singular' => 'Exámen',
+        'title'          => 'Examenes',
+        'title_singular' => 'Examene',
         'fields'         => [
             'id'                  => 'ID',
             'id_helper'           => ' ',
@@ -229,7 +227,7 @@ return [
     ],
     'questionOption' => [
         'title'          => 'Opciones',
-        'title_singular' => 'Opción',
+        'title_singular' => 'Opcione',
         'fields'         => [
             'id'                 => 'ID',
             'id_helper'          => ' ',
@@ -301,7 +299,7 @@ return [
     ],
     'faqCategory' => [
         'title'          => 'Categorias',
-        'title_singular' => 'Categoría',
+        'title_singular' => 'Categoria',
         'fields'         => [
             'id'                => 'ID',
             'id_helper'         => ' ',
@@ -336,12 +334,12 @@ return [
         ],
     ],
     'comunicacion' => [
-        'title'          => 'Comunicación',
-        'title_singular' => 'Comunicación',
+        'title'          => 'Comunicacion',
+        'title_singular' => 'Comunicacion',
     ],
     'lm' => [
         'title'          => 'Lms',
-        'title_singular' => 'Lms',
+        'title_singular' => 'Lm',
     ],
     'prueba' => [
         'title'          => 'Pruebas',
@@ -449,7 +447,7 @@ return [
     ],
     'skill' => [
         'title'          => 'Habilidades',
-        'title_singular' => 'Habilidad',
+        'title_singular' => 'Habilidade',
         'fields'         => [
             'id'                 => 'ID',
             'id_helper'          => ' ',
@@ -642,7 +640,7 @@ return [
         'title_singular' => 'Clases Virtuale',
     ],
     'onlineClass' => [
-        'title'          => 'Clases en línea',
+        'title'          => 'Clase en línea',
         'title_singular' => 'Clase en línea',
         'fields'         => [
             'id'                 => 'ID',
@@ -678,7 +676,7 @@ return [
         ],
     ],
     'reservation' => [
-        'title'          => 'Reservaciones',
+        'title'          => 'Reservación',
         'title_singular' => 'Reservación',
         'fields'         => [
             'id'                => 'ID',
@@ -761,7 +759,7 @@ return [
     ],
     'coupon' => [
         'title'          => 'Cupones',
-        'title_singular' => 'Cupón',
+        'title_singular' => 'Cupone',
         'fields'         => [
             'id'                 => 'ID',
             'id_helper'          => ' ',
@@ -817,7 +815,7 @@ return [
     ],
     'enrollment' => [
         'title'          => 'Inscripciones',
-        'title_singular' => 'Inscripción',
+        'title_singular' => 'Inscripcione',
         'fields'         => [
             'id'                     => 'ID',
             'id_helper'              => ' ',
@@ -837,7 +835,7 @@ return [
     ],
     'page' => [
         'title'          => 'Paginas',
-        'title_singular' => 'Página',
+        'title_singular' => 'Pagina',
         'fields'         => [
             'id'                => 'ID',
             'id_helper'         => ' ',
@@ -894,8 +892,8 @@ return [
         'title_singular' => 'Contenido Home',
     ],
     'staticPage' => [
-        'title'          => 'Paginas Estáticas',
-        'title_singular' => 'Página Estática',
+        'title'          => 'Páginas Estáticas',
+        'title_singular' => 'Páginas Estática',
     ],
     'bullet' => [
         'title'          => 'Bullets',
@@ -941,7 +939,7 @@ return [
     ],
     'indexReason' => [
         'title'          => 'Razones',
-        'title_singular' => 'Razón',
+        'title_singular' => 'Razone',
         'fields'         => [
             'id'                => 'ID',
             'id_helper'         => ' ',
@@ -1009,7 +1007,7 @@ return [
     ],
     'about' => [
         'title'          => 'Nosotros',
-        'title_singular' => 'Nosotros',
+        'title_singular' => 'Nosotro',
         'fields'         => [
             'id'                => 'ID',
             'id_helper'         => ' ',
@@ -1046,7 +1044,7 @@ return [
         ],
     ],
     'company' => [
-        'title'          => 'Empresas',
+        'title'          => 'Empresa',
         'title_singular' => 'Empresa',
         'fields'         => [
             'id'                  => 'ID',
@@ -1087,7 +1085,7 @@ return [
     ],
     'socialNetwork' => [
         'title'          => 'Redes Sociales',
-        'title_singular' => 'Red Social',
+        'title_singular' => 'Redes Sociale',
         'fields'         => [
             'id'                => 'ID',
             'id_helper'         => ' ',
@@ -1107,12 +1105,76 @@ return [
     ],
     'featuredCourse' => [
         'title'          => 'Cursos Destacados',
-        'title_singular' => 'Curso Destacado',
+        'title_singular' => 'Cursos Destacado',
         'fields'         => [
             'id'                => 'ID',
             'id_helper'         => ' ',
             'course'            => 'Cursos',
             'course_helper'     => ' ',
+            'created_at'        => 'Created at',
+            'created_at_helper' => ' ',
+            'updated_at'        => 'Updated at',
+            'updated_at_helper' => ' ',
+            'deleted_at'        => 'Deleted at',
+            'deleted_at_helper' => ' ',
+        ],
+    ],
+    'forum' => [
+        'title'          => 'Foro',
+        'title_singular' => 'Foro',
+    ],
+    'forumThread' => [
+        'title'          => 'Temas Foro',
+        'title_singular' => 'Temas Foro',
+        'fields'         => [
+            'id'                => 'ID',
+            'id_helper'         => ' ',
+            'user'              => 'Usuario',
+            'user_helper'       => ' ',
+            'title'             => 'Título',
+            'title_helper'      => ' ',
+            'content'           => 'Contenido',
+            'content_helper'    => ' ',
+            'created_at'        => 'Created at',
+            'created_at_helper' => ' ',
+            'updated_at'        => 'Updated at',
+            'updated_at_helper' => ' ',
+            'deleted_at'        => 'Deleted at',
+            'deleted_at_helper' => ' ',
+        ],
+    ],
+    'forumComment' => [
+        'title'          => 'Comentarios Foro',
+        'title_singular' => 'Comentarios Foro',
+        'fields'         => [
+            'id'                => 'ID',
+            'id_helper'         => ' ',
+            'thread'            => 'Tema',
+            'thread_helper'     => ' ',
+            'user'              => 'Usuario',
+            'user_helper'       => ' ',
+            'content'           => 'Contenido',
+            'content_helper'    => ' ',
+            'created_at'        => 'Created at',
+            'created_at_helper' => ' ',
+            'updated_at'        => 'Updated at',
+            'updated_at_helper' => ' ',
+            'deleted_at'        => 'Deleted at',
+            'deleted_at_helper' => ' ',
+        ],
+    ],
+    'postComment' => [
+        'title'          => 'Comentarios',
+        'title_singular' => 'Comentario',
+        'fields'         => [
+            'id'                => 'ID',
+            'id_helper'         => ' ',
+            'user'              => 'Usuario',
+            'user_helper'       => ' ',
+            'comment'           => 'Comentario',
+            'comment_helper'    => ' ',
+            'status'            => 'Status',
+            'status_helper'     => ' ',
             'created_at'        => 'Created at',
             'created_at_helper' => ' ',
             'updated_at'        => 'Updated at',

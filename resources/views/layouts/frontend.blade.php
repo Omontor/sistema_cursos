@@ -192,6 +192,21 @@
                                             {{ trans('cruds.faqQuestion.title') }}
                                         </a>
                                     @endcan
+                                    @can('forum_access')
+                                        <a class="dropdown-item disabled" href="#">
+                                            {{ trans('cruds.forum.title') }}
+                                        </a>
+                                    @endcan
+                                    @can('forum_thread_access')
+                                        <a class="dropdown-item ml-3" href="{{ route('frontend.forum-threads.index') }}">
+                                            {{ trans('cruds.forumThread.title') }}
+                                        </a>
+                                    @endcan
+                                    @can('forum_comment_access')
+                                        <a class="dropdown-item ml-3" href="{{ route('frontend.forum-comments.index') }}">
+                                            {{ trans('cruds.forumComment.title') }}
+                                        </a>
+                                    @endcan
                                     @can('comunicacion_access')
                                         <a class="dropdown-item disabled" href="#">
                                             {{ trans('cruds.comunicacion.title') }}
@@ -220,6 +235,11 @@
                                     @can('contact_form_access')
                                         <a class="dropdown-item ml-3" href="{{ route('frontend.contact-forms.index') }}">
                                             {{ trans('cruds.contactForm.title') }}
+                                        </a>
+                                    @endcan
+                                    @can('post_comment_access')
+                                        <a class="dropdown-item ml-3" href="{{ route('frontend.post-comments.index') }}">
+                                            {{ trans('cruds.postComment.title') }}
                                         </a>
                                     @endcan
                                     @can('compra_access')
@@ -297,6 +317,11 @@
                                             {{ trans('cruds.bullet.title') }}
                                         </a>
                                     @endcan
+                                    @can('featured_course_access')
+                                        <a class="dropdown-item ml-3" href="{{ route('frontend.featured-courses.index') }}">
+                                            {{ trans('cruds.featuredCourse.title') }}
+                                        </a>
+                                    @endcan
                                     @can('index_about_access')
                                         <a class="dropdown-item ml-3" href="{{ route('frontend.index-abouts.index') }}">
                                             {{ trans('cruds.indexAbout.title') }}
@@ -315,11 +340,6 @@
                                     @can('ctum_access')
                                         <a class="dropdown-item ml-3" href="{{ route('frontend.cta.index') }}">
                                             {{ trans('cruds.ctum.title') }}
-                                        </a>
-                                    @endcan
-                                    @can('featured_course_access')
-                                        <a class="dropdown-item ml-3" href="{{ route('frontend.featured-courses.index') }}">
-                                            {{ trans('cruds.featuredCourse.title') }}
                                         </a>
                                     @endcan
                                     @can('about_content_access')

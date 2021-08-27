@@ -1,7 +1,6 @@
-
 <?php
 
-Route::get('/', 'HomeController@index');
+Route::view('/', 'welcome');
 Route::get('userVerification/{token}', 'UserVerificationController@approve')->name('userVerification');
 Auth::routes();
 
@@ -228,6 +227,22 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::delete('featured-courses/destroy', 'FeaturedCourseController@massDestroy')->name('featured-courses.massDestroy');
     Route::resource('featured-courses', 'FeaturedCourseController');
 
+    // Forum Thread
+    Route::delete('forum-threads/destroy', 'ForumThreadController@massDestroy')->name('forum-threads.massDestroy');
+    Route::post('forum-threads/media', 'ForumThreadController@storeMedia')->name('forum-threads.storeMedia');
+    Route::post('forum-threads/ckmedia', 'ForumThreadController@storeCKEditorImages')->name('forum-threads.storeCKEditorImages');
+    Route::resource('forum-threads', 'ForumThreadController');
+
+    // Forum Comment
+    Route::delete('forum-comments/destroy', 'ForumCommentController@massDestroy')->name('forum-comments.massDestroy');
+    Route::post('forum-comments/media', 'ForumCommentController@storeMedia')->name('forum-comments.storeMedia');
+    Route::post('forum-comments/ckmedia', 'ForumCommentController@storeCKEditorImages')->name('forum-comments.storeCKEditorImages');
+    Route::resource('forum-comments', 'ForumCommentController');
+
+    // Post Comment
+    Route::delete('post-comments/destroy', 'PostCommentController@massDestroy')->name('post-comments.massDestroy');
+    Route::resource('post-comments', 'PostCommentController');
+
     Route::get('system-calendar', 'SystemCalendarController@index')->name('systemCalendar');
     Route::get('global-search', 'GlobalSearchController@search')->name('globalSearch');
     Route::get('messenger', 'MessengerController@index')->name('messenger.index');
@@ -248,10 +263,6 @@ Route::group(['prefix' => 'profile', 'as' => 'profile.', 'namespace' => 'Auth', 
         Route::post('profile', 'ChangePasswordController@updateProfile')->name('password.updateProfile');
         Route::post('profile/destroy', 'ChangePasswordController@destroy')->name('password.destroyProfile');
     }
-
-
-
-
 });
 Route::group(['as' => 'frontend.', 'namespace' => 'Frontend', 'middleware' => ['auth']], function () {
     Route::get('/home', 'HomeController@index')->name('home');
@@ -476,16 +487,24 @@ Route::group(['as' => 'frontend.', 'namespace' => 'Frontend', 'middleware' => ['
     Route::delete('featured-courses/destroy', 'FeaturedCourseController@massDestroy')->name('featured-courses.massDestroy');
     Route::resource('featured-courses', 'FeaturedCourseController');
 
+    // Forum Thread
+    Route::delete('forum-threads/destroy', 'ForumThreadController@massDestroy')->name('forum-threads.massDestroy');
+    Route::post('forum-threads/media', 'ForumThreadController@storeMedia')->name('forum-threads.storeMedia');
+    Route::post('forum-threads/ckmedia', 'ForumThreadController@storeCKEditorImages')->name('forum-threads.storeCKEditorImages');
+    Route::resource('forum-threads', 'ForumThreadController');
+
+    // Forum Comment
+    Route::delete('forum-comments/destroy', 'ForumCommentController@massDestroy')->name('forum-comments.massDestroy');
+    Route::post('forum-comments/media', 'ForumCommentController@storeMedia')->name('forum-comments.storeMedia');
+    Route::post('forum-comments/ckmedia', 'ForumCommentController@storeCKEditorImages')->name('forum-comments.storeCKEditorImages');
+    Route::resource('forum-comments', 'ForumCommentController');
+
+    // Post Comment
+    Route::delete('post-comments/destroy', 'PostCommentController@massDestroy')->name('post-comments.massDestroy');
+    Route::resource('post-comments', 'PostCommentController');
+
     Route::get('frontend/profile', 'ProfileController@index')->name('profile.index');
     Route::post('frontend/profile', 'ProfileController@update')->name('profile.update');
     Route::post('frontend/profile/destroy', 'ProfileController@destroy')->name('profile.destroy');
     Route::post('frontend/profile/password', 'ProfileController@password')->name('profile.password');
 });
-
-/*RUTAS FRONTEND____________________________________*/
-
-Route::get ('/cursos', 'CoursesController@index')->name('cursos.index');
-Route::get ('/cursos/{id}', 'CoursesController@single')->name('cursos.curso');
-Route::get ('/acerca-de-nosotros', 'HomeController@about')->name('about');
-Route::get ('/instructores/{id}', 'HomeController@instructor')->name('instructor');
-Route::get ('/instructores', 'HomeController@instructorindex')->name('instructors');
