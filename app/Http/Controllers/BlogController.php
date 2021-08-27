@@ -20,7 +20,9 @@ class BlogController extends Controller
    public function show($slug){
 
       $post = Blog::where('slug', $slug)->first();
-$categories = CourseCategory::all();
+      $categories = CourseCategory::all();
+
+
       return view('pages.blog.show', compact('post', 'categories'));
    }
 
