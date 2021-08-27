@@ -484,8 +484,16 @@ Route::group(['as' => 'frontend.', 'namespace' => 'Frontend', 'middleware' => ['
 
 /*RUTAS FRONTEND____________________________________*/
 
+//Cursos
 Route::get ('/cursos', 'CoursesController@index')->name('cursos.index');
 Route::get ('/cursos/{id}', 'CoursesController@single')->name('cursos.curso');
+//Aboot
 Route::get ('/acerca-de-nosotros', 'HomeController@about')->name('about');
+//Instructores
 Route::get ('/instructores/{id}', 'HomeController@instructor')->name('instructor');
 Route::get ('/instructores', 'HomeController@instructorindex')->name('instructors');
+//Blog
+Route::get ('/blog', 'BlogController@index')->name('blog');
+Route::get ('/blog/{slug}', 'BlogController@show')->name('blog.show');
+Route::post ('/blog/busqueda', 'BlogController@search')->name('blog.search');
+Route::get ('/blog/filtrado/{title}', 'BlogController@filter')->name('blog.filter');
