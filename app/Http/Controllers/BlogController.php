@@ -40,7 +40,7 @@ class BlogController extends Controller
    public function search(Request $request) {
 
 
-       $posts = Blog::where('title','like', '%'.$request->searchterm.'%')->orWhere('excerpt', 'like', '%'.$request->searchterm.'%')->paginate(3);
+       $posts = Blog::where('title','like', '%'.$request->searchterm.'%')->orWhere('excerpt', 'like', '%'.$request->searchterm.'%')->orWhere('slug', 'like', '%'.$request->searchterm.'%')->paginate(3);
         $categories = CourseCategory::all();
         return view('pages.blog.search', compact('posts', 'categories'));
    }
