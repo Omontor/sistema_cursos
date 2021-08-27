@@ -13,7 +13,7 @@ use Gate;
 use Illuminate\Http\Request;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 use Symfony\Component\HttpFoundation\Response;
-
+use Illuminate\Support\Str;
 class BlogController extends Controller
 {
     use MediaUploadingTrait;
@@ -39,6 +39,8 @@ class BlogController extends Controller
     public function store(StoreBlogRequest $request)
     {
         $blog = Blog::create($request->all());
+        $blog->slug = Str::slug($blog->title);
+        $blog->update();
 
         if ($request->input('thumb_image', false)) {
             $blog->addMedia(storage_path('tmp/uploads/' . basename($request->input('thumb_image'))))->toMediaCollection('thumb_image');
@@ -73,7 +75,8 @@ class BlogController extends Controller
     public function update(UpdateBlogRequest $request, Blog $blog)
     {
         $blog->update($request->all());
-
+        $blog->slug = Str::slug($blog->title);
+        $blog->update();
         if ($request->input('thumb_image', false)) {
             if (!$blog->thumb_image || $request->input('thumb_image') !== $blog->thumb_image->file_name) {
                 if ($blog->thumb_image) {

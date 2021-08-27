@@ -12,7 +12,7 @@ class CreateBlogsTable extends Migration
             $table->bigIncrements('id');
             $table->string('title');
             $table->string('excerpt');
-            $table->string('slug')->unique();
+            $table->string('slug')->nullable()->unique();
             $table->longText('description');
             $table->timestamps();
             $table->softDeletes();
