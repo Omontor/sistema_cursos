@@ -1020,6 +1020,70 @@ class PermissionsTableSeeder extends Seeder
             ],
             [
                 'id'    => 253,
+                'title' => 'forum_access',
+            ],
+            [
+                'id'    => 254,
+                'title' => 'forum_thread_create',
+            ],
+            [
+                'id'    => 255,
+                'title' => 'forum_thread_edit',
+            ],
+            [
+                'id'    => 256,
+                'title' => 'forum_thread_show',
+            ],
+            [
+                'id'    => 257,
+                'title' => 'forum_thread_delete',
+            ],
+            [
+                'id'    => 258,
+                'title' => 'forum_thread_access',
+            ],
+            [
+                'id'    => 259,
+                'title' => 'forum_comment_create',
+            ],
+            [
+                'id'    => 260,
+                'title' => 'forum_comment_edit',
+            ],
+            [
+                'id'    => 261,
+                'title' => 'forum_comment_show',
+            ],
+            [
+                'id'    => 262,
+                'title' => 'forum_comment_delete',
+            ],
+            [
+                'id'    => 263,
+                'title' => 'forum_comment_access',
+            ],
+            [
+                'id'    => 264,
+                'title' => 'post_comment_create',
+            ],
+            [
+                'id'    => 265,
+                'title' => 'post_comment_edit',
+            ],
+            [
+                'id'    => 266,
+                'title' => 'post_comment_show',
+            ],
+            [
+                'id'    => 267,
+                'title' => 'post_comment_delete',
+            ],
+            [
+                'id'    => 268,
+                'title' => 'post_comment_access',
+            ],
+            [
+                'id'    => 269,
                 'title' => 'profile_password_edit',
             ],
         ];

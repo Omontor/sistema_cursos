@@ -224,6 +224,25 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::delete('social-networks/destroy', 'SocialNetworkController@massDestroy')->name('social-networks.massDestroy');
     Route::resource('social-networks', 'SocialNetworkController');
 
+    // Forum Thread
+    Route::delete('forum-threads/destroy', 'ForumThreadController@massDestroy')->name('forum-threads.massDestroy');
+    Route::post('forum-threads/media', 'ForumThreadController@storeMedia')->name('forum-threads.storeMedia');
+    Route::post('forum-threads/ckmedia', 'ForumThreadController@storeCKEditorImages')->name('forum-threads.storeCKEditorImages');
+    Route::resource('forum-threads', 'ForumThreadController');
+
+    // Forum Comment
+    Route::delete('forum-comments/destroy', 'ForumCommentController@massDestroy')->name('forum-comments.massDestroy');
+    Route::post('forum-comments/media', 'ForumCommentController@storeMedia')->name('forum-comments.storeMedia');
+    Route::post('forum-comments/ckmedia', 'ForumCommentController@storeCKEditorImages')->name('forum-comments.storeCKEditorImages');
+    Route::resource('forum-comments', 'ForumCommentController');
+
+    // Post Comment
+    Route::delete('post-comments/destroy', 'PostCommentController@massDestroy')->name('post-comments.massDestroy');
+    Route::resource('post-comments', 'PostCommentController');
+
+
+
+
     // Featured Course
     Route::delete('featured-courses/destroy', 'FeaturedCourseController@massDestroy')->name('featured-courses.massDestroy');
     Route::resource('featured-courses', 'FeaturedCourseController');
@@ -475,7 +494,22 @@ Route::group(['as' => 'frontend.', 'namespace' => 'Frontend', 'middleware' => ['
     // Featured Course
     Route::delete('featured-courses/destroy', 'FeaturedCourseController@massDestroy')->name('featured-courses.massDestroy');
     Route::resource('featured-courses', 'FeaturedCourseController');
+    
+    // Forum Thread
+    Route::delete('forum-threads/destroy', 'ForumThreadController@massDestroy')->name('forum-threads.massDestroy');
+    Route::post('forum-threads/media', 'ForumThreadController@storeMedia')->name('forum-threads.storeMedia');
+    Route::post('forum-threads/ckmedia', 'ForumThreadController@storeCKEditorImages')->name('forum-threads.storeCKEditorImages');
+    Route::resource('forum-threads', 'ForumThreadController');
 
+    // Forum Comment
+    Route::delete('forum-comments/destroy', 'ForumCommentController@massDestroy')->name('forum-comments.massDestroy');
+    Route::post('forum-comments/media', 'ForumCommentController@storeMedia')->name('forum-comments.storeMedia');
+    Route::post('forum-comments/ckmedia', 'ForumCommentController@storeCKEditorImages')->name('forum-comments.storeCKEditorImages');
+    Route::resource('forum-comments', 'ForumCommentController');
+
+    // Post Comment
+    Route::delete('post-comments/destroy', 'PostCommentController@massDestroy')->name('post-comments.massDestroy');
+    Route::resource('post-comments', 'PostCommentController');
     Route::get('frontend/profile', 'ProfileController@index')->name('profile.index');
     Route::post('frontend/profile', 'ProfileController@update')->name('profile.update');
     Route::post('frontend/profile/destroy', 'ProfileController@destroy')->name('profile.destroy');
