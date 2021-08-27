@@ -316,8 +316,47 @@
                         </ul>
                     </li>
                 @endcan
+                @can('forum_access')
+                    <li class="nav-item has-treeview {{ request()->is("admin/forum-threads*") ? "menu-open" : "" }} {{ request()->is("admin/forum-comments*") ? "menu-open" : "" }}">
+                        <a class="nav-link nav-dropdown-toggle" href="#">
+                            <i class="fa-fw nav-icon fab fa-forumbee">
+
+                            </i>
+                            <p>
+                                {{ trans('cruds.forum.title') }}
+                                <i class="right fa fa-fw fa-angle-left nav-icon"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            @can('forum_thread_access')
+                                <li class="nav-item">
+                                    <a href="{{ route("admin.forum-threads.index") }}" class="nav-link {{ request()->is("admin/forum-threads") || request()->is("admin/forum-threads/*") ? "active" : "" }}">
+                                        <i class="fa-fw nav-icon far fa-comment-alt">
+
+                                        </i>
+                                        <p>
+                                            {{ trans('cruds.forumThread.title') }}
+                                        </p>
+                                    </a>
+                                </li>
+                            @endcan
+                            @can('forum_comment_access')
+                                <li class="nav-item">
+                                    <a href="{{ route("admin.forum-comments.index") }}" class="nav-link {{ request()->is("admin/forum-comments") || request()->is("admin/forum-comments/*") ? "active" : "" }}">
+                                        <i class="fa-fw nav-icon far fa-comments">
+
+                                        </i>
+                                        <p>
+                                            {{ trans('cruds.forumComment.title') }}
+                                        </p>
+                                    </a>
+                                </li>
+                            @endcan
+                        </ul>
+                    </li>
+                @endcan
                 @can('comunicacion_access')
-                    <li class="nav-item has-treeview {{ request()->is("admin/blogs*") ? "menu-open" : "" }} {{ request()->is("admin/user-alerts*") ? "menu-open" : "" }} {{ request()->is("admin/lesson-questions*") ? "menu-open" : "" }} {{ request()->is("admin/lesson-answers*") ? "menu-open" : "" }} {{ request()->is("admin/contact-forms*") ? "menu-open" : "" }}">
+                    <li class="nav-item has-treeview {{ request()->is("admin/blogs*") ? "menu-open" : "" }} {{ request()->is("admin/user-alerts*") ? "menu-open" : "" }} {{ request()->is("admin/lesson-questions*") ? "menu-open" : "" }} {{ request()->is("admin/lesson-answers*") ? "menu-open" : "" }} {{ request()->is("admin/contact-forms*") ? "menu-open" : "" }} {{ request()->is("admin/post-comments*") ? "menu-open" : "" }}">
                         <a class="nav-link nav-dropdown-toggle" href="#">
                             <i class="fa-fw nav-icon far fa-newspaper">
 
@@ -384,6 +423,18 @@
                                         </i>
                                         <p>
                                             {{ trans('cruds.contactForm.title') }}
+                                        </p>
+                                    </a>
+                                </li>
+                            @endcan
+                            @can('post_comment_access')
+                                <li class="nav-item">
+                                    <a href="{{ route("admin.post-comments.index") }}" class="nav-link {{ request()->is("admin/post-comments") || request()->is("admin/post-comments/*") ? "active" : "" }}">
+                                        <i class="fa-fw nav-icon fas fa-font">
+
+                                        </i>
+                                        <p>
+                                            {{ trans('cruds.postComment.title') }}
                                         </p>
                                     </a>
                                 </li>

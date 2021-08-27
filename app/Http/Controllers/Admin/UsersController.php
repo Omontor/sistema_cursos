@@ -33,7 +33,7 @@ class UsersController extends Controller
     {
         abort_if(Gate::denies('user_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $roles = Role::all()->pluck('title', 'id');
+        $roles = Role::pluck('title', 'id');
 
         return view('admin.users.create', compact('roles'));
     }
@@ -57,7 +57,7 @@ class UsersController extends Controller
     {
         abort_if(Gate::denies('user_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $roles = Role::all()->pluck('title', 'id');
+        $roles = Role::pluck('title', 'id');
 
         $user->load('roles');
 
@@ -86,7 +86,7 @@ class UsersController extends Controller
     {
         abort_if(Gate::denies('user_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $user->load('roles', 'userLessonQuestions', 'userLessonAnswers', 'userWishlists', 'userProgress', 'userCertificates', 'userReservations', 'userTransactions', 'userEnrollments', 'userIndexTestimonials', 'userUserAlerts');
+        $user->load('roles', 'userLessonQuestions', 'userLessonAnswers', 'userWishlists', 'userProgress', 'userCertificates', 'userReservations', 'userTransactions', 'userEnrollments', 'userIndexTestimonials', 'userForumThreads', 'userForumComments', 'userPostComments', 'userUserAlerts');
 
         return view('admin.users.show', compact('user'));
     }

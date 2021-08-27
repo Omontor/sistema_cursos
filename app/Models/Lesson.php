@@ -43,7 +43,6 @@ class Lesson extends Model implements HasMedia
         'updated_at',
         'deleted_at',
         'created_by_id',
-        'videoid',
     ];
 
     public function registerMediaConversions(Media $media = null): void
