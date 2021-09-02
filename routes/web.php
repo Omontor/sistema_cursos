@@ -531,3 +531,5 @@ Route::get ('/blog', 'BlogController@index')->name('blog');
 Route::get ('/blog/{slug}', 'BlogController@show')->name('blog.show');
 Route::post ('/blog/busqueda', 'BlogController@search')->name('blog.search');
 Route::get ('/blog/filtrado/{title}', 'BlogController@filter')->name('blog.filter');
+//Foro
+Route::get ('/foro', 'ForumController@index')->name('foro');

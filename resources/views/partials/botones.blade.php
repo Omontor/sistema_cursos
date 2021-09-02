@@ -14,7 +14,7 @@
                                 <li><a href="#">Comunidad</a>
                                     <ul class="sub-menu">
                                         <li class="menu-item"><a href="{{route('blog')}}">Blog</a></li>
-                                        <li class="menu-item"><a href="#">Foro</a></li>
+                                        <li class="menu-item"><a href="{{route('foro')}}">Foro</a></li>
                                     </ul><!-- sub-menu -->
                                 </li>
                                 <li>
