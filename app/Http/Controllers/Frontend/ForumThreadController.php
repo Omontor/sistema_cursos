@@ -7,6 +7,7 @@ use App\Http\Controllers\Traits\MediaUploadingTrait;
 use App\Http\Requests\MassDestroyForumThreadRequest;
 use App\Http\Requests\StoreForumThreadRequest;
 use App\Http\Requests\UpdateForumThreadRequest;
+use App\Models\ForumCategory;
 use App\Models\ForumThread;
 use App\Models\User;
 use Gate;
@@ -22,11 +23,13 @@ class ForumThreadController extends Controller
     {
         abort_if(Gate::denies('forum_thread_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $forumThreads = ForumThread::with(['user'])->get();
+        $forumThreads = ForumThread::with(['user', 'category'])->get();
 
         $users = User::get();
 
-        return view('frontend.forumThreads.index', compact('forumThreads', 'users'));
+        $forum_categories = ForumCategory::get();
+
+        return view('frontend.forumThreads.index', compact('forumThreads', 'users', 'forum_categories'));
     }
 
     public function create()
@@ -35,7 +38,9 @@ class ForumThreadController extends Controller
 
         $users = User::pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
 
-        return view('frontend.forumThreads.create', compact('users'));
+        $categories = ForumCategory::pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
+
+        return view('frontend.forumThreads.create', compact('users', 'categories'));
     }
 
     public function store(StoreForumThreadRequest $request)
@@ -55,9 +60,11 @@ class ForumThreadController extends Controller
 
         $users = User::pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
 
-        $forumThread->load('user');
+        $categories = ForumCategory::pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
 
-        return view('frontend.forumThreads.edit', compact('users', 'forumThread'));
+        $forumThread->load('user', 'category');
+
+        return view('frontend.forumThreads.edit', compact('users', 'categories', 'forumThread'));
     }
 
     public function update(UpdateForumThreadRequest $request, ForumThread $forumThread)
@@ -71,7 +78,7 @@ class ForumThreadController extends Controller
     {
         abort_if(Gate::denies('forum_thread_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $forumThread->load('user');
+        $forumThread->load('user', 'category', 'threadForumComments');
 
         return view('frontend.forumThreads.show', compact('forumThread'));
     }

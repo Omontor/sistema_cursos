@@ -1084,6 +1084,46 @@ class PermissionsTableSeeder extends Seeder
             ],
             [
                 'id'    => 269,
+                'title' => 'referral_source_create',
+            ],
+            [
+                'id'    => 270,
+                'title' => 'referral_source_edit',
+            ],
+            [
+                'id'    => 271,
+                'title' => 'referral_source_show',
+            ],
+            [
+                'id'    => 272,
+                'title' => 'referral_source_delete',
+            ],
+            [
+                'id'    => 273,
+                'title' => 'referral_source_access',
+            ],
+            [
+                'id'    => 274,
+                'title' => 'forum_category_create',
+            ],
+            [
+                'id'    => 275,
+                'title' => 'forum_category_edit',
+            ],
+            [
+                'id'    => 276,
+                'title' => 'forum_category_show',
+            ],
+            [
+                'id'    => 277,
+                'title' => 'forum_category_delete',
+            ],
+            [
+                'id'    => 278,
+                'title' => 'forum_category_access',
+            ],
+            [
+                'id'    => 279,
                 'title' => 'profile_password_edit',
             ],
         ];

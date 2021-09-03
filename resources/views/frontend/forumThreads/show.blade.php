@@ -50,6 +50,14 @@
                                         {!! $forumThread->content !!}
                                     </td>
                                 </tr>
+                                <tr>
+                                    <th>
+                                        {{ trans('cruds.forumThread.fields.category') }}
+                                    </th>
+                                    <td>
+                                        {{ $forumThread->category->name ?? '' }}
+                                    </td>
+                                </tr>
                             </tbody>
                         </table>
                         <div class="form-group">

@@ -32,15 +32,15 @@ class ForumCommentController extends Controller
         return view('frontend.forumComments.index', compact('forumComments', 'forum_threads', 'users'));
     }
 
-    public function create($id)
+    public function create()
     {
         abort_if(Gate::denies('forum_comment_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         $threads = ForumThread::pluck('title', 'id')->prepend(trans('global.pleaseSelect'), '');
-        $thread = ForumThread::find($id);
+
         $users = User::pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
 
-        return view('frontend.forumComments.create', compact('threads', 'users', 'thread'));
+        return view('frontend.forumComments.create', compact('threads', 'users'));
     }
 
     public function store(StoreForumCommentRequest $request)
@@ -51,13 +51,12 @@ class ForumCommentController extends Controller
             Media::whereIn('id', $media)->update(['model_id' => $forumComment->id]);
         }
 
-        return redirect()->route('foro.show', $forumComment->thread->id);
+        return redirect()->route('frontend.forum-comments.index');
     }
 
-    public function edit($id)
+    public function edit(ForumComment $forumComment)
     {
         abort_if(Gate::denies('forum_comment_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
-        $forumComment = ForumComment::find($id);
 
         $threads = ForumThread::pluck('title', 'id')->prepend(trans('global.pleaseSelect'), '');
 
@@ -72,7 +71,7 @@ class ForumCommentController extends Controller
     {
         $forumComment->update($request->all());
 
-        return redirect()->route('foro.show', $forumComment->thread->id);
+        return redirect()->route('frontend.forum-comments.index');
     }
 
     public function show(ForumComment $forumComment)
@@ -84,11 +83,10 @@ class ForumCommentController extends Controller
         return view('frontend.forumComments.show', compact('forumComment'));
     }
 
-    public function destroy($id)
+    public function destroy(ForumComment $forumComment)
     {
         abort_if(Gate::denies('forum_comment_delete'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $forumComment = ForumComment::find($id);
         $forumComment->delete();
 
         return back();

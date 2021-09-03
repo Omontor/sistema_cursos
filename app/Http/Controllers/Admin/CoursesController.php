@@ -8,7 +8,6 @@ use App\Http\Requests\MassDestroyCourseRequest;
 use App\Http\Requests\StoreCourseRequest;
 use App\Http\Requests\UpdateCourseRequest;
 use App\Models\Course;
-use App\Models\CourseCategory;
 use App\Models\Requirment;
 use App\Models\User;
 use Gate;
@@ -43,9 +42,7 @@ class CoursesController extends Controller
 
         $requirements = Requirment::all()->pluck('name', 'id');
 
-        $categories = CourseCategory::all();
-
-        return view('admin.courses.create', compact('teachers', 'students', 'requirements', 'categories'));
+        return view('admin.courses.create', compact('teachers', 'students', 'requirements'));
     }
 
     public function store(StoreCourseRequest $request)
@@ -76,17 +73,12 @@ class CoursesController extends Controller
 
         $course->load('teacher', 'students', 'requirements', 'created_by');
 
-        $categories = CourseCategory::all();
-
-        return view('admin.courses.edit', compact('teachers', 'students', 'requirements', 'course', 'categories'));
+        return view('admin.courses.edit', compact('teachers', 'students', 'requirements', 'course'));
     }
 
     public function update(UpdateCourseRequest $request, Course $course)
     {
-
         $course->update($request->all());
-         $course->category_id = $request->category_id;
-         $course->update();
         $course->students()->sync($request->input('students', []));
         $course->requirements()->sync($request->input('requirements', []));
         if (count($course->thumbnail) > 0) {

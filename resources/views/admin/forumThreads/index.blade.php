@@ -32,6 +32,9 @@
                             {{ trans('cruds.forumThread.fields.title') }}
                         </th>
                         <th>
+                            {{ trans('cruds.forumThread.fields.category') }}
+                        </th>
+                        <th>
                             &nbsp;
                         </th>
                     </tr>
@@ -53,6 +56,14 @@
                             <input class="search" type="text" placeholder="{{ trans('global.search') }}">
                         </td>
                         <td>
+                            <select class="search">
+                                <option value>{{ trans('global.all') }}</option>
+                                @foreach($forum_categories as $key => $item)
+                                    <option value="{{ $item->name }}">{{ $item->name }}</option>
+                                @endforeach
+                            </select>
+                        </td>
+                        <td>
                         </td>
                     </tr>
                 </thead>
@@ -70,6 +81,9 @@
                             </td>
                             <td>
                                 {{ $forumThread->title ?? '' }}
+                            </td>
+                            <td>
+                                {{ $forumThread->category->name ?? '' }}
                             </td>
                             <td>
                                 @can('forum_thread_show')

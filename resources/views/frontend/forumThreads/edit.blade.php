@@ -48,6 +48,20 @@
                             <span class="help-block">{{ trans('cruds.forumThread.fields.content_helper') }}</span>
                         </div>
                         <div class="form-group">
+                            <label class="required" for="category_id">{{ trans('cruds.forumThread.fields.category') }}</label>
+                            <select class="form-control select2" name="category_id" id="category_id" required>
+                                @foreach($categories as $id => $entry)
+                                    <option value="{{ $id }}" {{ (old('category_id') ? old('category_id') : $forumThread->category->id ?? '') == $id ? 'selected' : '' }}>{{ $entry }}</option>
+                                @endforeach
+                            </select>
+                            @if($errors->has('category'))
+                                <div class="invalid-feedback">
+                                    {{ $errors->first('category') }}
+                                </div>
+                            @endif
+                            <span class="help-block">{{ trans('cruds.forumThread.fields.category_helper') }}</span>
+                        </div>
+                        <div class="form-group">
                             <button class="btn btn-danger" type="submit">
                                 {{ trans('global.save') }}
                             </button>

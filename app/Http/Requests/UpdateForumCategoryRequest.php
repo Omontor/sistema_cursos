@@ -1,0 +1,27 @@
+<?php
+
+namespace App\Http\Requests;
+
+use App\Models\ForumCategory;
+use Gate;
+use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Http\Response;
+
+class UpdateForumCategoryRequest extends FormRequest
+{
+    public function authorize()
+    {
+        return Gate::allows('forum_category_edit');
+    }
+
+    public function rules()
+    {
+        return [
+            'name' => [
+                'string',
+                'required',
+                'unique:forum_categories,name,' . request()->route('forum_category')->id,
+            ],
+        ];
+    }
+}
