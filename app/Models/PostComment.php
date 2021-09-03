@@ -42,10 +42,4 @@ class PostComment extends Model
     {
         return $date->format('Y-m-d H:i:s');
     }
-
-        public function post()
-    {
-        return $this->belongsTo(Blog::class, 'post_id');
-    }
-
 }

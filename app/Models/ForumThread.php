@@ -32,6 +32,7 @@ class ForumThread extends Model implements HasMedia
         'user_id',
         'title',
         'content',
+        'category_id',
         'created_at',
         'updated_at',
         'deleted_at',
@@ -51,6 +52,11 @@ class ForumThread extends Model implements HasMedia
     public function user()
     {
         return $this->belongsTo(User::class, 'user_id');
+    }
+
+    public function category()
+    {
+        return $this->belongsTo(ForumCategory::class, 'category_id');
     }
 
     protected function serializeDate(DateTimeInterface $date)

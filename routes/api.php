@@ -155,4 +155,18 @@ Route::group(['prefix' => 'v1', 'as' => 'api.', 'namespace' => 'Api\V1\Admin', '
 
     // Featured Course
     Route::apiResource('featured-courses', 'FeaturedCourseApiController');
+
+    // Forum Thread
+    Route::post('forum-threads/media', 'ForumThreadApiController@storeMedia')->name('forum-threads.storeMedia');
+    Route::apiResource('forum-threads', 'ForumThreadApiController');
+
+    // Forum Comment
+    Route::post('forum-comments/media', 'ForumCommentApiController@storeMedia')->name('forum-comments.storeMedia');
+    Route::apiResource('forum-comments', 'ForumCommentApiController');
+
+    // Post Comment
+    Route::apiResource('post-comments', 'PostCommentApiController');
+
+    // Forum Category
+    Route::apiResource('forum-categories', 'ForumCategoryApiController');
 });

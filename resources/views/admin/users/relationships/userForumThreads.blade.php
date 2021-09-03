@@ -31,6 +31,9 @@
                                 {{ trans('cruds.forumThread.fields.title') }}
                             </th>
                             <th>
+                                {{ trans('cruds.forumThread.fields.category') }}
+                            </th>
+                            <th>
                                 &nbsp;
                             </th>
                         </tr>
@@ -49,6 +52,9 @@
                                 </td>
                                 <td>
                                     {{ $forumThread->title ?? '' }}
+                                </td>
+                                <td>
+                                    {{ $forumThread->category->name ?? '' }}
                                 </td>
                                 <td>
                                     @can('forum_thread_show')

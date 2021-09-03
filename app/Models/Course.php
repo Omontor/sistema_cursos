@@ -46,7 +46,6 @@ class Course extends Model implements HasMedia
         'updated_at',
         'deleted_at',
         'created_by_id',
-        'excerpt',
     ];
 
     public function registerMediaConversions(Media $media = null): void
@@ -131,10 +130,4 @@ class Course extends Model implements HasMedia
     {
         return $date->format('Y-m-d H:i:s');
     }
-
-        public function category()
-    {
-        return $this->belongsTo(CourseCategory::class, 'category_id');
-    }
-
 }

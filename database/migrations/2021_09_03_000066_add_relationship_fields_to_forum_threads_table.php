@@ -11,6 +11,8 @@ class AddRelationshipFieldsToForumThreadsTable extends Migration
         Schema::table('forum_threads', function (Blueprint $table) {
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id', 'user_fk_4737978')->references('id')->on('users');
+            $table->unsignedBigInteger('category_id');
+            $table->foreign('category_id', 'category_fk_4793580')->references('id')->on('forum_categories');
         });
     }
 }
