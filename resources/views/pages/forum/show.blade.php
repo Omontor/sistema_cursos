@@ -104,8 +104,9 @@ style="background-image: url(/images/blog.png);"
             <div class="card mb-4">
                 <div class="card-header">
                     <div class="media flex-wrap w-100 align-items-center"> <img src="https://i.imgur.com/iNmBizf.jpg" class="d-block ui-w-40 rounded-circle" alt="">
-                        <div class="media-body ml-3"> <a href="javascript:void(0)" data-abc="true">{{$comment->user->name}}</a>
-                            <div class="text-muted small" style="margin-bottom:10px; margin-top: -10px;">{{$comment->user->userForumComments->count()}} Respuestas</div>
+                        <div class="media-body ml-3"> <a href="javascript:void(0)" data-abc="true">{{$comment->user->name}} </a>
+
+                            <div class="text-muted small" style="margin-bottom:10px; margin-top: -10px;">{{$comment->user->userForumComments->count()}} Respuestas  <small class="pull-right"> Este usuario ha creado {{$comment->user->userForumThreads->count()}} posts</small></div>
 
                         </div>
                         <div class="text-muted small ml-3">
@@ -115,9 +116,17 @@ style="background-image: url(/images/blog.png);"
                 </div>
                 <div class="card-body">
                         {!!$comment->content!!}
+
+                    @if($comment->updated_at != $comment->created_at)
+                    <br>
+                    <hr>
+
+                    <h6 style="pull-right">Post editado el: {{$comment->updated_at->format('l d m Y')}}</h6>
+                    @endif    
+                    
                 </div>
                 <div class="card-footer d-flex flex-wrap justify-content-between align-items-center px-0 pt-0 pb-3">
-                    <div class="px-4 pt-3"> <div>Miembro desde: <strong>{{$comment->user->created_at->diffForHumans()}}</strong></div> </div>
+                    <div class="px-4 pt-3"> <div>Miembro desde: <strong>{{$comment->user->created_at->diffForHumans()}}</strong></div>  </div>
                     <div class="px-4 pt-3">
 
                         @if($comment->user->id != Auth::user()->id)

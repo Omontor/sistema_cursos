@@ -104,8 +104,8 @@ style="background-image: url(/images/blog.png);"
                                 <div class="col-3">{{$thread->threadForumComments->count()}}</div>
                                 <div class="col-3">{{$thread->created_at->diffForHumans()}}</div>
                                 <div class="media col-6 align-items-center">
-                                    <div class="media-body flex-truncate ml-2"> <a href="javascript:void(0)" class="d-block text-truncate" data-abc="true">{{$thread->user->name}}</a>
-                                        <div class="text-muted small text-truncate">{{$thread->user->userForumThreads->count()}} &nbsp;·&nbsp; <a href="javascript:void(0)" class="text-muted" data-abc="true">Posts</a></div>
+                                    <div class="media-body flex-truncate ml-2"> <a href="javascript:void(0)" class="d-block text-truncate" data-abc="true">{{$thread->user->name}}</a> <small>
+                                    
                                     </div>
                                     <a href="{{route('foro.show', $thread->id)}}" class="btn btn-primary" style="margin-right: 20px;">Ver Post</a>
                                 </div>
