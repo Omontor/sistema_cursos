@@ -1,6 +1,6 @@
 @extends('partials.template2')
 @section ('header2')
-  <title>Instructores</title>
+  <title>{{$thread->title}}</title>
 
   <style type="text/css">
     body {
@@ -68,7 +68,7 @@ a {
 
 @endsection  
 @section('name')
-{{$thread->title}}
+Foro
 @endsection
 @section('content')
 <!--Así es como se agrega la imagen de fondo en cada página -->
@@ -118,7 +118,15 @@ style="background-image: url(/images/blog.png);"
                 </div>
                 <div class="card-footer d-flex flex-wrap justify-content-between align-items-center px-0 pt-0 pb-3">
                     <div class="px-4 pt-3"> <div>Miembro desde: <strong>{{$comment->user->created_at->diffForHumans()}}</strong></div> </div>
-                    <div class="px-4 pt-3">Posteado: {{$comment->created_at->diffForHumans()}} </div>
+                    <div class="px-4 pt-3">
+
+                        @if($comment->user->id != Auth::user()->id)
+                        Posteado: {{$comment->created_at->diffForHumans()}}  
+                        @else
+                        <a href="{{route('frontend.foro.comment.editar', $comment->id)}}" class="btn btn-secondary">Editar</a>  
+                        <a href="{{route('frontend.foro.comment.eliminar', $comment->id)}}" class="btn btn-danger" onclick="return confirm('Por favor confirma que deseas eliminar tu comentario, esta acción no se puede deshacer.')">Eliminar</a>  
+                        @endif
+                    </div>
                 </div>
             </div>
         </div>

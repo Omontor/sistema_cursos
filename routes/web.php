@@ -507,6 +507,8 @@ Route::group(['as' => 'frontend.', 'namespace' => 'Frontend', 'middleware' => ['
     Route::post('forum-comments/ckmedia', 'ForumCommentController@storeCKEditorImages')->name('forum-comments.storeCKEditorImages');
 
     Route::get('foro-contestar/{id}', 'ForumCommentController@create')->name('foro.contestar');
+    Route::get('foro-editar/{id}', 'ForumCommentController@edit')->name('foro.comment.editar');
+    Route::get('foro-eliminar/{id}', 'ForumCommentController@destroy')->name('foro.comment.eliminar');
 
 
     Route::resource('forum-comments', 'ForumCommentController');

@@ -1,5 +1,7 @@
 @extends('partials.template2')
 @section ('header2')
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
   <title></title>
   <link href="{{ asset('css/custom.css') }}" rel="stylesheet" />
 

@@ -54,9 +54,10 @@ class ForumCommentController extends Controller
         return redirect()->route('foro.show', $forumComment->thread->id);
     }
 
-    public function edit(ForumComment $forumComment)
+    public function edit($id)
     {
         abort_if(Gate::denies('forum_comment_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        $forumComment = ForumComment::find($id);
 
         $threads = ForumThread::pluck('title', 'id')->prepend(trans('global.pleaseSelect'), '');
 
@@ -71,7 +72,7 @@ class ForumCommentController extends Controller
     {
         $forumComment->update($request->all());
 
-        return redirect()->route('frontend.forum-comments.index');
+        return redirect()->route('foro.show', $forumComment->thread->id);
     }
 
     public function show(ForumComment $forumComment)
@@ -83,10 +84,11 @@ class ForumCommentController extends Controller
         return view('frontend.forumComments.show', compact('forumComment'));
     }
 
-    public function destroy(ForumComment $forumComment)
+    public function destroy($id)
     {
         abort_if(Gate::denies('forum_comment_delete'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
+        $forumComment = ForumComment::find($id);
         $forumComment->delete();
 
         return back();
