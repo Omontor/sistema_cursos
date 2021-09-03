@@ -103,11 +103,11 @@ style="background-image: url(/images/blog.png);"
                             <div class="row no-gutters align-items-center">
                                 <div class="col-3">{{$thread->threadForumComments->count()}}</div>
                                 <div class="col-3">{{$thread->created_at->diffForHumans()}}</div>
-                                <div class="media col-6 align-items-center"> <img src="https://i.imgur.com/Ur43esv.jpg" alt="" class="d-block ui-w-30 rounded-circle">
+                                <div class="media col-6 align-items-center">
                                     <div class="media-body flex-truncate ml-2"> <a href="javascript:void(0)" class="d-block text-truncate" data-abc="true">{{$thread->user->name}}</a>
                                         <div class="text-muted small text-truncate">{{$thread->user->userForumThreads->count()}} &nbsp;·&nbsp; <a href="javascript:void(0)" class="text-muted" data-abc="true">Posts</a></div>
                                     </div>
-                                    <a href="#" class="btn btn-primary">Ver Post</a>
+                                    <a href="{{route('foro.show', $thread->id)}}" class="btn btn-primary" style="margin-right: 20px;">Ver Post</a>
                                 </div>
 
                             </div>
@@ -121,11 +121,16 @@ style="background-image: url(/images/blog.png);"
                 @endforelse
           
             </div>
+
         </div>
     </div>
+
 </div>
 
 <br>
+    <center>
+       {{$threads->links()}}
+    </center>
 <br>
 <br>
 @endsection

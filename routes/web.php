@@ -505,6 +505,10 @@ Route::group(['as' => 'frontend.', 'namespace' => 'Frontend', 'middleware' => ['
     Route::delete('forum-comments/destroy', 'ForumCommentController@massDestroy')->name('forum-comments.massDestroy');
     Route::post('forum-comments/media', 'ForumCommentController@storeMedia')->name('forum-comments.storeMedia');
     Route::post('forum-comments/ckmedia', 'ForumCommentController@storeCKEditorImages')->name('forum-comments.storeCKEditorImages');
+
+    Route::get('foro-contestar/{id}', 'ForumCommentController@create')->name('foro.contestar');
+
+
     Route::resource('forum-comments', 'ForumCommentController');
 
     // Post Comment
@@ -533,3 +537,4 @@ Route::post ('/blog/busqueda', 'BlogController@search')->name('blog.search');
 Route::get ('/blog/filtrado/{title}', 'BlogController@filter')->name('blog.filter');
 //Foro
 Route::get ('/foro', 'ForumController@index')->name('foro');
+Route::get ('/foro/{id}', 'ForumController@show')->name('foro.show');

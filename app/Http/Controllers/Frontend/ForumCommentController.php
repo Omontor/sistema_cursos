@@ -32,15 +32,15 @@ class ForumCommentController extends Controller
         return view('frontend.forumComments.index', compact('forumComments', 'forum_threads', 'users'));
     }
 
-    public function create()
+    public function create($id)
     {
         abort_if(Gate::denies('forum_comment_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         $threads = ForumThread::pluck('title', 'id')->prepend(trans('global.pleaseSelect'), '');
-
+        $thread = ForumThread::find($id);
         $users = User::pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
 
-        return view('frontend.forumComments.create', compact('threads', 'users'));
+        return view('frontend.forumComments.create', compact('threads', 'users', 'thread'));
     }
 
     public function store(StoreForumCommentRequest $request)
@@ -51,7 +51,7 @@ class ForumCommentController extends Controller
             Media::whereIn('id', $media)->update(['model_id' => $forumComment->id]);
         }
 
-        return redirect()->route('frontend.forum-comments.index');
+        return redirect()->route('foro.show', $forumComment->thread->id);
     }
 
     public function edit(ForumComment $forumComment)
