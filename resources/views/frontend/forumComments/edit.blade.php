@@ -75,6 +75,8 @@ style="background-image: url(/images/blog.png);"
                             <button class="btn btn-success" type="submit">
                                 {{ trans('global.save') }}
                             </button>
+                                     <a href="
+{{ url()->previous() }}" class="btn btn-danger">Cancelar</a>
                         </div>
                     </form>
                 </div>
