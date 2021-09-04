@@ -35,6 +35,7 @@ class ForumThread extends Model implements HasMedia
         'created_at',
         'updated_at',
         'deleted_at',
+        'category_id'
     ];
 
     public function registerMediaConversions(Media $media = null): void
@@ -57,4 +58,10 @@ class ForumThread extends Model implements HasMedia
     {
         return $date->format('Y-m-d H:i:s');
     }
+
+        public function category()
+    {
+        return $this->belongsTo(ForumCategory::class, 'category_id');
+    }
+
 }

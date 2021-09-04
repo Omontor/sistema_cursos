@@ -317,7 +317,7 @@
                     </li>
                 @endcan
                 @can('forum_access')
-                    <li class="nav-item has-treeview {{ request()->is("admin/forum-threads*") ? "menu-open" : "" }} {{ request()->is("admin/forum-comments*") ? "menu-open" : "" }}">
+                    <li class="nav-item has-treeview {{ request()->is("admin/forum-categories*") ? "menu-open" : "" }} {{ request()->is("admin/forum-threads*") ? "menu-open" : "" }} {{ request()->is("admin/forum-comments*") ? "menu-open" : "" }} {{ request()->is("admin/forum-likes*") ? "menu-open" : "" }}">
                         <a class="nav-link nav-dropdown-toggle" href="#">
                             <i class="fa-fw nav-icon fab fa-forumbee">
 
@@ -328,6 +328,18 @@
                             </p>
                         </a>
                         <ul class="nav nav-treeview">
+                            @can('forum_category_access')
+                                <li class="nav-item">
+                                    <a href="{{ route("admin.forum-categories.index") }}" class="nav-link {{ request()->is("admin/forum-categories") || request()->is("admin/forum-categories/*") ? "active" : "" }}">
+                                        <i class="fa-fw nav-icon fas fa-ellipsis-v">
+
+                                        </i>
+                                        <p>
+                                            {{ trans('cruds.forumCategory.title') }}
+                                        </p>
+                                    </a>
+                                </li>
+                            @endcan
                             @can('forum_thread_access')
                                 <li class="nav-item">
                                     <a href="{{ route("admin.forum-threads.index") }}" class="nav-link {{ request()->is("admin/forum-threads") || request()->is("admin/forum-threads/*") ? "active" : "" }}">
@@ -352,11 +364,23 @@
                                     </a>
                                 </li>
                             @endcan
+                            @can('forum_like_access')
+                                <li class="nav-item">
+                                    <a href="{{ route("admin.forum-likes.index") }}" class="nav-link {{ request()->is("admin/forum-likes") || request()->is("admin/forum-likes/*") ? "active" : "" }}">
+                                        <i class="fa-fw nav-icon far fa-check-circle">
+
+                                        </i>
+                                        <p>
+                                            {{ trans('cruds.forumLike.title') }}
+                                        </p>
+                                    </a>
+                                </li>
+                            @endcan
                         </ul>
                     </li>
                 @endcan
                 @can('comunicacion_access')
-                    <li class="nav-item has-treeview {{ request()->is("admin/blogs*") ? "menu-open" : "" }} {{ request()->is("admin/user-alerts*") ? "menu-open" : "" }} {{ request()->is("admin/lesson-questions*") ? "menu-open" : "" }} {{ request()->is("admin/lesson-answers*") ? "menu-open" : "" }} {{ request()->is("admin/contact-forms*") ? "menu-open" : "" }} {{ request()->is("admin/post-comments*") ? "menu-open" : "" }}">
+                    <li class="nav-item has-treeview {{ request()->is("admin/blogs*") ? "menu-open" : "" }} {{ request()->is("admin/user-alerts*") ? "menu-open" : "" }} {{ request()->is("admin/lesson-questions*") ? "menu-open" : "" }} {{ request()->is("admin/lesson-answers*") ? "menu-open" : "" }} {{ request()->is("admin/contact-forms*") ? "menu-open" : "" }} {{ request()->is("admin/post-comments*") ? "menu-open" : "" }} {{ request()->is("admin/forum-complaints*") ? "menu-open" : "" }} {{ request()->is("admin/complaint-types*") ? "menu-open" : "" }}">
                         <a class="nav-link nav-dropdown-toggle" href="#">
                             <i class="fa-fw nav-icon far fa-newspaper">
 
@@ -439,6 +463,30 @@
                                     </a>
                                 </li>
                             @endcan
+                            @can('forum_complaint_access')
+                                <li class="nav-item">
+                                    <a href="{{ route("admin.forum-complaints.index") }}" class="nav-link {{ request()->is("admin/forum-complaints") || request()->is("admin/forum-complaints/*") ? "active" : "" }}">
+                                        <i class="fa-fw nav-icon far fa-times-circle">
+
+                                        </i>
+                                        <p>
+                                            {{ trans('cruds.forumComplaint.title') }}
+                                        </p>
+                                    </a>
+                                </li>
+                            @endcan
+                            @can('complaint_type_access')
+                                <li class="nav-item">
+                                    <a href="{{ route("admin.complaint-types.index") }}" class="nav-link {{ request()->is("admin/complaint-types") || request()->is("admin/complaint-types/*") ? "active" : "" }}">
+                                        <i class="fa-fw nav-icon fas fa-angry">
+
+                                        </i>
+                                        <p>
+                                            {{ trans('cruds.complaintType.title') }}
+                                        </p>
+                                    </a>
+                                </li>
+                            @endcan
                         </ul>
                     </li>
                 @endcan
@@ -506,7 +554,7 @@
                     </li>
                 @endcan
                 @can('user_management_access')
-                    <li class="nav-item has-treeview {{ request()->is("admin/permissions*") ? "menu-open" : "" }} {{ request()->is("admin/roles*") ? "menu-open" : "" }} {{ request()->is("admin/users*") ? "menu-open" : "" }}">
+                    <li class="nav-item has-treeview {{ request()->is("admin/permissions*") ? "menu-open" : "" }} {{ request()->is("admin/roles*") ? "menu-open" : "" }} {{ request()->is("admin/users*") ? "menu-open" : "" }} {{ request()->is("admin/referral-sources*") ? "menu-open" : "" }}">
                         <a class="nav-link nav-dropdown-toggle" href="#">
                             <i class="fa-fw nav-icon fas fa-users">
 
@@ -549,6 +597,18 @@
                                         </i>
                                         <p>
                                             {{ trans('cruds.user.title') }}
+                                        </p>
+                                    </a>
+                                </li>
+                            @endcan
+                            @can('referral_source_access')
+                                <li class="nav-item">
+                                    <a href="{{ route("admin.referral-sources.index") }}" class="nav-link {{ request()->is("admin/referral-sources") || request()->is("admin/referral-sources/*") ? "active" : "" }}">
+                                        <i class="fa-fw nav-icon fas fa-share-square">
+
+                                        </i>
+                                        <p>
+                                            {{ trans('cruds.referralSource.title') }}
                                         </p>
                                     </a>
                                 </li>

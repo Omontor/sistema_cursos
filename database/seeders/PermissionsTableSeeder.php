@@ -1084,6 +1084,106 @@ class PermissionsTableSeeder extends Seeder
             ],
             [
                 'id'    => 269,
+                'title' => 'referral_source_create',
+            ],
+            [
+                'id'    => 270,
+                'title' => 'referral_source_edit',
+            ],
+            [
+                'id'    => 271,
+                'title' => 'referral_source_show',
+            ],
+            [
+                'id'    => 272,
+                'title' => 'referral_source_delete',
+            ],
+            [
+                'id'    => 273,
+                'title' => 'referral_source_access',
+            ],
+            [
+                'id'    => 274,
+                'title' => 'forum_category_create',
+            ],
+            [
+                'id'    => 275,
+                'title' => 'forum_category_edit',
+            ],
+            [
+                'id'    => 276,
+                'title' => 'forum_category_show',
+            ],
+            [
+                'id'    => 277,
+                'title' => 'forum_category_delete',
+            ],
+            [
+                'id'    => 278,
+                'title' => 'forum_category_access',
+            ],
+            [
+                'id'    => 279,
+                'title' => 'forum_like_create',
+            ],
+            [
+                'id'    => 280,
+                'title' => 'forum_like_edit',
+            ],
+            [
+                'id'    => 281,
+                'title' => 'forum_like_show',
+            ],
+            [
+                'id'    => 282,
+                'title' => 'forum_like_delete',
+            ],
+            [
+                'id'    => 283,
+                'title' => 'forum_like_access',
+            ],
+            [
+                'id'    => 284,
+                'title' => 'forum_complaint_create',
+            ],
+            [
+                'id'    => 285,
+                'title' => 'forum_complaint_edit',
+            ],
+            [
+                'id'    => 286,
+                'title' => 'forum_complaint_show',
+            ],
+            [
+                'id'    => 287,
+                'title' => 'forum_complaint_delete',
+            ],
+            [
+                'id'    => 288,
+                'title' => 'forum_complaint_access',
+            ],
+            [
+                'id'    => 289,
+                'title' => 'complaint_type_create',
+            ],
+            [
+                'id'    => 290,
+                'title' => 'complaint_type_edit',
+            ],
+            [
+                'id'    => 291,
+                'title' => 'complaint_type_show',
+            ],
+            [
+                'id'    => 292,
+                'title' => 'complaint_type_delete',
+            ],
+            [
+                'id'    => 293,
+                'title' => 'complaint_type_access',
+            ],
+            [
+                'id'    => 294,
                 'title' => 'profile_password_edit',
             ],
         ];

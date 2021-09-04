@@ -1,6 +1,6 @@
 @extends('partials.template2')
 @section ('header2')
-  <title>Instructores</title>
+  <title>Foro</title>
 
   <style type="text/css">
     body {
@@ -76,14 +76,33 @@ Foro
 style="background-image: url(/images/blog.png);"
 @endsection
 
+<div class="container-fluid">
+
+</div>
 
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-12">
-            <div class="card mb-3">
+
+
+                @forelse($categories as $category)
+                <h1 style="font-size:20pt;">{{$category->name}}                  
+
+            @if($loop->index == 0 && Auth::user()->getIsAdminAttribute() == 1)
+             <a href="{{route('foro.nuevo', $category->id)}}" class="btn btn-secondary btn-sm pull-right">Nuevo Tema</a> 
+            @endif
+            @if($loop->index != 0)
+             <a href="{{route('foro.nuevo', $category->id)}}" class="btn btn-secondary btn-sm pull-right">Nuevo Tema</a> 
+            @endif
+         <a href="{{route('foro.nuevo', $category->id)}}" class="btn btn-primary btn-sm pull-right" style="margin-right: 10px;">Ver Todos</a> 
+
+</h1>
+
+                <br>
+                            <div class="card mb-3">
                 <div class="card-header pr-0 pl-0">
                     <div class="row no-gutters align-items-center w-100">
-                        <div class="col font-weight-bold pl-3">Título</div>
+                        <div class="col font-weight-bold pl-3">Post Más Recientes</div>
                         <div class="d-none d-md-block col-6 text-muted">
                             <div class="row no-gutters align-items-center">
                                 <div class="col-3">Respuestas</div>
@@ -93,8 +112,7 @@ style="background-image: url(/images/blog.png);"
                         </div>
                     </div>
                 </div>
-
-                @forelse($threads as $thread)
+                @forelse(App\Models\ForumThread::where('category_id', $category->id)->get() as $thread)
 
                 <div class="card-body py-3">
                     <div class="row no-gutters align-items-center">
@@ -107,7 +125,7 @@ style="background-image: url(/images/blog.png);"
                                     <div class="media-body flex-truncate ml-2"> <a href="javascript:void(0)" class="d-block text-truncate" data-abc="true">{{$thread->user->name}}</a> <small>
                                     
                                     </div>
-                                    <a href="{{route('foro.show', $thread->id)}}" class="btn btn-primary" style="margin-right: 20px;">Ver Post</a>
+                                    <a href="{{route('foro.show', $thread->id)}}" class="btn btn-primary" style="margin-right: 20px;">Ver</a>
                                 </div>
 
                             </div>
@@ -117,10 +135,20 @@ style="background-image: url(/images/blog.png);"
                 @if(!$loop->last)
                 <hr class="m-0">
                 @endif
+
                 @empty
                 @endforelse
           
             </div>
+          <br> 
+          <br> 
+          <br> 
+             
+                @empty
+                @endforelse
+
+<br>
+
 
         </div>
     </div>
@@ -129,7 +157,7 @@ style="background-image: url(/images/blog.png);"
 
 <br>
     <center>
-       {{$threads->links()}}
+       {{$categories->links()}}
     </center>
 <br>
 <br>

@@ -28,6 +28,10 @@ class UpdateForumThreadRequest extends FormRequest
             'content' => [
                 'required',
             ],
+            'category_id' => [
+                'required',
+                'integer',
+            ],
         ];
     }
 }

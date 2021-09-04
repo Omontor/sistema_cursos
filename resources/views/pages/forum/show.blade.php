@@ -91,7 +91,9 @@ style="background-image: url(/images/blog.png);"
                              
                                       {!!$thread->content!!}
                                       <br>
-<a href="{{route('frontend.foro.contestar', $thread->id)}}" class="btn btn-primary pull-right">Contestar</a>
+                                        @if($thread->category->id !=1)
+                                        <a href="{{route('frontend.foro.contestar', $thread->id)}}" class="btn btn-primary pull-right">Contestar</a>
+                                        @endif
 <br>
 <br>
                                       <hr>  
@@ -126,7 +128,7 @@ style="background-image: url(/images/blog.png);"
                     
                 </div>
                 <div class="card-footer d-flex flex-wrap justify-content-between align-items-center px-0 pt-0 pb-3">
-                    <div class="px-4 pt-3"> <div>Miembro desde: <strong>{{$comment->user->created_at->diffForHumans()}}</strong></div>  </div>
+                    <div class="px-4 pt-3"> <div>Miembro desde: <strong>{{$comment->user->created_at ? $comment->user->created_at->diffForHumans() : 'no data'}}</strong></div>  </div>
                     <div class="px-4 pt-3">
 
                         @if($comment->user->id != Auth::user()->id)
@@ -142,7 +144,9 @@ style="background-image: url(/images/blog.png);"
     </div>
 @empty
 @endforelse
+                                        @if($thread->category->id !=1 && $thread->threadForumComments->count() >0)
                                         <a href="{{route('frontend.foro.contestar', $thread->id)}}" class="btn btn-primary pull-right">Contestar</a>
+                                        @endif
                                     </div>
                                 </div>
                             </div>

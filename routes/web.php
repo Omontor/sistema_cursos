@@ -240,12 +240,32 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::delete('post-comments/destroy', 'PostCommentController@massDestroy')->name('post-comments.massDestroy');
     Route::resource('post-comments', 'PostCommentController');
 
+    // Referral Source
+    Route::delete('referral-sources/destroy', 'ReferralSourceController@massDestroy')->name('referral-sources.massDestroy');
+    Route::resource('referral-sources', 'ReferralSourceController');
 
+    // Forum Category
+    Route::delete('forum-categories/destroy', 'ForumCategoryController@massDestroy')->name('forum-categories.massDestroy');
+    Route::resource('forum-categories', 'ForumCategoryController');
 
 
     // Featured Course
     Route::delete('featured-courses/destroy', 'FeaturedCourseController@massDestroy')->name('featured-courses.massDestroy');
     Route::resource('featured-courses', 'FeaturedCourseController');
+
+    // Forum Like
+    Route::delete('forum-likes/destroy', 'ForumLikeController@massDestroy')->name('forum-likes.massDestroy');
+    Route::resource('forum-likes', 'ForumLikeController');
+
+    // Forum Complaint
+    Route::delete('forum-complaints/destroy', 'ForumComplaintController@massDestroy')->name('forum-complaints.massDestroy');
+    Route::post('forum-complaints/media', 'ForumComplaintController@storeMedia')->name('forum-complaints.storeMedia');
+    Route::post('forum-complaints/ckmedia', 'ForumComplaintController@storeCKEditorImages')->name('forum-complaints.storeCKEditorImages');
+    Route::resource('forum-complaints', 'ForumComplaintController');
+
+    // Complaint Type
+    Route::delete('complaint-types/destroy', 'ComplaintTypeController@massDestroy')->name('complaint-types.massDestroy');
+    Route::resource('complaint-types', 'ComplaintTypeController');
 
     Route::get('system-calendar', 'SystemCalendarController@index')->name('systemCalendar');
     Route::get('global-search', 'GlobalSearchController@search')->name('globalSearch');
@@ -520,6 +540,29 @@ Route::group(['as' => 'frontend.', 'namespace' => 'Frontend', 'middleware' => ['
     Route::post('frontend/profile', 'ProfileController@update')->name('profile.update');
     Route::post('frontend/profile/destroy', 'ProfileController@destroy')->name('profile.destroy');
     Route::post('frontend/profile/password', 'ProfileController@password')->name('profile.password');
+
+        // Referral Source
+    Route::delete('referral-sources/destroy', 'ReferralSourceController@massDestroy')->name('referral-sources.massDestroy');
+    Route::resource('referral-sources', 'ReferralSourceController');
+
+   
+    // Forum Category
+    Route::delete('forum-categories/destroy', 'ForumCategoryController@massDestroy')->name('forum-categories.massDestroy');
+    Route::resource('forum-categories', 'ForumCategoryController');
+
+    // Forum Like
+    Route::delete('forum-likes/destroy', 'ForumLikeController@massDestroy')->name('forum-likes.massDestroy');
+    Route::resource('forum-likes', 'ForumLikeController');
+
+    // Forum Complaint
+    Route::delete('forum-complaints/destroy', 'ForumComplaintController@massDestroy')->name('forum-complaints.massDestroy');
+    Route::post('forum-complaints/media', 'ForumComplaintController@storeMedia')->name('forum-complaints.storeMedia');
+    Route::post('forum-complaints/ckmedia', 'ForumComplaintController@storeCKEditorImages')->name('forum-complaints.storeCKEditorImages');
+    Route::resource('forum-complaints', 'ForumComplaintController');
+
+    // Complaint Type
+    Route::delete('complaint-types/destroy', 'ComplaintTypeController@massDestroy')->name('complaint-types.massDestroy');
+    Route::resource('complaint-types', 'ComplaintTypeController');
 });
 
 /*RUTAS FRONTEND____________________________________*/
@@ -538,5 +581,6 @@ Route::get ('/blog/{slug}', 'BlogController@show')->name('blog.show');
 Route::post ('/blog/busqueda', 'BlogController@search')->name('blog.search');
 Route::get ('/blog/filtrado/{title}', 'BlogController@filter')->name('blog.filter');
 //Foro
-Route::get ('/foro', 'ForumController@index')->name('foro');
-Route::get ('/foro/{id}', 'ForumController@show')->name('foro.show');
+Route::get ('/foro', 'ForumController@index')->name('foro')->middleware('auth');;
+Route::get ('/foro/{id}', 'ForumController@show')->name('foro.show')->middleware('auth');;
+Route::get ('/foro/new/{id}', 'ForumController@createthread')->name('foro.nuevo')->middleware('auth');;
