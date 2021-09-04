@@ -82,22 +82,22 @@ style="background-image: url(/images/blog.png);"
 
 <div class="container-fluid">
     <div class="row">
+
         <div class="col-md-12">
+            <a href="{{route('foro')}}" class="btn btn-secondary btn-sm pull-right" style="margin-left:10px;">Regresar a Foro</a>
 
-
-                @forelse($categories as $category)
-                <h1 style="font-size:20pt;">{{$category->name}}                  
-
-            @if($loop->index == 0 && Auth::user()->getIsAdminAttribute() == 1)
-             <a href="{{route('foro.nuevo', $category->id)}}" class="btn btn-secondary btn-sm pull-right">Nuevo Tema</a> 
+            @if($category->id == 1 && Auth::user()->getIsAdminAttribute() == 1)
+             <a href="{{route('foro.nuevo', $category->id)}}" class="btn btn-primary btn-sm pull-right">Nuevo Tema</a> 
             @endif
-            @if($loop->index != 0)
-             <a href="{{route('foro.nuevo', $category->id)}}" class="btn btn-secondary btn-sm pull-right">Nuevo Tema</a> 
-            @endif
-         <a href="{{route('foro.categoria', $category->id)}}" class="btn btn-primary btn-sm pull-right" style="margin-right: 10px;">Ver Todos</a> 
+            @if($category->id != 1)
+             <a href="{{route('foro.nuevo', $category->id)}}" class="btn btn-primary btn-sm pull-right">Nuevo Tema</a> 
+            @endif  
 
+             
+<h1>
+    {{$category->name}}
 </h1>
-
+       
                 <br>
                             <div class="card mb-3">
                 <div class="card-header pr-0 pl-0">
@@ -112,7 +112,7 @@ style="background-image: url(/images/blog.png);"
                         </div>
                     </div>
                 </div>
-                @forelse(App\Models\ForumThread::where('category_id', $category->id)->get() as $thread)
+                @forelse($threads as $thread)
 
                 <div class="card-body py-3">
                     <div class="row no-gutters align-items-center">
@@ -143,9 +143,6 @@ style="background-image: url(/images/blog.png);"
           <br> 
           <br> 
           <br> 
-             
-                @empty
-                @endforelse
 
 <br>
 
@@ -157,7 +154,7 @@ style="background-image: url(/images/blog.png);"
 
 <br>
     <center>
-       {{$categories->links()}}
+       {{$threads->links()}}
     </center>
 <br>
 <br>

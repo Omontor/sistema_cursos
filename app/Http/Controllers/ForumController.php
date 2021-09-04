@@ -37,6 +37,13 @@ class ForumController extends Controller
 
   }
 
+  public function categoryindex($id){
+
+    $category = ForumCategory::find($id);
+    $threads = ForumThread::where('category_id', $id)->paginate(20);
+    return view('pages.forum.category', compact('threads', 'category'));
+  }
+
 
 
 }

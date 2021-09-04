@@ -91,8 +91,10 @@ style="background-image: url(/images/blog.png);"
                              
                                       {!!$thread->content!!}
                                       <br>
+                                      <a href="{{route('foro.categoria', $thread->category->id)}}" class="btn btn-secondary pull-right" style="margin-left:10px;">Regresar a {{$thread->category->name}}</a>
                                         @if($thread->category->id !=1)
                                         <a href="{{route('frontend.foro.contestar', $thread->id)}}" class="btn btn-primary pull-right">Contestar</a>
+                                        
                                         @endif
 <br>
 <br>

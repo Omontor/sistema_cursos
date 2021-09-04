@@ -583,4 +583,5 @@ Route::get ('/blog/filtrado/{title}', 'BlogController@filter')->name('blog.filte
 //Foro
 Route::get ('/foro', 'ForumController@index')->name('foro')->middleware('auth');;
 Route::get ('/foro/{id}', 'ForumController@show')->name('foro.show')->middleware('auth');;
-Route::get ('/foro/new/{id}', 'ForumController@createthread')->name('foro.nuevo')->middleware('auth');;
+Route::get ('/foro/new/{id}', 'ForumController@createthread')->name('foro.nuevo')->middleware('auth');
+Route::get ('/foro/categoria/{id}', 'ForumController@categoryindex')->name('foro.categoria')->middleware('auth');
