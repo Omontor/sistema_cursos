@@ -13,6 +13,7 @@ use Gate;
 use Illuminate\Http\Request;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 use Symfony\Component\HttpFoundation\Response;
+use Auth;
 
 class UsersController extends Controller
 {
@@ -53,9 +54,15 @@ class UsersController extends Controller
         return redirect()->route('frontend.users.index');
     }
 
-    public function edit(User $user)
+    public function edit($id)
     {
         abort_if(Gate::denies('user_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        
+        if (Auth::user()->id != $id) {
+           abort(403, 'No puedes accesar esta página');
+        }
+
+        $user = User::find($id);
 
         $roles = Role::all()->pluck('title', 'id');
 
@@ -82,10 +89,11 @@ class UsersController extends Controller
         return redirect()->route('frontend.users.index');
     }
 
-    public function show(User $user)
+    public function show($id)
     {
         abort_if(Gate::denies('user_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
+        $user = User::find($id);
         $user->load('roles', 'userLessonQuestions', 'userLessonAnswers', 'userWishlists', 'userProgress', 'userCertificates', 'userUserAlerts');
 
         return view('frontend.users.show', compact('user'));

@@ -308,6 +308,7 @@ Route::group(['as' => 'frontend.', 'namespace' => 'Frontend', 'middleware' => ['
     Route::post('users/media', 'UsersController@storeMedia')->name('users.storeMedia');
     Route::post('users/ckmedia', 'UsersController@storeCKEditorImages')->name('users.storeCKEditorImages');
     Route::resource('users', 'UsersController');
+    Route::get('users/editar/{id}', 'UsersController@edit')->name('users.editar');
 
     // User Alerts
     Route::delete('user-alerts/destroy', 'UserAlertsController@massDestroy')->name('user-alerts.massDestroy');

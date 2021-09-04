@@ -23,11 +23,15 @@
                                 @auth
                                 <li><a href="#">{{Auth::user()->name}}</a>
                                     <ul class="sub-menu">
-                                        <li class="menu-item"><a href="{{route('blog')}}">Perfil</a></li>
-                                        <li class="menu-item"><a href="{{route('blog')}}">Aprendizaje</a></li>
+                                @if(Auth::user()->roles->first()->title == "Admin" || Auth::user()->roles->first()->title == "Teacher" )
+
+                                    <li class="menu-item"><a href="/admin" target="_blank">Admin Panel</a></li>
+                                    @endif
+                                        <li class="menu-item"><a href="{{route('frontend.users.editar', Auth::user()->id)}}">Perfil</a></li>
+                                        <li class="menu-item"><a href="{{route('frontend.courses.index')}}">Aprendizaje</a></li>
                                         <hr>
-                                        <li class="menu-item"><a href="{{route('blog')}}">Temas</a></li>
-                                        <li class="menu-item"><a href="{{route('blog')}}">Respuestas</a></li>
+                                        <li class="menu-item"><a href="{{route('frontend.forum-threads.index')}}">Temas</a></li>
+                                        <li class="menu-item"><a href="{{route('frontend.forum-comments.index')}}">Respuestas</a></li>
                                         <hr>
                                         <li class="menu-item"><a a href="javascript:void" onclick="$('#logout-form').submit();">Cerrar Sesión</a></li>
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -40,11 +44,6 @@
                                     @guest
                                     <a class="sing-in btn btn-success" href="{{ route('login') }}">Iniciar sesión</a>
                                     @endguest
-                                    @auth
-                                    @if(Auth::user()->roles->first()->title == "Admin" || Auth::user()->roles->first()->title == "Teacher" )
-
-                                    <a class=" btn btn-primary" href="/admin" target="_blank">Admin Panel</a>
-                                    @endif
-                                    @endauth
+                                
                                 </li>
                             </ul>
