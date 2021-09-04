@@ -116,7 +116,7 @@ style="background-image: url(/images/blog.png);"
 
                 <div class="card-body py-3">
                     <div class="row no-gutters align-items-center">
-                        <div class="col"><a href="javascript:void(0)" class="text-big font-weight-semibold" data-abc="true">{{$thread->title}}</a></div>
+                        <div class="col"><a href="{{route('foro.show', $thread->id)}}" class="text-big font-weight-semibold" data-abc="true">{{$thread->title}}</a></div>
                         <div class="d-none d-md-block col-6">
                             <div class="row no-gutters align-items-center">
                                 <div class="col-3">{{$thread->threadForumComments->count()}}</div>
@@ -125,7 +125,7 @@ style="background-image: url(/images/blog.png);"
                                     <div class="media-body flex-truncate ml-2"> <a href="javascript:void(0)" class="d-block text-truncate" data-abc="true">{{$thread->user->name}}</a> <small>
                                     
                                     </div>
-                                    <a href="{{route('foro.show', $thread->id)}}" class="btn btn-primary" style="margin-right: 20px;">Ver</a>
+                                   
                                 </div>
 
                             </div>
