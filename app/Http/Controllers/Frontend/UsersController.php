@@ -73,8 +73,10 @@ class UsersController extends Controller
 
     public function update(UpdateUserRequest $request, User $user)
     {
+
         $user->update($request->all());
-        $user->roles()->sync($request->input('roles', []));
+
+
         if ($request->input('avatar', false)) {
             if (!$user->avatar || $request->input('avatar') !== $user->avatar->file_name) {
                 if ($user->avatar) {
@@ -86,7 +88,7 @@ class UsersController extends Controller
             $user->avatar->delete();
         }
 
-        return redirect()->route('frontend.users.index');
+        return redirect()->back()->with('success', 'El usuario fue actualizado exitosamente');
     }
 
     public function show($id)
