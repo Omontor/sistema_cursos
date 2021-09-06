@@ -48,6 +48,7 @@ style="background-image: url(/images/instructor.png);"
                                             @php
                                             $totalreviews =0;
                                             @endphp 
+                                            @if($currentuser->courses)
                                             @forelse($currentuser->courses as $courses)
 
                                             @php
@@ -56,11 +57,15 @@ style="background-image: url(/images/instructor.png);"
                                             
                                             @empty
                                             @endforelse
+                                            @endif
+                                            
                                                 {{$totalreviews}}
                                             </span>
                                     </div>
                                     <div class="price">
+                                        @if($currentuser->courses)
                                        Cursos: {{$currentuser->courses->count()}}
+                                       @endif
                                     </div>
                                 </div>
                             </div>

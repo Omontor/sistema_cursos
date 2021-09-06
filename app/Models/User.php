@@ -114,6 +114,10 @@ class User extends Authenticatable implements HasMedia
     {
         return $this->hasMany(LessonQuestion::class, 'user_id', 'id');
     }
+    public function courses()
+    {
+        return $this->hasMany(Course::class, 'teacher_id', 'id');
+    }
 
     public function userLessonAnswers()
     {

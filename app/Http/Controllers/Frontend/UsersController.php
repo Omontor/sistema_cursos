@@ -59,7 +59,7 @@ class UsersController extends Controller
         abort_if(Gate::denies('user_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
         
         if (Auth::user()->id != $id) {
-           abort(403, 'No puedes accesar esta página');
+           abort(403, 'No puedes accesar esta página, tu actividad ha sido registrada por seguridad de la plataforma');
         }
 
         $user = User::find($id);

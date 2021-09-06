@@ -86,8 +86,11 @@ style="background-image: url(/images/blog.png);"
                                 <div class="content-blog-single-inner">
                                     <div class="content-blog-single-wrap">
                                         <h1 class="title pd-title-single">
-                                            <a href="#">{{$thread->title}}</a>  
+                                            <a href="#">{{$thread->title}}</a>   
+                                   
                                         </h1>
+                                        <h3> <a href="{{route('frontend.users.show', $thread->user->id)}}">{{$thread->user->name}}</a></h3>
+                                        <hr>
                              
                                       {!!$thread->content!!}
                                       <br>
@@ -107,8 +110,19 @@ style="background-image: url(/images/blog.png);"
         <div class="col-md-12">
             <div class="card mb-4">
                 <div class="card-header">
-                    <div class="media flex-wrap w-100 align-items-center"> <img src="https://i.imgur.com/iNmBizf.jpg" class="d-block ui-w-40 rounded-circle" alt="">
-                        <div class="media-body ml-3"> <a href="javascript:void(0)" data-abc="true">{{$comment->user->name}} </a>
+                    <div class="media flex-wrap w-100 align-items-center"> 
+
+                        
+
+                        @if($comment->user->avatar)
+                         <img src="{{$comment->user->avatar->getUrl()}}" class="d-block ui-w-40 rounded-circle" alt="" style="object-fit: scale-down; object-fit:cover; height: 35px;">
+                        @else
+                         <img src="/images/online.png" class="d-block ui-w-40 rounded-circle" alt="">
+                        @endif
+
+                        
+
+                        <div class="media-body ml-3"> <a href="{{route('frontend.users.show', $comment->user->id)}}" data-abc="true">{{$comment->user->name}} </a>
 
                             <div class="text-muted small" style="margin-bottom:10px; margin-top: -10px;">{{$comment->user->userForumComments->count()}} Respuestas  <small class="pull-right"> Este usuario ha creado {{$comment->user->userForumThreads->count()}} posts</small></div>
 

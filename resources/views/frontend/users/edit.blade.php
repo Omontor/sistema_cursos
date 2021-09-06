@@ -56,7 +56,7 @@ style="background-image: url(/images/blog.png);"
                         @method('PUT')
                         @csrf
                         <div class="row">
-                        <div class="col-4">
+                        <div class="col-xs-12 col-md-4">
                             <center>
 
                                 @if(!$user->avatar)
@@ -68,7 +68,7 @@ style="background-image: url(/images/blog.png);"
                       
                         </div>
 
-                        <div class="col-8">
+                        <div class="col-xs-12 col-md-8">
                         <div class="form-group">
                             <label class="required" for="name">{{ trans('cruds.user.fields.name') }}</label>
                             <input class="form-control" type="text" name="name" id="name" value="{{ old('name', $user->name) }}" required>
@@ -198,6 +198,8 @@ style="background-image: url(/images/blog.png);"
         </div>
     </div>
 </div>
+<br>
+<br>
 @endsection
 
 @section('scripts')
