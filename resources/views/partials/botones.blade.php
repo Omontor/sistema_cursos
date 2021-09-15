@@ -16,10 +16,15 @@
                                         <li class="menu-item"><a href="{{route('blog')}}">Blog</a></li>
                                         <li class="menu-item"><a href="{{route('foro')}}">Foro</a></li>
                                     </ul><!-- sub-menu -->
+                                </li>                   
+
+                                <li><a href="#">Contacto</a>
+                                    <ul class="sub-menu">
+                                        <li class="menu-item"><a href="{{route('contact')}}">Contáctanos</a></li>
+                                        <li class="menu-item"><a href="{{route('foro')}}">Registro Instructor</a></li>
+                                    </ul><!-- sub-menu -->
                                 </li>
-                                <li>
-                                    <a href="#">Contacto</a> 
-                                </li>
+          
                                 <li class="nav-sing">
                                     @guest
                                     <a class="sing-in btn btn-success" href="{{ route('login') }}">Iniciar sesión</a>

@@ -7,9 +7,11 @@ use App\Http\Requests\MassDestroyContactFormRequest;
 use App\Http\Requests\StoreContactFormRequest;
 use App\Http\Requests\UpdateContactFormRequest;
 use App\Models\ContactForm;
+use App\Models\Company;
 use Gate;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Illuminate\Support\Facades\Mail;
 
 class ContactFormController extends Controller
 {
@@ -31,9 +33,37 @@ class ContactFormController extends Controller
 
     public function store(StoreContactFormRequest $request)
     {
+        $company = Company::latest()->take(1)->first();
         $contactForm = ContactForm::create($request->all());
+        //email
 
-        return redirect()->route('frontend.contact-forms.index');
+         try {
+
+    // email data
+    $email_data = array(
+        'from' => $company->name,
+        'from_email' => $company->email,
+        'name' => $request->name,
+        'email' => $request->email,
+        'subject' => $request->subject,
+        'text' => $request->message,
+    );
+
+    // send email with the template
+    Mail::send('emails.contact', $email_data, function ($message) use ($email_data) {
+        $message->to($email_data['from_email'], $email_data['from'])
+            ->subject('Nuevo Formulario de Contacto desde '.env('APP_NAME'))
+            ->from($email_data['email'], $email_data['email']);
+    });
+
+           return redirect()->back()->with('success','Mensaje enviado exitosamente');
+
+        } catch (Exception $e) {
+            
+    return redirect()->back()->with('error','Error al enviar correo electrónico, intenta más tarde');
+        }
+
+        
     }
 
     public function edit(ContactForm $contactForm)

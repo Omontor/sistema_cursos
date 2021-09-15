@@ -540,3 +540,7 @@ Route::get ('/blog/filtrado/{title}', 'BlogController@filter')->name('blog.filte
 //Foro
 Route::get ('/foro', 'ForumController@index')->name('foro');
 Route::get ('/foro/{id}', 'ForumController@show')->name('foro.show');
+//Contacto
+Route::get ('/contacto', 'ContactController@index')->name('contact');
+
+

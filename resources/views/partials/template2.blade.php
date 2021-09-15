@@ -10,7 +10,11 @@
     <div class="wrap-header">
         @include('partials.header2')
     </div><!-- wrap-header -->  
+
     @yield('content')
+
+    
+    
     @include('partials.footer')
     @yield('scripts')
     @include('partials.scripts')
