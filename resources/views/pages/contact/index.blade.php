@@ -107,25 +107,16 @@ Utiliza el siguiente formulario para contactarnos, nos pondremos en contacto a l
 <div class="row">
 <div class="col-lg-8 col-md-7 col-sm-12 col-xs-12">
 <div class="cta-content">
-<div class="caption">How to start your teaching?</div>
+<div class="caption">¿Quieres vender tus cursos en {{env('APP_NAME')}}?</div>
 <h3>
-Starting your journey with us? Follow this guide still possible to become a teacher.
+Forma parte de nuestra oferta educativa hoy mismo, sólo tienes que llenar el formulario para iniciar tu trámite de inscripción
 </h3>
 <div class="btn-about-become">
-<a href="#">Become a Teacher</a>
+<a href="#">Registrarse</a>
 </div>
 </div>
 </div>
-<div class="col-lg-4 col-md-5 col-sm-12 col-xs-12">
-<div class="cta-information">
-<div class="phone">
-+91 254 785 587
-</div>
-<div class="email">
-edukin@info.com
-</div>
-</div>
-</div>
+
 </div>
 </div>
 </div>
