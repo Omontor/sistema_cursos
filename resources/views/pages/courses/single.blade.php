@@ -9,7 +9,6 @@ Curso
 @endsection
 @section('content')
 
-{{$elcurso}}
     <div class="courses-single-page">
         <div class="container">
             <div class="row">
@@ -34,7 +33,7 @@ Curso
                                 <div class="author-price">
                                     <div class="author">
                                         <div class="avatar">
-                                            <img src=" {{$elcurso->teacher->avatar->getUrl()}}" alt="images" style="width:50px;">
+                                        <img src=" {{$elcurso->teacher->avatar ? $elcurso->teacher->avatar->getUrl() : ""}}" alt="images" style="width:50px;">
                                         </div>
                                         <div class="info">
                                             <div class="name">
@@ -69,9 +68,14 @@ Curso
                                     </div>
                                     <div class="price-wrap price-course-single">
                                         <div class="price">
-                                            <span class="price-now">{{$elcurso->price}}</span>
-
+                                            @if($elcurso->discount)
+                                            <span class="price-now">${{$elcurso->discount}} MXN</span>
+                                            @else
+                                            <span class="price-now">${{$elcurso->price}} MXN</span>
+                                            @endif
                                         </div>
+                                        <br>
+                                        <br>
                                         <div class="btn-buynow">
                                             <a href="#">Comprar</a>
                                         </div>
@@ -95,84 +99,86 @@ Curso
                                 </li>
                             </ul>
                             <div class="tab-content-wrap">
+                                {{--Contenido El curso--}}
                                 <div class="tab-content">
                                     <div class="item-content">
                                         <div class="question-sg text clearfix">
                                             <div class="title">
                                                 <a>Descripción</a>
                                             </div>
-                                            <p>{{$elcurso->description}}</p>
-                                        </div>
-                                        <div class="access-sg text clearfix">
-                                            <div class="title">
-                                                <a href="#">Access on mobile and TV</a>
-                                            </div>
-                                            <p>
-                                                Access  mobile deep reinforcement learning algorithms and from Deep Networks to Deep Deterministic Policy Gradients. Apply these concepts to train agents to tv walk, drive, or perform other complex tasks.
-                                            </p>
-                                        </div>
-                                        <div class="certificate-sg text clearfix">
-                                            <div class="title">
-                                                <a href="#">Certificate of Completion</a>
-                                            </div>
-                                            <p>
-                                                Access  mobile deep reinforcement learning algorithms from Deep Q Networks to Deep Deterministic Policy Gradients. Apply these concepts to train agents to tv walk, drive, or perform other complex tasks.
-                                            </p>
-                                            <div class="certificate">
-                                                <div class="certificate-wrap">
-                                                    <p>
-                                                        An eduking is a blog created for educational purposes. Eduking blog archive and support student and teacher learning by facilitating reflection, questioning by self becoming a means for educators.
-                                                    </p>
-                                                    <ul class="list-certificate">
-                                                        <li>
-                                                            Graphic designers create visual concepts, 
-                                                        </li>
-                                                        <li>
-                                                            Remember skill can developed with practice.
-                                                        </li>
-                                                        <li>
-                                                            The field is considered a subset of visual communication design.
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                                <div class="images-certificate">
-                                                    <img src="images/course-single/3.jpg" alt="images">
-                                                </div>
-                                            </div>
+                                            <p>{!!$elcurso->description!!}</p>
                                         </div>
                                           
                                         <div class="requirements-sg text clearfix">
                                             <div class="title">
-                                                <a href="#">Requirements</a>
+                                                <a>Requerimientos</a>
                                             </div>
                                             <ul class="request">
+                                                @forelse($elcurso->requirements as $requirement)
                                                 <li>
-                                                   Understand what visual learning is for and how it is used
+                                                   {{$requirement->name}}
                                                 </li>
+                                                @empty
                                                 <li>
-                                                   Need knowledge of photoshop and basic knowledge of indesign.
+                                                   Ningún requerimiento ha sido especificado
                                                 </li>
-                                                <li>
-                                                   Preferable to have experience with PS, Sketch, Indesign and  Adobe XD.
-                                                </li>
-                                                <li>
-                                                   Preferable to understand word embeddings
-                                                </li>
+                                                @endforelse
                                             </ul>
                                         </div>
- 
-                                        <div class="description-single text clearfix">
+
+                                        <div class="access-sg text clearfix">
                                             <div class="title">
-                                                <a href="#">Description</a>
+                                                <a>Galería</a>
                                             </div>
-                                            <p>
-                                                Your ability to use types is one of the things that differentiates graphic design from others visual professions. A big parts of graphic design is understanding typography, developing your knowledge of typefaces, & how to apply them in your design. This will be a constant study throughout your career.
-                                            </p>
+                                            <!-- Add images to <div class="fotorama"></div> -->
+                                            <div class="fotorama">
+                                                @forelse($elcurso->thumbnail as $fotos)
+                                              <img src="{{$fotos->getUrl()}}">     
+                                                @empty
+                                                @endforelse
+                                            </div>
                                         </div>
 
                                         <div class="price-course-single">
+
                                             <div class="price">
-                                                <span class="price-now">${{$elcurso->price}} MXN</span>
+                                                @if($elcurso->discount)
+                                                <span class="price-previou">
+                                                    <del>${{$elcurso->price}} MXN</del>
+                                                    <span class="price-now">${{$elcurso->discount}} MXN</span>
+                                                </span>
+                                                @else
+                                                <span class="price-now">${{$elcurso->discount}} MXN</span>
+                                                @endif
+                                            </div>
+
+                                            <div class="btn-buynow">
+                                                <a href="#">Comprar</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {{--Contenido de contenido--}}
+                                <div class="tab-content">
+                                    <div class="item-content">
+                                        <div class="question-sg text clearfix">
+                                            <div class="title">
+                                                <a>¿Qué voy a aprender?</a>
+                                            </div>
+                                            @include('partials.accordion_lessons')
+                                        </div>
+                                        
+
+                                        <div class="price-course-single">
+                                            <div class="price">
+                                                @if($elcurso->discount)
+                                                <span class="price-previou">
+                                                    <del>${{$elcurso->price}} MXN</del>
+                                                    <span class="price-now">${{$elcurso->discount}} MXN</span>
+                                                </span>
+                                                @else
+                                                <span class="price-now">${{$elcurso->discount}} MXN</span>
+                                                @endif
                                             </div>
                                             <div class="btn-buynow">
                                                 <a href="#">Comprar</a>
@@ -180,140 +186,58 @@ Curso
                                         </div>
                                     </div>
                                 </div>
+                                {{--Contenido de instructor--}}
                                 <div class="tab-content">
                                     <div class="item-content">
                                         <div class="question-sg text clearfix">
                                             <div class="title">
-                                                <a href="#">What will i learn?</a>
+                                                  <a>{{$elcurso->teacher->name}}</a>
                                             </div>
-                                            <p>
-                                                Learn cutting edge deep reinforcement learning algorithms from Deep Q Networks (DQN) to Deep Deterministic Policy Gradients (DDPG). Apply these concepts to train agents to walk, drive, or perform other complex tasks.
-                                            </p>
-                                        </div>
-                                        <div class="access-sg text clearfix">
-                                            <div class="title">
-                                                <a href="#">Access on mobile and TV</a>
-                                            </div>
-                                            <p>
-                                                Access  mobile deep reinforcement learning algorithms and from Deep Networks to Deep Deterministic Policy Gradients. Apply these concepts to train agents to tv walk, drive, or perform other complex tasks.
-                                            </p>
+                                            <p>{!!$elcurso->teacher->bio!!}</p>
                                         </div>
                                         <div class="certificate-sg text clearfix">
                                             <div class="title">
-                                                <a href="#">Certificate of Completion</a>
+                                                <a>Redes sociales</a>
                                             </div>
-                                            <p>
-                                                Access  mobile deep reinforcement learning algorithms from Deep Q Networks to Deep Deterministic Policy Gradients. Apply these concepts to train agents to tv walk, drive, or perform other complex tasks.
-                                            </p>
                                             <div class="certificate">
                                                 <div class="certificate-wrap">
-                                                    <p>
-                                                        An eduking is a blog created for educational purposes. Eduking blog archive and support student and teacher learning by facilitating reflection, questioning by self becoming a means for educators.
-                                                    </p>
-                                                    <ul class="list-certificate">
+                                                    <ul class="list">
+                                                        @if($elcurso->teacher->facebook != null)
                                                         <li>
-                                                            Graphic designers create visual concepts, 
+                                                           <a href="{{$elcurso->teacher->facebook}}" target='_blank'><i class="fa fa-facebook" aria-hidden="true"></i>  Facebook</a>
                                                         </li>
-                                                        <li>
-                                                            Remember skill can developed with practice.
-                                                        </li>
-                                                        <li>
-                                                            The field is considered a subset of visual communication design.
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                                <div class="images-certificate">
-                                                    <img src="images/course-single/3.jpg" alt="images">
-                                                </div>
-                                            </div>
-                                        </div>
-                                          
-                                        <div class="requirements-sg text clearfix">
-                                            <div class="title">
-                                                <a href="#">Requirements</a>
-                                            </div>
-                                            <ul class="request">
-                                                <li>
-                                                   Understand what visual learning is for and how it is used
-                                                </li>
-                                                <li>
-                                                   Need knowledge of photoshop and basic knowledge of indesign.
-                                                </li>
-                                                <li>
-                                                   Preferable to have experience with PS, Sketch, Indesign and  Adobe XD.
-                                                </li>
-                                                <li>
-                                                   Preferable to understand word embeddings
-                                                </li>
-                                            </ul>
-                                        </div>
- 
-                                        <div class="description-single text clearfix">
-                                            <div class="title">
-                                                <a href="#">Description</a>
-                                            </div>
-                                            <p>
-                                                Your ability to use types is one of the things that differentiates graphic design from others visual professions. A big parts of graphic design is understanding typography, developing your knowledge of typefaces, & how to apply them in your design. This will be a constant study throughout your career.
-                                            </p>
-                                        </div>
+                                                        @else
+                                                        @endif
 
-                                        <div class="price-course-single">
-                                            <div class="price">
-                                                <span class="price-previou">
-                                                    <del>$169</del>
-                                                </span>
-                                                <span class="price-now">$169</span>
-                                            </div>
-                                            <div class="btn-buynow">
-                                                <a href="#">Buy Now</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="tab-content">
-                                    <div class="item-content">
-                                        <div class="question-sg text clearfix">
-                                            <div class="title">
-                                                <a href="#">What will i learn?</a>
-                                            </div>
-                                            <p>
-                                                Learn cutting edge deep reinforcement learning algorithms from Deep Q Networks (DQN) to Deep Deterministic Policy Gradients (DDPG). Apply these concepts to train agents to walk, drive, or perform other complex tasks.
-                                            </p>
-                                        </div>
-                                        <div class="access-sg text clearfix">
-                                            <div class="title">
-                                                <a href="#">Access on mobile and TV</a>
-                                            </div>
-                                            <p>
-                                                Access  mobile deep reinforcement learning algorithms and from Deep Networks to Deep Deterministic Policy Gradients. Apply these concepts to train agents to tv walk, drive, or perform other complex tasks.
-                                            </p>
-                                        </div>
-                                        <div class="certificate-sg text clearfix">
-                                            <div class="title">
-                                                <a href="#">Certificate of Completion</a>
-                                            </div>
-                                            <p>
-                                                Access  mobile deep reinforcement learning algorithms from Deep Q Networks to Deep Deterministic Policy Gradients. Apply these concepts to train agents to tv walk, drive, or perform other complex tasks.
-                                            </p>
-                                            <div class="certificate">
-                                                <div class="certificate-wrap">
-                                                    <p>
-                                                        An eduking is a blog created for educational purposes. Eduking blog archive and support student and teacher learning by facilitating reflection, questioning by self becoming a means for educators.
-                                                    </p>
-                                                    <ul class="list-certificate">
+                                                        @if($elcurso->teacher->twitter != null)
                                                         <li>
-                                                            Graphic designers create visual concepts, 
+                                                            <a href="{{$elcurso->teacher->twitter}}" target='_blank'><i class="fa fa-twitter" aria-hidden="true"></i>  Twitter</a>
                                                         </li>
+                                                        @else
+                                                        @endif
+                                                        
+                                                        @if($elcurso->teacher->instagram != null)
                                                         <li>
-                                                            Remember skill can developed with practice.
+                                                            <a href="{{$elcurso->teacher->instagram}}" target='_blank'><i class="fa fa-instagram" aria-hidden="true"></i>  Instagram</a>
                                                         </li>
+                                                        @else
+                                                        @endif
+
+                                                        @if($elcurso->teacher->linkedin != null)
                                                         <li>
-                                                            The field is considered a subset of visual communication design.
+                                                            <a href="{{$elcurso->teacher->linkedin}}" target='_blank'><i class="fa fa-linkedin" aria-hidden="true"></i>  Linkedin</a>
                                                         </li>
+                                                        @else
+                                                        @endif
+
+                                                        @if($elcurso->teacher->website != null)
+                                                        <li>
+                                                            <a href="{{$elcurso->teacher->website}}" target='_blank'><i class="fa fa-globe" aria-hidden="true"></i>  Sitio Web</a>
+                                                        </li>
+                                                        @else
+                                                        @endif
+
                                                     </ul>
-                                                </div>
-                                                <div class="images-certificate">
-                                                    <img src="images/course-single/3.jpg" alt="images">
                                                 </div>
                                             </div>
                                         </div>

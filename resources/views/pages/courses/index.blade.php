@@ -3,7 +3,6 @@
   <title>edukin</title>
 @endsection
 
-
     
 @section('name')
 Cursos

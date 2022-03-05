@@ -39,6 +39,7 @@ class Course extends Model implements HasMedia
         'title',
         'description',
         'price',
+        'discount',
         'is_published',
         'created_at',
         'video',
@@ -135,6 +136,12 @@ class Course extends Model implements HasMedia
         public function category()
     {
         return $this->belongsTo(CourseCategory::class, 'category_id');
+    }
+
+
+        public function lessons()
+    {
+        return $this->hasMany(Lesson::class, 'course_id', 'id');
     }
 
 }

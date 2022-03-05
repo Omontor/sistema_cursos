@@ -119,6 +119,8 @@ return [
             'description_helper'  => ' ',
             'price'               => 'Price',
             'price_helper'        => ' ',
+            'discount'            => 'Discount',
+            'discount_helper'     => ' ',
             'thumbnail'           => 'Thumbnail',
             'thumbnail_helper'    => ' ',
             'is_published'        => 'Is Published',
@@ -143,7 +145,7 @@ return [
     ],
     'lesson' => [
         'title'          => 'Lecciones',
-        'title_singular' => 'Leccione',
+        'title_singular' => 'Leccion',
         'fields'         => [
             'id'                  => 'ID',
             'id_helper'           => ' ',
@@ -152,7 +154,7 @@ return [
             'title'               => 'Title',
             'title_helper'        => ' ',
             'thumbnail'           => 'Thumbnail',
-            'thumbnail_helper'    => ' ',
+            'thumbnail_helper'    => 'Solo será tomada en cuenta la primera imagen',
             'short_text'          => 'Short Text',
             'short_text_helper'   => ' ',
             'long_text'           => 'Long Text',
@@ -173,6 +175,10 @@ return [
             'deleted_at_helper'   => ' ',
             'created_by'          => 'Created By',
             'created_by_helper'   => ' ',
+            'files'   => 'Images',
+            'files_helper'   => '',
+            'videoid'   => 'Video ID',
+            'videoid_helper'   => 'Video ID',
         ],
     ],
     'test' => [

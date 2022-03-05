@@ -72,6 +72,14 @@
                 <span class="help-block">{{ trans('cruds.course.fields.price_helper') }}</span>
             </div>
             <div class="form-group">
+                <label for="discount">{{ trans('cruds.course.fields.discount') }}</label>
+                <input class="form-control {{ $errors->has('discount') ? 'is-invalid' : '' }}" type="number" name="discount" id="discount" value="{{ old('discount', $course->discount) }}" step="0.01">
+                @if($errors->has('discount'))
+                    <span class="text-danger">{{ $errors->first('discount') }}</span>
+                @endif
+                <span class="help-block">{{ trans('cruds.course.fields.discount_helper') }}</span>
+            </div>
+            <div class="form-group">
                 <label for="thumbnail">Imágenes</label>
                 <div class="needsclick dropzone {{ $errors->has('thumbnail') ? 'is-invalid' : '' }}" id="thumbnail-dropzone">
                 </div>
