@@ -242,48 +242,10 @@ Curso
                                             </div>
                                         </div>
                                           
-                                        <div class="requirements-sg text clearfix">
-                                            <div class="title">
-                                                <a href="#">Requirements</a>
-                                            </div>
-                                            <ul class="request">
-                                                <li>
-                                                   Understand what visual learning is for and how it is used
-                                                </li>
-                                                <li>
-                                                   Need knowledge of photoshop and basic knowledge of indesign.
-                                                </li>
-                                                <li>
-                                                   Preferable to have experience with PS, Sketch, Indesign and  Adobe XD.
-                                                </li>
-                                                <li>
-                                                   Preferable to understand word embeddings
-                                                </li>
-                                            </ul>
-                                        </div>
- 
-                                        <div class="description-single text clearfix">
-                                            <div class="title">
-                                                <a href="#">Description</a>
-                                            </div>
-                                            <p>
-                                                Your ability to use types is one of the things that differentiates graphic design from others visual professions. A big parts of graphic design is understanding typography, developing your knowledge of typefaces, & how to apply them in your design. This will be a constant study throughout your career.
-                                            </p>
-                                        </div>
 
-                                        <div class="price-course-single">
-                                            <div class="price">
-                                                <span class="price-previou">
-                                                    <del>$169</del>
-                                                </span>
-                                                <span class="price-now">$169</span>
-                                            </div>
-                                            <div class="btn-buynow">
-                                                <a href="#">Buy Now</a>
-                                            </div>
-                                        </div>
                                     </div>
                                 </div>
+                                {{--Contenido de comentarios--}}
                                 <div class="tab-content">
                                     <div class="item-content">
                                         <div class="question-sg text clearfix">
@@ -382,57 +344,58 @@ Curso
                     <div class="sidebar-right">
 
     {{--APARECE SI TIENE LECCION EN VIVO--}}
-                        <div class="widget widget-class-start">
-                            <div class="widget-title">
-                                Lección en vivo
-                            </div>
-                            <div class="content">
-                                <div class="flat-counter count-time" data-day="00" data-month="00" data-year="2020" data-hour="00" data-minutes="00" data-second="00">
-                                    <div class="counter">
-                                        <ul>
-                                            <li class="content-counter">
-                                                <div class="wrap-bg">
-                                                    <div class="inner-bg days">
-                                                        <div class="numb-count numb cl-667eea">178</div>
-                                                        <div class="name-count">Día</div>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li class="content-counter">
-                                                <div class="wrap-bg">
-                                                    <div class="inner-bg hours">
-                                                        <div class="numb-count numb cl-f0c41b">12</div>
-                                                        <div class="name-count">Hora</div>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li class="content-counter">
-                                                <div class="wrap-bg">
-                                                    <div class="inner-bg minutes">
-                                                        <div class="numb-count numb cl-8b46f4">55</div>
-                                                        <div class="name-count">Minutos</div>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li class="content-counter">
-                                                <div class="wrap-bg">
-                                                    <div class="inner-bg seconds">
-                                                        <div class="numb-count numb cl-ff5f60">55</div>
-                                                        <div class="name-count">Segundos</div>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                        </ul>
+            <div class="widget widget-class-start">
+                <div class="widget-title">
+                    Lección en vivo
+                </div>
+                <div class="content">
+                    <div class="flat-counter count-time" data-day="00" data-month="00" data-year="2020" data-hour="00" data-minutes="00" data-second="00">
+                        <div class="counter">
+                            <ul>
+                                <li class="content-counter">
+                                    <div class="wrap-bg">
+                                        <div class="inner-bg days">
+                                            <div class="numb-count numb cl-667eea">178</div>
+                                            <div class="name-count">Día</div>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
+                                </li>
+                                <li class="content-counter">
+                                    <div class="wrap-bg">
+                                        <div class="inner-bg hours">
+                                            <div class="numb-count numb cl-f0c41b">12</div>
+                                            <div class="name-count">Hora</div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="content-counter">
+                                    <div class="wrap-bg">
+                                        <div class="inner-bg minutes">
+                                            <div class="numb-count numb cl-8b46f4">55</div>
+                                            <div class="name-count">Minutos</div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="content-counter">
+                                    <div class="wrap-bg">
+                                        <div class="inner-bg seconds">
+                                            <div class="numb-count numb cl-ff5f60">55</div>
+                                            <div class="name-count">Segundos</div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
                         </div>
+                    </div>
+                </div>
+            </div>
     {{--APARECE SI TIENE LECCION EN VIVO CIERRE--}}
                         <div class="widget widget-features">
                             <div class="widget-title">
                                 Características
                             </div>
                             <div class="content">
+                                
                                 <ul class="features">
                                     <li>
                                         <a href="#">Lecturas</a>
@@ -456,7 +419,7 @@ Curso
                                     </li>
                                     <li>
                                         <a href="#">Categoría</a>
-                                        <span>Design</span>
+                                        <span>{{$elcurso->category->title}}</span>
                                     </li>
                                 </ul>
                                 <div class="share-via">
